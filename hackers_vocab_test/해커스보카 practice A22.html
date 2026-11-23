@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>해커스 토익 기출 보카 Check-up Test | TYPE A - DAY 22</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --ink: #162032;
+      --muted: #5c6b82;
+      --line: #e2e8f0;
+      --navy: #13294b;
+      --navy-2: #1e40af;
+      --accent: #0284c7;
+      --ok-bg: #ecfdf5;
+      --ok-border: #10b981;
+      --ok-text: #065f46;
+      --err-bg: #fef2f2;
+      --err-border: #ef4444;
+      --err-text: #991b1b;
+      --hint-bg: #fffbeb;
+      --hint-border: #f59e0b;
+      --shadow: 0 10px 30px rgba(19, 41, 75, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: linear-gradient(180deg, #eef4fb 0%, var(--bg) 280px);
+      color: var(--ink);
+      line-height: 1.55;
+      padding: 20px 14px 64px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Header & Teacher Profile */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1d3b6b 65%, #0f4c81 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .hero-top {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .book-thumb {
+      width: 74px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px;
+    }
+
+    .hero-titles {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .pill.gold {
+      background: #fbbf24;
+      color: #1e293b;
+    }
+
+    .hero h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .teacher-bar {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .teacher-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .teacher-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid #fbbf24;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .teacher-name {
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .progress-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 10px 14px;
+      border-radius: 14px;
+      min-width: 210px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #34d399, #fbbf24);
+      transition: width 0.3s ease;
+    }
+
+    /* Rule Guide */
+    .guide-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .guide-card strong {
+      color: var(--ink);
+    }
+
+    /* Question Card */
+    .q-card {
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+      transition: border-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .q-card.solved {
+      border-color: var(--ok-border);
+      background: linear-gradient(180deg, #ffffff 0%, #f6fef9 100%);
+    }
+
+    .q-card.failed {
+      border-color: var(--err-border);
+      background: linear-gradient(180deg, #ffffff 0%, #fff8f8 100%);
+    }
+
+    .q-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-num-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .q-num {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .q-status-tag {
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--muted);
+    }
+
+    .q-status-tag.ok {
+      background: var(--ok-bg);
+      color: var(--ok-text);
+    }
+
+    .q-status-tag.err {
+      background: var(--err-bg);
+      color: var(--err-text);
+    }
+
+    /* Baseball Strike Lights */
+    .strike-board {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0f172a;
+      color: #fff;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .lights {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .light {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
+      transition: all 0.25s ease;
+    }
+
+    .light.strike {
+      background: #ef4444;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.95);
+      transform: scale(1.08);
+    }
+
+    .sentence-box {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .blank-inline {
+      display: inline-block;
+      min-width: 72px;
+      border-bottom: none;
+      text-decoration: none;
+      color: var(--accent);
+      text-align: center;
+      padding: 0 6px;
+      font-weight: 800;
+    }
+
+    .translation {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Letter Slots */
+    .slots-area {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .slots-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .slots-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .letter-slot {
+      width: 40px;
+      height: 46px;
+      border-radius: 10px;
+      border: 2px solid #cbd5e1;
+      background: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--ink);
+      outline: none;
+      transition: all 0.18s ease;
+      text-transform: none;
+    }
+
+    .letter-slot:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .letter-slot.matched {
+      border-color: var(--ok-border);
+      background: var(--ok-bg);
+      color: var(--ok-text);
+    }
+
+    .letter-slot.hinted {
+      border-color: var(--hint-border);
+      background: var(--hint-bg);
+      color: #92400e;
+    }
+
+    .letter-slot.wrong-flash {
+      border-color: var(--err-border);
+      background: var(--err-bg);
+      color: var(--err-text);
+    }
+
+    .letter-slot:disabled {
+      cursor: default;
+    }
+
+    /* Controls */
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 16px;
+      transition: all 0.18s ease;
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-hint {
+      background: var(--hint-bg);
+      color: #92400e;
+      border: 1.5px solid #fcd34d;
+    }
+
+    .btn-hint:hover:not(:disabled) {
+      background: #fef3c7;
+      transform: translateY(-1px);
+    }
+
+    .btn-check {
+      background: var(--navy-2);
+      color: #fff;
+    }
+
+    .btn-check:hover:not(:disabled) {
+      background: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .btn-clear {
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .btn-clear:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+
+    /* Feedback Box */
+    .feedback {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.ok {
+      background: var(--ok-bg);
+      border: 1px solid #6ee7b7;
+      color: var(--ok-text);
+    }
+
+    .feedback.err {
+      background: var(--err-bg);
+      border: 1px solid #fca5a5;
+      color: var(--err-text);
+    }
+
+    .feedback.partial {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      color: #1e3a8a;
+    }
+
+    .fb-title {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .attempt-badge {
+      font-size: 12px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid currentColor;
+    }
+
+    .fb-detail {
+      font-size: 13.5px;
+      margin-top: 4px;
+    }
+
+    /* Summary & Wrong Review Section */
+    .summary-card {
+      background: var(--card);
+      border: 2px solid var(--navy);
+      border-radius: 22px;
+      padding: 24px;
+      margin-top: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .score-big {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .score-sub {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .summary-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-review {
+      background: #0f766e;
+      color: #fff;
+    }
+
+    .btn-review:hover:not(:disabled) {
+      background: #115e59;
+    }
+
+    .btn-retry {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn-retry:hover:not(:disabled) {
+      background: #0b192f;
+    }
+
+    .review-panel {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: none;
+    }
+
+    .review-panel.show {
+      display: block;
+    }
+
+    .review-item {
+      background: #fff8f8;
+      border: 1px solid #fecaca;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .review-item-head {
+      font-weight: 800;
+      color: var(--err-text);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 560px) {
+      .letter-slot {
+        width: 34px;
+        height: 42px;
+        font-size: 18px;
+      }
+      .sentence-box {
+        font-size: 15.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="hero">
+      <div class="hero-top">
+        <img
+          src="해커스보카표지_2.png"
+          alt="해커스 토익 기출 보카 표지"
+          class="book-thumb"
+          onerror="this.style.display='none'; document.getElementById('bookFallback').style.display='flex';"
+        />
+        <div id="bookFallback" class="book-thumb" style="display:none;">
+          해커스 토익<br/>기출 보카
+        </div>
+
+        <div class="hero-titles">
+          <div class="badge-row">
+            <span class="pill gold">CHECK-UP TEST</span>
+            <span class="pill">TYPE A · DAY 22</span>
+            <span class="pill">총 16문항</span>
+          </div>
+          <h1>해커스 토익 기출 보카 주관식 테스트</h1>
+          <p>문맥과 해석을 보고 철자 수에 맞춰 빈칸 어휘를 완성해 보세요. (문제당 최대 3회 도전)</p>
+        </div>
+      </div>
+
+      <div class="teacher-bar">
+        <div class="teacher-info">
+          <img
+            src="remove_background_2.png"
+            alt="주대명 선생님"
+            class="teacher-avatar"
+            onerror="this.style.display='none'; document.getElementById('teacherFallback').style.display='flex';"
+          />
+          <div id="teacherFallback" class="teacher-avatar" style="display:none;">주대명</div>
+          <div>
+            <div class="teacher-name">토익의 끝! 주대명 선생님</div>
+          </div>
+        </div>
+
+        <div class="progress-box">
+          <div class="progress-label">
+            <span>진행 현황</span>
+            <span id="progressText">0 / 16 완료 (정답 0)</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Guide -->
+    <section class="guide-card">
+      <strong>응시 안내:</strong>
+      철자 칸 수만큼 빈칸이 제공됩니다. <strong>첫 글자 힌트</strong>를 누르면 첫 철자가 공개되며, 제출 시 <strong>맞은 위치의 철자만</strong> 남습니다.
+      오답일 때마다 전광판 불빛이 초록불 → 빨간불로 바뀌고, 3회 실패 시 정답과 해설이 공개됩니다.
+    </section>
+
+    <!-- Questions Container -->
+    <main id="questionsContainer"></main>
+
+    <!-- Final Summary & Wrong Review -->
+    <section class="summary-card" id="summaryCard">
+      <div class="summary-top">
+        <div>
+          <div class="score-big" id="finalScoreText">현재 정답: 0 / 16</div>
+          <div class="score-sub" id="finalSubText">모든 문항을 풀거나 오답 복습 버튼을 눌러 결과를 확인해 보세요.</div>
+        </div>
+        <div class="summary-actions">
+          <button type="button" class="btn-review" id="toggleReviewBtn">틀린 문제 해설 모아서 보기</button>
+          <button type="button" class="btn-retry" id="retryAllBtn">테스트 재응시</button>
+        </div>
+      </div>
+
+      <div class="review-panel" id="reviewPanel"></div>
+    </section>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        id: 1,
+        before: "The CEOs will",
+        after: "tomorrow to review joint investment initiatives.",
+        translation: "최고 경영자들은 공동 투자 계획을 재검토하기 위해 내일 모일 것이다.",
+        answer: "convene",
+        accepted: ["convene"],
+        explanation: "조동사 will 뒤 동사원형 자리로, 회의·모임 등을 위해 '(사람들이) 모이다·소집하다'라는 뜻의 convene이 알맞습니다[cite: 15]."
+      },
+      {
+        id: 2,
+        before: "The plans gained",
+        after: "support from board members.",
+        translation: "계획은 이사진으로부터 만장일치의 지지를 얻었다.",
+        answer: "unanimous",
+        accepted: ["unanimous"],
+        explanation: "명사 support를 수식하는 형용사 자리로, '만장일치의, 전원 일치의'라는 뜻의 unanimous가 적절합니다[cite: 15]."
+      },
+      {
+        id: 3,
+        before: "The general",
+        after: "seems to be that selling is the best option.",
+        translation: "매각이 최선의 선택이라는 것이 전반적인 여론인 듯하다.",
+        answer: "consensus",
+        accepted: ["consensus"],
+        explanation: "general consensus(전반적인 여론·합의) 연어 표현으로, 단수동사 seems에 호응하는 단수명사 consensus가 쓰입니다[cite: 15]."
+      },
+      {
+        id: 4,
+        before: "The team met to",
+        after: "the cause of the chemical leak.",
+        translation: "팀은 화학 물질 유출의 원인을 알아내기 위해 모였다.",
+        answer: "determine",
+        accepted: ["determine"],
+        explanation: "목적을 나타내는 to부정사 뒤 동사원형 자리로, 원인·사실·기준 등을 '알아내다·규명하다·결정하다'라는 뜻의 determine이 알맞습니다[cite: 15]."
+      },
+      {
+        id: 5,
+        before: "Mr. Baker made a detailed plan for the building project's third",
+        after: ".",
+        translation: "Mr. Baker는 건축 프로젝트의 세 번째 단계에 대한 상세한 계획을 세웠다.",
+        answer: "phase",
+        accepted: ["phase"],
+        explanation: "서수 third 뒤에서 사업·공사·계획 등의 '(진행) 단계, 시기'를 뜻하는 단수명사 phase가 적절합니다[cite: 15]."
+      },
+      {
+        id: 6,
+        before: "Mr. Kumar made a useful",
+        after: "to help improve profit margins.",
+        translation: "Mr. Kumar는 수익 개선에 도움이 되는 유용한 제안을 했다.",
+        answer: "suggestion",
+        accepted: ["suggestion"],
+        explanation: "make a suggestion(제안을 하다) 연어 표현으로, 부정관사 a와 형용사 useful 뒤 단수명사 suggestion이 맞습니다[cite: 15]."
+      },
+      {
+        id: 7,
+        before: "No one",
+        after: "to taking a short coffee break.",
+        translation: "아무도 짧은 휴식 시간을 갖는 것에 반대하지 않았다.",
+        answer: "objected",
+        accepted: ["objected"],
+        explanation: "object to -ing( ~하는 것에 반대하다) 구문으로, 과거 시제 동사 자리인 objected가 알맞습니다[cite: 15]."
+      },
+      {
+        id: 8,
+        before: "The meeting room is unavailable because it is",
+        after: "renovation.",
+        translation: "회의실은 보수 중이기 때문에 이용할 수 없다.",
+        answer: "undergoing",
+        accepted: ["undergoing"],
+        explanation: "undergo renovation(보수·개조를 겪다/진행 중이다) 표현으로, be동사 is 뒤 현재진행형(is undergoing)을 이루는 현재분사 undergoing이 적절합니다[cite: 15]."
+      },
+      {
+        id: 9,
+        before: "Executives",
+        after: "in their opinions on the issue of telecommuting.",
+        translation: "임원들은 재택근무에 대해 의견을 달리한다.",
+        answer: "differ",
+        accepted: ["differ"],
+        explanation: "복수 주어 Executives에 호응하는 현재시제 복수동사 자리로, '의견이 다르다·다르다'라는 뜻의 differ가 문맥에 맞습니다[cite: 15]."
+      },
+      {
+        id: 10,
+        before: "The meeting's participants were constantly",
+        after: "by noise.",
+        translation: "회의 참석자들은 소음 때문에 끊임없이 주의가 산만해졌다.",
+        answer: "distracted",
+        accepted: ["distracted"],
+        explanation: "전치사 by와 함께 쓰여 ' ~에 의해 주의가 산만해지다'라는 수동태(were distracted by)를 이루는 과거분사 distracted가 알맞습니다[cite: 15]."
+      },
+      {
+        id: 11,
+        before: "The",
+        after: "covered the merger talks closely.",
+        translation: "언론은 합병 회담을 심도 있게 다루었다.",
+        answer: "press",
+        accepted: ["press"],
+        explanation: "정관사 The 뒤에서 '언론, 보도진'을 뜻하는 집합명사/단수명사 press가 적절합니다[cite: 15]."
+      },
+      {
+        id: 12,
+        before: "Julia Accord's offer was refused despite her",
+        after: "arguments.",
+        translation: "Julia Accord의 제안은 그녀의 설득력 있는 주장에도 불구하고 거절되었다.",
+        answer: "persuasive",
+        accepted: ["persuasive"],
+        explanation: "소유격 her 뒤에서 명사 arguments를 수식하는 형용사 자리로, '설득력 있는'이라는 뜻의 persuasive가 맞습니다[cite: 15]."
+      },
+      {
+        id: 13,
+        before: "The meeting was",
+        after: "an hour after it began.",
+        translation: "회의는 시작된 지 한 시간 후에 휴회되었다.",
+        answer: "adjourned",
+        accepted: ["adjourned"],
+        explanation: "회의·재판·의회 등을 '휴회하다·연기하다'라는 뜻의 adjourn 과거분사 adjourned가 수동태(was adjourned)를 이룹니다[cite: 15]."
+      },
+      {
+        id: 14,
+        before: "The chief of human resources will",
+        after: "over the annual staff gathering.",
+        translation: "인사부장이 연례 직원 모임의 사회를 볼 것이다.",
+        answer: "preside",
+        accepted: ["preside"],
+        explanation: "preside over ~(회의·행사 등의 사회를 보다·주재하다) 숙어 표현으로, 조동사 will 뒤 동사원형 preside가 적절합니다[cite: 15]."
+      },
+      {
+        id: 15,
+        before: "Due to time",
+        after: ", the policy change was not discussed.",
+        translation: "시간제한으로 인해, 정책 변경은 논의되지 못했다.",
+        answer: "constraints",
+        accepted: ["constraints"],
+        explanation: "time constraints(시간제한, 시간적 제약) 복합명사 표현에 쓰이는 복수명사 constraints가 쓰입니다[cite: 15]."
+      },
+      {
+        id: 16,
+        before: "The businessman publicly",
+        after: "Ms. Kim for mayor.",
+        translation: "사업가는 공개적으로 Ms. Kim을 시장으로 지지했다.",
+        answer: "endorsed",
+        accepted: ["endorsed"],
+        explanation: "후보·정책·제품 등을 '공개적으로 지지하다·추천하다'라는 뜻의 endorse 과거형 endorsed가 알맞습니다[cite: 15]."
+      }
+    ];
+
+    const MAX_ATTEMPTS = 3;
+    const state = {};
+
+    function initState() {
+      QUESTIONS.forEach((q) => {
+        state[q.id] = {
+          attempts: 0,
+          status: "playing",
+          hintUsed: false,
+          matchedPositions: new Array(q.answer.length).fill(false),
+          hintedPositions: new Array(q.answer.length).fill(false),
+          lastSubmitted: ""
+        };
+      });
+    }
+
+    function normalizeChar(ch) {
+      return (ch || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function getInputValue(qId) {
+      const slots = document.querySelectorAll(`.letter-slot[data-qid="${qId}"]`);
+      return Array.from(slots).map((s) => s.value).join("");
+    }
+
+    function getSlotElement(qId, index) {
+      return document.querySelector(`.letter-slot[data-qid="${qId}"][data-idx="${index}"]`);
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("questionsContainer");
+      container.innerHTML = "";
+
+      QUESTIONS.forEach((q) => {
+        const st = state[q.id];
+        const card = document.createElement("article");
+        card.className = "q-card" + (st.status === "solved" ? " solved" : st.status === "failed" ? " failed" : "");
+        card.id = `q-card-${q.id}`;
+
+        const inlineBlank = `<span class="blank-inline" id="inline-blank-${q.id}">${"_ ".repeat(q.answer.length).trim()}</span>`;
+        const sentenceHtml = `${q.before ? q.before + " " : ""}${inlineBlank}${q.after ? " " + q.after : ""}`;
+
+        let slotsHtml = "";
+        for (let i = 0; i < q.answer.length; i++) {
+          slotsHtml += `
+            <input
+              type="text"
+              inputmode="text"
+              maxlength="1"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              class="letter-slot"
+              data-qid="${q.id}"
+              data-idx="${i}"
+              aria-label="${q.id}번 문제 ${i + 1}번째 철자"
+            />
+          `;
+        }
+
+        const strikeCount = Math.min(st.attempts, MAX_ATTEMPTS);
+
+        const statusBadgeText =
+          st.status === "solved" ? "정답 완료" : st.status === "failed" ? "도전 종료 (오답)" : "도전 중";
+        const statusBadgeClass =
+          st.status === "solved" ? "q-status-tag ok" : st.status === "failed" ? "q-status-tag err" : "q-status-tag";
+
+        card.innerHTML = `
+          <div class="q-header">
+            <div class="q-num-wrap">
+              <span class="q-num">${q.id}</span>
+              <span class="${statusBadgeClass}" id="status-tag-${q.id}">${statusBadgeText}</span>
+            </div>
+
+            <div class="strike-board" title="오답 시 초록불이 빨간불로 바뀝니다 (최대 3회)">
+              <span>도전</span>
+              <span class="lights" id="lights-${q.id}">
+                <span class="light ${strikeCount >= 1 ? "strike" : ""}"></span>
+                <span class="light ${strikeCount >= 2 ? "strike" : ""}"></span>
+                <span class="light ${strikeCount >= 3 ? "strike" : ""}"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="sentence-box">${sentenceHtml}</div>
+          <div class="translation">${q.translation}</div>
+
+          <div class="slots-area">
+            <div class="slots-label">
+              <span>철자 수: <strong>${q.answer.length}칸</strong></span>
+              <span id="pattern-hint-${q.id}"></span>
+            </div>
+            <div class="slots-row" id="slots-row-${q.id}">
+              ${slotsHtml}
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn-hint" id="hint-btn-${q.id}" onclick="useFirstHint(${q.id})">
+              첫 글자 힌트
+            </button>
+            <button type="button" class="btn-check" id="check-btn-${q.id}" onclick="checkAnswer(${q.id})">
+              정답 확인
+            </button>
+            <button type="button" class="btn-clear" id="clear-btn-${q.id}" onclick="clearSlots(${q.id})">
+              칸 지우기
+            </button>
+          </div>
+
+          <div class="feedback" id="feedback-${q.id}"></div>
+        `;
+
+        container.appendChild(card);
+        bindSlotEvents(q.id);
+      });
+    }
+
+    function bindSlotEvents(qId) {
+      const q = QUESTIONS.find((item) => item.id === qId);
+      const slots = Array.from(document.querySelectorAll(`.letter-slot[data-qid="${qId}"]`));
+
+      slots.forEach((slot, idx) => {
+        slot.addEventListener("input", (e) => {
+          const val = e.target.value;
+          if (!val) return;
+          const ch = val.slice(-1);
+          e.target.value = ch;
+          e.target.classList.remove("wrong-flash");
+
+          if (idx < slots.length - 1) {
+            slots[idx + 1].focus();
+            slots[idx + 1].select();
+          }
+        });
+
+        slot.addEventListener("keydown", (e) => {
+          if (e.key === "Backspace") {
+            if (!slot.value && idx > 0) {
+              slots[idx - 1].focus();
+              slots[idx - 1].value = "";
+              e.preventDefault();
+            } else {
+              slot.value = "";
+            }
+          } else if (e.key === "ArrowLeft" && idx > 0) {
+            slots[idx - 1].focus();
+          } else if (e.key === "ArrowRight" && idx < slots.length - 1) {
+            slots[idx + 1].focus();
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            checkAnswer(qId);
+          }
+        });
+
+        slot.addEventListener("paste", (e) => {
+          e.preventDefault();
+          const pasted = (e.clipboardData || window.clipboardData).getData("text").trim();
+          if (!pasted) return;
+          for (let i = 0; i < q.answer.length; i++) {
+            const targetSlot = slots[i];
+            if (targetSlot && !targetSlot.disabled) {
+              targetSlot.value = pasted[i] || "";
+            }
+          }
+          const nextEmpty = slots.find((s) => !s.value && !s.disabled);
+          if (nextEmpty) nextEmpty.focus();
+          else slots[slots.length - 1].focus();
+        });
+      });
+    }
+
+    function useFirstHint(qId) {
+      const q = QUESTIONS.find((item) => item.id === qId);
+      const st = state[qId];
+      if (st.status !== "playing") return;
+
+      const firstChar = q.answer[0];
+      const slot0 = getSlotElement(qId, 0);
+      if (slot0) {
+        slot0.value = firstChar;
+        slot0.classList.add("hinted");
+        slot0.classList.remove("wrong-flash");
+      }
+      st.hintUsed = true;
+      st.hintedPositions[0] = true;
+
+      const preview = q.answer
+        .split("")
+        .map((ch, idx) => (idx === 0 ? ch : "_"))
+        .join(" ");
+      document.getElementById(`inline-blank-${qId}`).textContent = preview;
+      document.getElementById(`pattern-hint-${qId}`).textContent = preview;
+
+      const nextSlot = getSlotElement(qId, 1);
+      if (nextSlot && !nextSlot.disabled) {
+        nextSlot.focus();
+      }
+    }
+
+    function clearSlots(qId) {
+      const st = state[qId];
+      if (st.status !== "playing") return;
+      const slots = document.querySelectorAll(`.letter-slot[data-qid="${qId}"]`);
+      slots.forEach((slot, idx) => {
+        if (st.hintedPositions[idx]) {
+          slot.value = QUESTIONS.find((item) => item.id === qId).answer[0];
+          slot.classList.add("hinted");
+          slot.classList.remove("matched", "wrong-flash");
+        } else {
+          slot.value = "";
+          slot.classList.remove("matched", "hinted", "wrong-flash");
+        }
+      });
+      const firstEditable = Array.from(slots).find((s) => !s.value);
+      if (firstEditable) firstEditable.focus();
+    }
+
+    function checkAnswer(qId) {
+      const q = QUESTIONS.find((item) => item.id === qId);
+      const st = state[qId];
+      if (st.status !== "playing") return;
+
+      const rawInput = getInputValue(qId).trim();
+      if (rawInput.length < q.answer.length) {
+        const fb = document.getElementById(`feedback-${qId}`);
+        fb.className = "feedback show partial";
+        fb.innerHTML = `
+          <div class="fb-title">철자를 ${q.answer.length}칸 모두 채워 주세요!</div>
+          <div class="fb-detail">현재 ${rawInput.length} / ${q.answer.length}칸 입력됨</div>
+        `;
+        return;
+      }
+
+      st.attempts += 1;
+      st.lastSubmitted = rawInput;
+
+      const normalizedInput = normalizeChar(rawInput);
+      const isCorrect = q.accepted.some((acc) => normalizeChar(acc) === normalizedInput);
+
+      const slots = document.querySelectorAll(`.letter-slot[data-qid="${qId}"]`);
+      const fb = document.getElementById(`feedback-${qId}`);
+      const card = document.getElementById(`q-card-${qId}`);
+      const statusTag = document.getElementById(`status-tag-${qId}`);
+
+      if (isCorrect) {
+        st.status = "solved";
+        slots.forEach((slot, idx) => {
+          slot.value = q.answer[idx];
+          slot.classList.remove("hinted", "wrong-flash");
+          slot.classList.add("matched");
+          slot.disabled = true;
+        });
+
+        document.getElementById(`inline-blank-${qId}`).textContent = q.answer;
+        document.getElementById(`pattern-hint-${qId}`).textContent = q.answer;
+        document.getElementById(`hint-btn-${qId}`).disabled = true;
+        document.getElementById(`check-btn-${qId}`).disabled = true;
+        document.getElementById(`clear-btn-${qId}`).disabled = true;
+
+        card.classList.remove("failed");
+        card.classList.add("solved");
+        statusTag.className = "q-status-tag ok";
+        statusTag.textContent = `정답 (${st.attempts}회 시도)`;
+
+        updateStrikeBoard(qId);
+
+        fb.className = "feedback show ok";
+        fb.innerHTML = `
+          <div class="fb-title">
+            <span>정답입니다~짝짝짝!</span>
+            <span class="attempt-badge">도전 ${st.attempts}회 만에 성공 · 정답: ${q.answer}</span>
+          </div>
+          <div class="fb-detail">${q.explanation}</div>
+        `;
+      } else {
+        const revealedChars = [];
+        slots.forEach((slot, idx) => {
+          const userCh = normalizeChar(slot.value);
+          const ansCh = normalizeChar(q.answer[idx]);
+          slot.classList.remove("matched", "hinted");
+          if (userCh && userCh === ansCh) {
+            slot.value = q.answer[idx];
+            slot.classList.add("matched");
+            revealedChars.push(q.answer[idx]);
+          } else {
+            slot.value = "";
+            slot.classList.add("wrong-flash");
+            revealedChars.push("_");
+          }
+        });
+
+        const partialPattern = revealedChars.join(" ");
+        document.getElementById(`inline-blank-${qId}`).textContent = partialPattern;
+        document.getElementById(`pattern-hint-${qId}`).textContent = partialPattern;
+
+        if (st.attempts >= MAX_ATTEMPTS) {
+          st.status = "failed";
+          slots.forEach((slot, idx) => {
+            slot.value = q.answer[idx];
+            slot.classList.remove("wrong-flash");
+            slot.classList.add("matched");
+            slot.disabled = true;
+          });
+          document.getElementById(`inline-blank-${qId}`).textContent = q.answer;
+          document.getElementById(`pattern-hint-${qId}`).textContent = q.answer;
+          document.getElementById(`hint-btn-${qId}`).disabled = true;
+          document.getElementById(`check-btn-${qId}`).disabled = true;
+          document.getElementById(`clear-btn-${qId}`).disabled = true;
+
+          card.classList.remove("solved");
+          card.classList.add("failed");
+          statusTag.className = "q-status-tag err";
+          statusTag.textContent = "3회 오답 · 정답 공개";
+
+          updateStrikeBoard(qId);
+
+          fb.className = "feedback show err";
+          fb.innerHTML = `
+            <div class="fb-title">
+              <span>3회 도전을 모두 사용했습니다 (오답 처리)</span>
+              <span class="attempt-badge">정답: ${q.answer}</span>
+            </div>
+            <div class="fb-detail">${q.explanation}</div>
+          `;
+        } else {
+          updateStrikeBoard(qId);
+          const left = MAX_ATTEMPTS - st.attempts;
+          fb.className = "feedback show partial";
+          fb.innerHTML = `
+            <div class="fb-title">
+              <span>아쉽네요! <strong>${partialPattern}</strong></span>
+              <span class="attempt-badge">${st.attempts}회 오답 · ${left}회 남음</span>
+            </div>
+            <div class="fb-detail">초록색 칸은 위치가 맞은 철자입니다. 빈칸을 채워 다시 도전해 보세요!</div>
+          `;
+          const firstEmpty = Array.from(slots).find((s) => !s.value);
+          if (firstEmpty) firstEmpty.focus();
+        }
+      }
+
+      updateProgressAndSummary();
+    }
+
+    function updateStrikeBoard(qId) {
+      const st = state[qId];
+      const lights = document.querySelectorAll(`#lights-${qId} .light`);
+      const count = Math.min(st.attempts, MAX_ATTEMPTS);
+
+      lights.forEach((light, idx) => {
+        if (idx < count) {
+          light.classList.add("strike");
+        } else {
+          light.classList.remove("strike");
+        }
+      });
+    }
+
+    function updateProgressAndSummary() {
+      const total = QUESTIONS.length;
+      const solvedCount = QUESTIONS.filter((q) => state[q.id].status === "solved").length;
+      const failedCount = QUESTIONS.filter((q) => state[q.id].status === "failed").length;
+      const completedCount = solvedCount + failedCount;
+
+      const pct = Math.round((completedCount / total) * 100);
+      document.getElementById("progressFill").style.width = `${pct}%`;
+      document.getElementById("progressText").textContent = `${completedCount} / ${total} 완료 (정답 ${solvedCount})`;
+
+      document.getElementById("finalScoreText").textContent = `정답 ${solvedCount} / ${total} 문항`;
+      if (completedCount === total) {
+        const rate = Math.round((solvedCount / total) * 100);
+        document.getElementById("finalSubText").textContent =
+          `DAY 22 테스트 완료! 정답률 ${rate}% (정답 ${solvedCount}개, 오답 ${failedCount}개)`;
+      } else {
+        document.getElementById("finalSubText").textContent =
+          `진행 중: ${completedCount}문항 완료 · 남은 문항 ${total - completedCount}문항`;
+      }
+
+      if (document.getElementById("reviewPanel").classList.contains("show")) {
+        renderWrongReview();
+      }
+    }
+
+    function renderWrongReview() {
+      const panel = document.getElementById("reviewPanel");
+      const wrongQuestions = QUESTIONS.filter((q) => state[q.id].status === "failed");
+
+      if (wrongQuestions.length === 0) {
+        panel.innerHTML = `
+          <div style="padding:14px; border-radius:12px; background:#ecfdf5; color:#065f46; font-weight:700;">
+            현재 3회 오답 처리된 문제가 없습니다! 훌륭해요!
+          </div>
+        `;
+        return;
+      }
+
+      panel.innerHTML =
+        `<h3 style="margin:0 0 12px; font-size:16px; color:#991b1b;">오답 노트 모음 (${wrongQuestions.length}문항)</h3>` +
+        wrongQuestions
+          .map(
+            (q) => `
+          <div class="review-item">
+            <div class="review-item-head">${q.id}번 · 정답: ${q.answer}</div>
+            <div style="font-size:14px; margin-bottom:4px;">
+              ${q.before ? q.before + " " : ""}<strong>[${q.answer}]</strong>${q.after ? " " + q.after : ""}
+            </div>
+            <div style="font-size:13px; color:#475569; margin-bottom:6px;">${q.translation}</div>
+            <div style="font-size:13.5px; color:#1e293b;">${q.explanation}</div>
+          </div>
+        `
+          )
+          .join("");
+    }
+
+    document.getElementById("toggleReviewBtn").addEventListener("click", () => {
+      const panel = document.getElementById("reviewPanel");
+      panel.classList.toggle("show");
+      if (panel.classList.contains("show")) {
+        renderWrongReview();
+      }
+    });
+
+    document.getElementById("retryAllBtn").addEventListener("click", () => {
+      initState();
+      renderQuestions();
+      updateProgressAndSummary();
+      const panel = document.getElementById("reviewPanel");
+      panel.classList.remove("show");
+      panel.innerHTML = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    initState();
+    renderQuestions();
+    updateProgressAndSummary();
+  </script>
+</body>
+</html>
