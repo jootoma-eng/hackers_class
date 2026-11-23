@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Essential Sentences | TOEIC Easy~</title>
+
+  <!-- 모던하고 부드러운 폰트 (Pretendard & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    :root {
+      --bg-page: #f5f5f7;
+      --surface: #ffffff;
+      --surface-subtle: #fbfbfd;
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-soft: rgba(0, 113, 227, 0.08);
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.07);
+      --radius-card: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header.top-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 245, 247, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-bar {
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .home-btn:hover,
+    .home-btn:focus-visible {
+      background: var(--accent-soft);
+      border-color: rgba(0, 113, 227, 0.25);
+    }
+
+    .header-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    main {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-title {
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .guide-box {
+      margin-top: 18px;
+      max-width: 520px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .guide-main {
+      font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.015em;
+    }
+
+    .guide-sub {
+      margin-top: 4px;
+      font-size: clamp(0.98rem, 2.2vw, 1.12rem);
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .course-grid {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      text-align: center;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  border-color 0.2s ease,
+                  background-color 0.2s ease;
+    }
+
+    .course-card:hover,
+    .course-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-float);
+      border-color: rgba(0, 113, 227, 0.35);
+      background: var(--surface-subtle);
+    }
+
+    .course-card:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+
+    .course-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 980px;
+      letter-spacing: 0.03em;
+    }
+
+    .course-title {
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 28px 16px 52px;
+      }
+
+      .course-grid {
+        max-width: 100%;
+        gap: 12px;
+      }
+
+      .course-card {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-bar">
+      <!-- index.html이 상위 폴더에 있다면 ../index.html 로 변경하세요 -->
+      <a class="home-btn" href="index.html">← 메인으로</a>
+      <span class="header-tag">TOEIC Easy~</span>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Daily Essential Sentences</h1>
+      <div class="guide-box">
+        <p class="guide-main">하루 10문장만!</p>
+        <p class="guide-sub">핵심 문장을 외우세요!</p>
+      </div>
+    </header>
+
+    <section class="course-grid" aria-label="코스 선택">
+      <!-- Course A: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="course-card" href="essential_sentences/course-a.html">
+        <span class="course-label">STEP 01</span>
+        <span class="course-title">Course A</span>
+      </a>
+
+      <!-- Course B: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="course-card" href="essential_sentences/course-b.html">
+        <span class="course-label">STEP 02</span>
+        <span class="course-title">Course B</span>
+      </a>
+
+      <!-- Course C: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="course-card" href="essential_sentences/course-c.html">
+        <span class="course-label">STEP 03</span>
+        <span class="course-title">Course C</span>
+      </a>
+
+      <!-- Course D: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="course-card" href="essential_sentences/course-d.html">
+        <span class="course-label">STEP 04</span>
+        <span class="course-title">Course D</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackers 토익 기출 보카 Test | TOEIC Easy~</title>
+
+  <!-- 모던하고 부드러운 폰트 (Pretendard & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    :root {
+      --bg-page: #f5f5f7;
+      --surface: #ffffff;
+      --surface-subtle: #fbfbfd;
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --accent-soft: rgba(0, 113, 227, 0.08);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.14);
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.07);
+      --radius-card: 24px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* 애플 스타일 반투명 상단 바 */
+    header.top-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 245, 247, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-bar {
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .home-btn:hover,
+    .home-btn:focus-visible {
+      background: var(--accent-soft);
+      border-color: rgba(0, 113, 227, 0.25);
+    }
+
+    .header-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+    }
+
+    /* 메인 콘텐츠 */
+    main {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-title {
+      font-size: clamp(1.75rem, 4.2vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    /* 책 표지 이미지 영역 (기존 240px -> 1/2인 120px) */
+    .cover-box {
+      margin: 22px 0 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: var(--shadow-soft);
+      max-width: 120px;
+      width: 100%;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cover-box:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+    }
+
+    .cover-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    /* 학습 안내 문구 박스 */
+    .guide-box {
+      max-width: 560px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .guide-no {
+      font-size: clamp(1.02rem, 2.4vw, 1.18rem);
+      font-weight: 600;
+      color: #bf4800;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+
+    .guide-good {
+      font-size: clamp(0.98rem, 2.2vw, 1.12rem);
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .guide-good .accent-word {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* 정사각형 4등분 그리드 */
+    .type-grid {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .type-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      text-align: center;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  border-color 0.2s ease,
+                  background-color 0.2s ease;
+    }
+
+    .type-card:hover,
+    .type-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-float);
+      border-color: rgba(0, 113, 227, 0.35);
+      background: var(--surface-subtle);
+    }
+
+    .type-card:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+
+    .type-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 980px;
+      letter-spacing: 0.03em;
+    }
+
+    .type-title {
+      font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 28px 16px 52px;
+      }
+
+      .guide-box {
+        padding: 20px 18px;
+        border-radius: 20px;
+      }
+
+      .cover-box {
+        max-width: 100px;
+      }
+
+      .type-grid {
+        max-width: 100%;
+        gap: 12px;
+      }
+
+      .type-card {
+        border-radius: 20px;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-bar">
+      <!-- index.html이 상위 폴더에 있다면 ../index.html 로 변경하세요 -->
+      <a class="home-btn" href="index.html">← 메인으로</a>
+      <span class="header-tag">TOEIC Easy~</span>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <h1 class="page-title">Hackers 토익 기출 보카 Test</h1>
+
+      <div class="cover-box">
+        <img src="해커스보카표지.png" alt="해커스 토익 기출 보카 표지" />
+      </div>
+
+      <div class="guide-box">
+        <p class="guide-no">'단어 - 뜻'만 외우는 건, NO!</p>
+        <p class="guide-good">
+          문장 속에서<br />
+          그 어휘의 쓰임과 구조,<br />
+          뉘앙스도 같이 챙겨야 <span class="accent-word">Good~!</span>
+        </p>
+      </div>
+    </header>
+
+    <!-- 정사각형 4등분 Test Type 영역 -->
+    <section class="type-grid" aria-label="테스트 유형 선택">
+      <!-- Test Type A: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="type-card" href="hackers_vocab_test/vocab_test_type-a.html">
+        <span class="type-label">TYPE 01</span>
+        <span class="type-title">Test Type A</span>
+      </a>
+
+      <!-- Test Type B: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="type-card" href="hackers_vocab_test/vocab_test_type-b.html">
+        <span class="type-label">TYPE 02</span>
+        <span class="type-title">Test Type B</span>
+      </a>
+
+      <!-- Test Type C: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="type-card" href="hackers_vocab_test/vocab_test_type-c.html">
+        <span class="type-label">TYPE 03</span>
+        <span class="type-title">Test Type C</span>
+      </a>
+
+      <!-- Test Type D: 추후 연결할 파일명 또는 주소 입력 -->
+      <a class="type-card" href="hackers_vocab_test/vocab_test_type-d.html">
+        <span class="type-label">TYPE 04</span>
+        <span class="type-title">Test Type D</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

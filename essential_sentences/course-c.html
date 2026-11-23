@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course C | Daily Essential Sentences</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    :root {
+      --bg-page: #f5f5f7;
+      --surface: #ffffff;
+      --surface-subtle: #fbfbfd;
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #0071e3;
+      --accent-soft: rgba(0, 113, 227, 0.08);
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.07);
+      --radius-card: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header.top-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 245, 247, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-bar {
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .nav-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-pill:hover, .nav-pill:focus-visible {
+      background: var(--accent-soft);
+      border-color: rgba(0, 113, 227, 0.25);
+    }
+
+    .header-tag { font-size: 0.78rem; font-weight: 500; color: var(--text-secondary); }
+
+    main {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-header { text-align: center; margin-bottom: 28px; }
+
+    .course-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 980px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .page-title {
+      font-size: clamp(1.8rem, 4.4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+    }
+
+    .day-grid {
+      width: 100%;
+      max-width: 620px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .day-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+      text-decoration: none;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-align: center;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  border-color 0.2s ease,
+                  background-color 0.2s ease;
+    }
+
+    .day-box:hover, .day-box:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+      border-color: rgba(0, 113, 227, 0.35);
+      background: var(--surface-subtle);
+    }
+
+    .day-number { font-size: clamp(1.15rem, 2.6vw, 1.38rem); font-weight: 600; color: var(--accent); }
+    .day-file { font-size: 0.8rem; font-weight: 400; color: var(--text-secondary); word-break: break-all; }
+
+    @media (max-width: 480px) {
+      .day-grid { grid-template-columns: 1fr; gap: 10px; }
+      .day-box { padding: 16px; border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-bar">
+      <div class="nav-group">
+        <a class="nav-pill" href="../essential_sentences_main.html">← 코스 선택</a>
+        <!-- index.html이 상위 폴더에 있다면 ../index.html 로 변경하세요 -->
+        <a class="nav-pill" href="../index.html">메인으로</a>
+      </div>
+      <span class="header-tag">TOEIC Easy~</span>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <span class="course-badge">Daily Essential Sentences</span>
+      <h1 class="page-title">Course C</h1>
+    </header>
+
+    <section class="day-grid" aria-label="Course C Day 1부터 10까지">
+      <a class="day-box" href="daily essential practice C1.html"><span class="day-number">Day 1</span><span class="day-file">daily essential practice C1.html</span></a>
+      <a class="day-box" href="daily essential practice C2.html"><span class="day-number">Day 2</span><span class="day-file">daily essential practice C2.html</span></a>
+      <a class="day-box" href="daily essential practice C3.html"><span class="day-number">Day 3</span><span class="day-file">daily essential practice C3.html</span></a>
+      <a class="day-box" href="daily essential practice C4.html"><span class="day-number">Day 4</span><span class="day-file">daily essential practice C4.html</span></a>
+      <a class="day-box" href="daily essential practice C5.html"><span class="day-number">Day 5</span><span class="day-file">daily essential practice C5.html</span></a>
+      <a class="day-box" href="daily essential practice C6.html"><span class="day-number">Day 6</span><span class="day-file">daily essential practice C6.html</span></a>
+      <a class="day-box" href="daily essential practice C7.html"><span class="day-number">Day 7</span><span class="day-file">daily essential practice C7.html</span></a>
+      <a class="day-box" href="daily essential practice C8.html"><span class="day-number">Day 8</span><span class="day-file">daily essential practice C8.html</span></a>
+      <a class="day-box" href="daily essential practice C9.html"><span class="day-number">Day 9</span><span class="day-file">daily essential practice C9.html</span></a>
+      <a class="day-box" href="daily essential practice C10.html"><span class="day-number">Day 10</span><span class="day-file">daily essential practice C10.html</span></a>
+    </section>
+  </main>
+</body>
+</html>
