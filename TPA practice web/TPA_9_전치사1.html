@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 9 전치사 기본·고난도 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 섹션 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .section-switch {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .section-btn {
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .section-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .next-challenge-box {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .next-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .next-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .choice-next-btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .choice-next-btn:hover {
+      background-color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 9 · 전치사 기본 (총 41문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 섹션 선택 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="section-switch">
+        <button type="button" id="btnPrepBasic" class="section-btn active" onclick="switchSection('basic')">기본</button>
+        <button type="button" id="btnPrepHard" class="section-btn" onclick="switchSection('hard')">고난도</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 41</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 다음 파트로 이동 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/41)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/41)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div class="next-challenge-box">
+        <p class="next-question">다음으로 어떤 문제를 푸시겠습니까?</p>
+        <div id="nextChoiceBtns" class="next-btns"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const sectionMeta = {
+      basic: {
+        label: "기본",
+        tag: "TPA 9 · 전치사 기본 (총 41문항)",
+        btnId: "btnPrepBasic"
+      },
+      hard: {
+        label: "고난도",
+        tag: "TPA 9 · 전치사 고난도 (총 40문항)",
+        btnId: "btnPrepHard"
+      }
+    };
+
+    const questionSets = {
+      basic: [
+        {
+          id: 101,
+          question: "The annual city festival will be held ------- April 31.",
+          options: ["for", "over", "in", "on"],
+          answerIndex: 3,
+          translation: "시의 연례 축제가 4월 31일에 열릴 것이다.",
+          explanation: "구체적인 날짜(day/date) 앞에는 전치사 on을 사용합니다[cite: 401, 405]."
+        },
+        {
+          id: 102,
+          question: "The meeting will start ------- 3 p.m., so please arrive a little earlier.",
+          options: ["in", "on", "within", "at"],
+          answerIndex: 3,
+          translation: "회의는 오후 3시에 시작하니 조금 일찍 도착해 주세요.",
+          explanation: "정확한 시각(3 p.m.) 앞에는 전치사 at을 사용합니다[cite: 401, 405]."
+        },
+        {
+          id: 103,
+          question: "I have no classes ------- Fridays, so I'm planning to meet my friends.",
+          options: ["in", "from", "on", "at"],
+          answerIndex: 2,
+          translation: "매주 금요일에는 수업이 없어서 친구들을 만날 계획이다.",
+          explanation: "요일(Fridays) 앞에는 전치사 on을 사용합니다[cite: 401, 405]."
+        },
+        {
+          id: 104,
+          question: "He usually studies ------- the morning before going to school.",
+          options: ["in", "on", "at", "over"],
+          answerIndex: 0,
+          translation: "그는 보통 학교에 가기 전에 아침에 공부한다.",
+          explanation: "하루 중 시간대(the morning, the afternoon, the evening) 앞에는 in을 씁니다[cite: 401, 405]."
+        },
+        {
+          id: 105,
+          question: "She arrived ------- the airport only ten minutes before her flight departed.",
+          options: ["within", "on", "to", "at"],
+          answerIndex: 3,
+          translation: "그녀는 비행기가 출발하기 불과 10분 전에 공항에 도착했다.",
+          explanation: "공항·역·출입구 등 좁은 지점 앞에는 전치사 at을 사용합니다[cite: 401, 406]."
+        },
+        {
+          id: 106,
+          question: "There is a big mirror hanging ------- the wall.",
+          options: ["in", "on", "at", "along"],
+          answerIndex: 1,
+          translation: "벽에 큰 거울이 걸려 있다.",
+          explanation: "벽 표면에 접촉하여 붙어 있는 상태를 나타낼 때 전치사 on을 씁니다[cite: 401, 406]."
+        },
+        {
+          id: 107,
+          question: "The renowned author was born ------- Haengbok City, Korea in 1965.",
+          options: ["in", "on", "from", "toward"],
+          answerIndex: 0,
+          translation: "그 유명한 작가는 1965년 한국의 행복시에서 태어났다.",
+          explanation: "도시라는 공간 안에서 태어났다는 의미이므로 전치사 in이 적절합니다[cite: 401, 406]."
+        },
+        {
+          id: 108,
+          question: "------- the end of 2012, the company's profits had almost doubled.",
+          options: ["In", "By", "Within", "during"],
+          answerIndex: 1,
+          translation: "2012년 말까지 회사의 이익이 거의 두 배가 되었다.",
+          explanation: "the end는 기간이 아닌 시점을 나타내므로 시점과 함께 쓰이는 전치사 By가 정답입니다[cite: 401, 406]."
+        },
+        {
+          id: 109,
+          question: "The regional manager is planning to visit the branch ------- the holiday.",
+          options: ["in", "for", "by", "during"],
+          answerIndex: 3,
+          translation: "지역 매니저는 휴가 기간 동안 그 지점을 방문하려고 계획 중이다.",
+          explanation: "특정 기간의 명사(the holiday) 앞에는 전치사 during이 적절합니다[cite: 401, 406]."
+        },
+        {
+          id: 110,
+          question: "The researcher has been working on his research ------- 2 weeks.",
+          options: ["in", "since", "until", "for"],
+          answerIndex: 3,
+          translation: "그 연구원은 2주 동안 연구를 계속해 오고 있다.",
+          explanation: "수치 기간(2 weeks) 동안 계속됨을 나타낼 때 전치사 for를 씁니다[cite: 401, 407]."
+        },
+        {
+          id: 111,
+          question: "Ms. Shin would like the meeting to be postponed ------- next Friday.",
+          options: ["until", "on", "for", "between"],
+          answerIndex: 0,
+          translation: "신 씨는 회의가 다음 주 금요일까지 연기되기를 바란다.",
+          explanation: "연기 시점까지 계속 이어짐을 나타내므로 전치사 until이 자연스럽습니다[cite: 402, 407]."
+        },
+        {
+          id: 112,
+          question: "Customers should claim refunds ------- a month of purchase.",
+          options: ["with", "by", "from", "within"],
+          answerIndex: 3,
+          translation: "고객들은 구매 후 한 달 이내에 환불을 요청해야 한다.",
+          explanation: "기간(a month) 이내를 나타내므로 전치사 within이 정답입니다[cite: 402, 407]."
+        },
+        {
+          id: 113,
+          question: "The monthly meeting is scheduled ------- the first day of each month.",
+          options: ["at", "in", "on", "by"],
+          answerIndex: 2,
+          translation: "월례 회의는 매월 첫날에 예정되어 있다.",
+          explanation: "day가 중심이 되는 특정 날짜(the first day of each month) 앞에는 on을 씁니다[cite: 402, 407]."
+        },
+        {
+          id: 114,
+          question: "All applicants should submit their resume ------- August 3.",
+          options: ["for", "in", "by", "until"],
+          answerIndex: 2,
+          translation: "모든 지원자들은 8월 3일까지 이력서를 제출해야 한다.",
+          explanation: "특정 시점까지 완료·마감해야 하는 동작(submit)에는 전치사 by가 정답입니다[cite: 402, 407, 408]."
+        },
+        {
+          id: 115,
+          question: "There are five different divisions ------- the company.",
+          options: ["forward", "into", "from", "within"],
+          answerIndex: 3,
+          translation: "회사 내에는 5개의 다른 부서가 있다.",
+          explanation: "장소 범위(the company) 내부를 나타내는 전치사 within이 정답입니다[cite: 402, 408]."
+        },
+        {
+          id: 116,
+          question: "Ms. Jin has been a receptionist at the Grand Hotel ------- last year.",
+          options: ["for", "during", "since", "at"],
+          answerIndex: 2,
+          translation: "진 씨는 작년 이후로 그랜드 호텔의 안내 직원으로 일해 오고 있다.",
+          explanation: "현재완료(has been)와 함께 과거 시점(last year) 이래를 나타내는 since가 정답입니다[cite: 402, 408]."
+        },
+        {
+          id: 117,
+          question: "Employees are required to report their work hours ------- leaving the office.",
+          options: ["until", "from", "during", "before"],
+          answerIndex: 3,
+          translation: "직원들은 사무실을 떠나기 전에 근무 시간을 보고해야 한다.",
+          explanation: "퇴근 전 보고한다는 맥락이므로 before가 자연스럽습니다[cite: 402, 408, 409]."
+        },
+        {
+          id: 118,
+          question: "Our office building is located ------- the train station and the park.",
+          options: ["to", "in", "between", "far away"],
+          answerIndex: 2,
+          translation: "우리 사무실 건물은 기차역과 공원 사이에 위치해 있다.",
+          explanation: "뒤에 and와 함께 호응하여 'A와 B 사이에'를 이루는 전치사 between이 정답입니다[cite: 402, 409]."
+        },
+        {
+          id: 119,
+          question: "Ms. Johnson has been involved in the project ------- its early stage.",
+          options: ["in", "on", "for", "since"],
+          answerIndex: 3,
+          translation: "존슨 씨는 초기 단계부터 그 프로젝트에 관여해 왔다.",
+          explanation: "현재완료(has been involved)와 함께 과거 시점(its early stage) 이후를 나타내는 since가 정답입니다[cite: 402, 409]."
+        },
+        {
+          id: 120,
+          question: "The meeting will start ------- 3 p.m., so please be on time.",
+          options: ["in", "on", "at", "by"],
+          answerIndex: 2,
+          translation: "회의는 오후 3시에 시작하므로 제시간에 도착해 주세요.",
+          explanation: "정확한 시각(3 p.m.) 앞에는 전치사 at을 사용합니다[cite: 402, 409]."
+        },
+        {
+          id: 121,
+          question: "He was born ------- May 12, 2010.",
+          options: ["in", "at", "on", "into"],
+          answerIndex: 2,
+          translation: "그는 2010년 5월 12일에 태어났다.",
+          explanation: "구체적인 날짜(May 12, 2010) 앞에는 전치사 on을 사용합니다[cite: 402, 409]."
+        },
+        {
+          id: 122,
+          question: "The library is usually crowded ------- exam week.",
+          options: ["in", "during", "at", "for"],
+          answerIndex: 1,
+          translation: "도서관은 보통 시험 기간 동안 붐빈다.",
+          explanation: "기간 명사(exam week) 동안을 나타내므로 전치사 during이 정답입니다[cite: 402, 409, 410]."
+        },
+        {
+          id: 123,
+          question: "Due to the system error, the main gate hasn't been functioning properly ------- 3 days.",
+          options: ["for", "on", "during", "since"],
+          answerIndex: 0,
+          translation: "시스템 오류 때문에 정문이 3일 동안 제대로 작동하지 않고 있다.",
+          explanation: "수치 기간(3 days) 동안을 나타내므로 전치사 for가 정답입니다[cite: 403, 410]."
+        },
+        {
+          id: 124,
+          question: "The bus should arrive ------- five minutes, so let's wait a bit more.",
+          options: ["on", "in", "at", "by"],
+          answerIndex: 1,
+          translation: "버스가 5분 안에 도착할 것이니 조금만 더 기다리자.",
+          explanation: "앞으로의 경과 시간('~후에, ~안에')을 나타낼 때 'in + 기간'을 씁니다[cite: 403, 410]."
+        },
+        {
+          id: 125,
+          question: "Please submit your application ------- Friday at the latest.",
+          options: ["in", "on", "by", "at"],
+          answerIndex: 2,
+          translation: "늦어도 금요일까지 신청서를 제출해 주세요.",
+          explanation: "기한(Friday)까지 완료·제출해야 하므로 전치사 by가 정답입니다[cite: 403, 410]."
+        },
+        {
+          id: 126,
+          question: "The cat is sleeping ------- the sofa in the living room.",
+          options: ["in", "on", "next", "to"],
+          answerIndex: 1,
+          translation: "고양이가 거실 소파 위에서 자고 있다.",
+          explanation: "소파 표면 위에 놓인 위치를 나타내므로 전치사 on이 정답입니다[cite: 403, 410]."
+        },
+        {
+          id: 127,
+          question: "There is a small cafe ------- the corner of the street where many people gather.",
+          options: ["in", "to", "at", "over"],
+          answerIndex: 2,
+          translation: "많은 사람들이 모이는 그 거리 모퉁이에 작은 카페가 있다.",
+          explanation: "거리의 모퉁이/교차 지점을 나타낼 때 at the corner를 씁니다[cite: 403, 410]."
+        },
+        {
+          id: 128,
+          question: "She left her keys ------- her car, so now she can't open the house door.",
+          options: ["at", "in", "on", "over"],
+          answerIndex: 1,
+          translation: "그녀는 열쇠를 차 안에 두고 와서 지금 집 문을 열지 못한다.",
+          explanation: "차 안이라는 내부 공간에 있는 위치를 나타내므로 전치사 in이 정답입니다[cite: 403, 410]."
+        },
+        {
+          id: 129,
+          question: "We decided to meet ------- the entrance of the museum at 3 p.m.",
+          options: ["at", "in", "on", "into"],
+          answerIndex: 0,
+          translation: "우리는 오후 3시에 박물관 입구에서 만나기로 했다.",
+          explanation: "입구라는 정확한 지점(point) 앞에는 전치사 at을 사용합니다[cite: 403, 410, 411]."
+        },
+        {
+          id: 130,
+          question: "The painting was hanging ------- the fireplace, where everyone could easily see it.",
+          options: ["under", "below", "above", "behind"],
+          answerIndex: 2,
+          translation: "그 그림은 벽난로 위쪽에 걸려 있어서 모두가 쉽게 볼 수 있었다.",
+          explanation: "모두가 쉽게 볼 수 있도록 높은 위쪽에 걸려 있었으므로 above가 정답입니다[cite: 403, 411]."
+        },
+        {
+          id: 131,
+          question: "There is a small drawer ------- the desk where I keep important documents.",
+          options: ["beneath", "into", "over", "in front"],
+          answerIndex: 0,
+          translation: "중요 서류를 넣어 두는 작은 서랍이 책상 아래에 있다.",
+          explanation: "책상 바로 아래 위치를 나타내므로 beneath가 정답입니다[cite: 403, 411]."
+        },
+        {
+          id: 132,
+          question: "A bright light was shining ------- our heads as we walked through the tunnel.",
+          options: ["under", "below", "over", "behind"],
+          answerIndex: 2,
+          translation: "우리가 터널을 지나갈 때 밝은 불빛이 우리 머리 위로 비추고 있었다.",
+          explanation: "머리 위를 가로질러 비추는 느낌을 나타내므로 over가 자연스럽습니다[cite: 403, 411]."
+        },
+        {
+          id: 133,
+          question: "A large tree stands ------- the house, blocking some sunlight from coming in.",
+          options: ["in front of", "above", "beneath", "next"],
+          answerIndex: 0,
+          translation: "큰 나무가 집 앞에 서 있어서 햇빛이 일부 들어오지 못하게 막고 있다.",
+          explanation: "햇빛을 막는 위치이므로 '집 앞에'를 뜻하는 in front of가 정답입니다[cite: 404, 411]."
+        },
+        {
+          id: 134,
+          question: "The children hid ------- the sofa when they were playing a hide-and-seek game.",
+          options: ["over", "behind", "on", "above"],
+          answerIndex: 1,
+          translation: "아이들은 술래잡기 놀이를 하던 중 소파 뒤로 숨었다.",
+          explanation: "숨는 위치로 자연스러운 '소파 뒤에'를 뜻하는 behind가 정답입니다[cite: 404, 411]."
+        },
+        {
+          id: 135,
+          question: "A security camera is installed ------- the door to check who comes in and out.",
+          options: ["beneath", "below", "above", "behind"],
+          answerIndex: 2,
+          translation: "누가 드나드는지 확인하기 위해 문 위쪽에 보안 카메라가 설치되어 있다.",
+          explanation: "출입을 내려다볼 수 있는 문 위쪽 고정 위치이므로 above가 적절합니다[cite: 404, 411]."
+        },
+        {
+          id: 136,
+          question: "Please arrive at least 2 hours ------- the event.",
+          options: ["in", "prior", "before", "during"],
+          answerIndex: 2,
+          translation: "행사 시작 최소 2시간 전에 도착해 주세요.",
+          explanation: "'기간 + 전치사 + 기준점' 구조에서 '~전에'를 나타내는 전치사 before가 정답입니다[cite: 404, 412]."
+        },
+        {
+          id: 137,
+          question: "He stayed in Paris ------- two weeks last summer.",
+          options: ["during", "for", "about", "from"],
+          answerIndex: 1,
+          translation: "그는 지난여름 2주 동안 파리에 머물렀다.",
+          explanation: "수치 기간(two weeks) 동안을 나타내므로 전치사 for가 정답입니다[cite: 404, 412]."
+        },
+        {
+          id: 138,
+          question: "The road will remain closed ------- further notice.",
+          options: ["according", "regarding", "until", "by"],
+          answerIndex: 2,
+          translation: "그 도로는 추후 공지가 있을 때까지 폐쇄된 상태로 유지됩니다.",
+          explanation: "'until further notice(추후 공지가 있을 때까지)' 고정 표현을 완성하는 until이 정답입니다[cite: 404, 412]."
+        },
+        {
+          id: 139,
+          question: "The new policy changes will take effect ------- the transition period.",
+          options: ["during", "while", "meanwhile", "since"],
+          answerIndex: 0,
+          translation: "새로운 정책 변경 사항은 전환 기간 동안에 시행될 것이다.",
+          explanation: "뒤에 명사구(the transition period)가 오므로 기간 동안을 나타내는 전치사 during이 정답입니다[cite: 404, 412]."
+        },
+        {
+          id: 140,
+          question: "Mr. Lee will present the report ------- the meeting starts.",
+          options: ["before", "while", "during", "in the meantime"],
+          answerIndex: 0,
+          translation: "회의가 시작되기 전에 이 씨는 보고서를 발표할 것이다.",
+          explanation: "뒤에 절(the meeting starts)이 이어지며 시간적 선후 관계를 나타내는 접속사 before가 정답입니다[cite: 404, 412]."
+        },
+        {
+          id: 141,
+          question: "I need information ------- the seminar this Thursday.",
+          options: ["on", "at", "during", "while"],
+          answerIndex: 0,
+          translation: "저는 이번 주 목요일 세미나에 관한 정보가 필요합니다.",
+          explanation: "'~에 관한 정보'를 나타낼 때 information on/about/regarding을 쓰므로 on이 정답입니다[cite: 404, 412]."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "When you work at a construction site, please make sure to comply ------- all the safety regulations at any reason.",
+          options: ["to", "for", "with", "over"],
+          answerIndex: 2,
+          translation: "건설 현장에서 일할 때는 어떤 이유로든 모든 안전 규정을 준수하도록 하십시오.",
+          explanation: "'comply with + 규범·규정'의 고정 결합이므로 with가 정답입니다[cite: 413, 417]."
+        },
+        {
+          id: 102,
+          question: "Through the website, Thomson's Clinic provides 24-hour consultation services ------- all customers.",
+          options: ["of", "to", "with", "forward"],
+          answerIndex: 1,
+          translation: "톰슨 클리닉은 웹사이트를 통해 모든 고객에게 24시간 상담 서비스를 제공한다.",
+          explanation: "'provide sth to sb(대상에게 서비스를 제공하다)' 구조이므로 전치사 to가 정답입니다[cite: 413, 417]."
+        },
+        {
+          id: 103,
+          question: "It was announced that Eugene Choi will be a replacement of the retiring CEO ------- October 1.",
+          options: ["in", "on", "at", "of"],
+          answerIndex: 1,
+          translation: "유진 최 씨가 10월 1일 자로 은퇴하는 CEO의 후임자가 될 것이라고 발표되었다.",
+          explanation: "특정 날짜(October 1) 앞에는 전치사 on을 사용합니다[cite: 413, 417]."
+        },
+        {
+          id: 104,
+          question: "It is considered an inexpensive way for local business owners to advertise ------- a website.",
+          options: ["of", "up", "on", "as"],
+          answerIndex: 2,
+          translation: "그것은 지역 사업주들이 웹사이트상에 광고하는 저렴한 방법으로 여겨진다.",
+          explanation: "웹사이트상에 광고를 낸다는 의미이므로 전치사 on이 적절합니다[cite: 413, 418]."
+        },
+        {
+          id: 105,
+          question: "Simon Genetics Institute is holding a series of lectures starting next Monday ------- celebration of its 5th anniversary.",
+          options: ["in", "on", "to", "with"],
+          answerIndex: 0,
+          translation: "사이먼 유전학 연구소는 창립 5주년을 기념하여 다음 주 월요일부터 일련의 강의를 개최한다.",
+          explanation: "'in celebration of(~을 기념하여)' 관용 표현을 완성하는 전치사 in이 정답입니다[cite: 413, 418]."
+        },
+        {
+          id: 106,
+          question: "Green Farms is a family-owned business committed to offering fresh organic produce ------- an affordable price.",
+          options: ["in", "at", "on", "for"],
+          answerIndex: 1,
+          translation: "그린 팜스는 저렴한 가격으로 신선한 유기농 농산물을 제공하는 데 전념하는 가족 경영 기업이다.",
+          explanation: "'at an affordable price(알맞은/저렴한 가격에)' 표현을 완성하는 전치사 at이 정답입니다[cite: 413, 418]."
+        },
+        {
+          id: 107,
+          question: "Due ------- company security policy, all visitors are required to get a visitor's pass at the entrance security desk.",
+          options: ["to", "by", "one", "for"],
+          answerIndex: 0,
+          translation: "회사 보안 정책 때문에 모든 방문객은 입구 보안 데스크에서 방문자 출입증을 받아야 한다.",
+          explanation: "'due to + 명사구(~때문에)'를 이루는 전치사 to가 정답입니다[cite: 413, 418]."
+        },
+        {
+          id: 108,
+          question: "The Korean Science Fair is annually held ------- the nation rotating year by year.",
+          options: ["on", "along with", "throughout", "for"],
+          answerIndex: 2,
+          translation: "한국과학축전은 매년 전국 각지를 순회하며 개최된다.",
+          explanation: "'전국 각지에 걸쳐'를 나타내는 전치사 throughout이 정답입니다[cite: 413, 418]."
+        },
+        {
+          id: 109,
+          question: "Ms. Brown was hired ------- assistant manager in sales department.",
+          options: ["for", "from", "as", "at"],
+          answerIndex: 2,
+          translation: "브라운 씨는 영업부 부팀장(대리)으로 고용되었다.",
+          explanation: "직책·자격('~로서')을 나타낼 때 hire + 직책 앞에는 전치사 as를 씁니다[cite: 414, 418]."
+        },
+        {
+          id: 110,
+          question: "Ms. Kato has been negotiating with her client ------- a month.",
+          options: ["in", "for", "during", "before"],
+          answerIndex: 1,
+          translation: "가토 씨는 한 달 동안 고객과 협상해 오고 있다.",
+          explanation: "수치 기간(a month) 동안을 나타내므로 전치사 for가 정답입니다[cite: 414, 419]."
+        },
+        {
+          id: 111,
+          question: "The office building's underground cafeteria will be closed ------- further notice due to the refurbishment of employee dining area.",
+          options: ["next to", "onto", "until", "except"],
+          answerIndex: 2,
+          translation: "직원 식당 구역 개보수로 인해 사무실 건물의 지하 구내식당은 추후 통보가 있을 때까지 문을 닫는다.",
+          explanation: "'until further notice(추후 통보가 있을 때까지)' 표현을 완성하는 until이 정답입니다[cite: 414, 419]."
+        },
+        {
+          id: 112,
+          question: "Please sign the agreement and return it to the human resources office ------- seven days.",
+          options: ["behind", "even", "still", "within"],
+          answerIndex: 3,
+          translation: "동의서에 서명하여 7일 이내에 인사과로 반납해 주십시오.",
+          explanation: "기간(seven days) 이내를 나타내므로 전치사 within이 정답입니다[cite: 414, 419]."
+        },
+        {
+          id: 113,
+          question: "The company's Web site will be unavailable ------- the next 3 hours due to regular update.",
+          options: ["for", "as", "when", "greatly"],
+          answerIndex: 0,
+          translation: "정기 업데이트로 인해 회사 웹사이트는 향후 3시간 동안 이용할 수 없습니다.",
+          explanation: "수치 기간(the next 3 hours) 동안을 나타내므로 전치사 for가 정답입니다[cite: 414, 419]."
+        },
+        {
+          id: 114,
+          question: "The human resources director had a last-minute scheduling conflict, so Mr. Ahmed's interview will be ------- until next Friday.",
+          options: ["directed", "presented", "belated", "postponed"],
+          answerIndex: 3,
+          translation: "인사 담당 이사의 막판 일정이 겹쳐서 아메드 씨의 면접이 다음 주 금요일까지 연기될 것이다.",
+          explanation: "일정이 겹쳐 다음 주로 미루는 것이므로 postponed(연기된)가 정답입니다[cite: 414, 419]."
+        },
+        {
+          id: 115,
+          question: "When your item is not delivered ------- the date we mentioned, please call us at 565-4949 from 9 A.M. to 8 P.M.",
+          options: ["in", "from", "by", "between"],
+          answerIndex: 2,
+          translation: "언급된 날짜까지 물품이 배송되지 않은 경우 오전 9시부터 오후 8시 사이에 565-4949로 전화해 주세요.",
+          explanation: "특정 기한(the date)까지를 나타내므로 전치사 by가 정답입니다[cite: 414, 420]."
+        },
+        {
+          id: 116,
+          question: "The personnel manager explained the employee benefits policy ------- the orientation.",
+          options: ["while", "throughout", "for", "by"],
+          answerIndex: 1,
+          translation: "인사 담당 매니저는 오리엔테이션 내내 직원 복리후생 정책을 설명했다.",
+          explanation: "행사·기간(the orientation) 내내를 나타내므로 전치사 throughout이 정답입니다[cite: 414, 420]."
+        },
+        {
+          id: 117,
+          question: "Global Mart is ------- the most profitable companies in Chungcheong province.",
+          options: ["one", "of", "among", "for"],
+          answerIndex: 2,
+          translation: "글로벌 마트는 충청도에서 가장 수익성이 높은 기업들 중 하나에 속한다.",
+          explanation: "복수 명사구(the most profitable companies) 가운데 하나임을 나타내므로 among이 정답입니다[cite: 414, 420]."
+        },
+        {
+          id: 118,
+          question: "I wanted to go out, ------- it was raining heavily.",
+          options: ["however", "despite", "although", "so"],
+          answerIndex: 2,
+          translation: "비가 심하게 내리고 있었지만 나는 밖에 나가고 싶었다.",
+          explanation: "뒤에 절(it was raining heavily)이 이어지므로 양보 접속사 although가 정답입니다[cite: 414, 420]."
+        },
+        {
+          id: 119,
+          question: "I stayed home ------- the weather was extremely cold.",
+          options: ["therefore", "due to", "because", "as a result"],
+          answerIndex: 2,
+          translation: "날씨가 매우 추웠기 때문에 나는 집에 머물렀다.",
+          explanation: "뒤에 절(the weather was extremely cold)이 이어지므로 이유 접속사 because가 정답입니다[cite: 415, 420]."
+        },
+        {
+          id: 120,
+          question: "She couldn't go to school ------- heavy rain.",
+          options: ["because", "because of", "therefore", "so"],
+          answerIndex: 1,
+          translation: "그녀는 폭우 때문에 학교에 갈 수 없었다.",
+          explanation: "뒤에 명사구 heavy rain이 이어지므로 이유 전치사 because of가 정답입니다[cite: 415, 420, 421]."
+        },
+        {
+          id: 121,
+          question: "He arrived late ------- the traffic jam on the highway.",
+          options: ["because", "despite", "since", "due to"],
+          answerIndex: 3,
+          translation: "그는 고속도로의 교통 체증 때문에 늦게 도착했다.",
+          explanation: "뒤에 명사구 the traffic jam이 이어지므로 이유 전치사 due to가 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 122,
+          question: "He has a strong interest ------- environmental issues.",
+          options: ["at", "on", "in", "about"],
+          answerIndex: 2,
+          translation: "그는 환경 문제에 강한 관심을 가지고 있다.",
+          explanation: "'interest in + 명사(~에 대한 관심)' 결합이므로 전치사 in이 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 123,
+          question: "She took full responsibility ------- the accident.",
+          options: ["of", "on", "for", "to"],
+          answerIndex: 2,
+          translation: "그녀는 그 사고에 대한 전적인 책임을 졌다.",
+          explanation: "'take responsibility for + 명사(~에 대한 책임을 지다)' 결합이므로 전치사 for가 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 124,
+          question: "There is no solution ------- this problem at the moment.",
+          options: ["to", "for", "about", "with"],
+          answerIndex: 0,
+          translation: "현재로서는 이 문제에 대한 해결책이 없다.",
+          explanation: "'solution to + 문제/상황(~에 대한 해결책)' 결합이므로 전치사 to가 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 125,
+          question: "We finally reached an agreement ------- the price of the house.",
+          options: ["at", "on", "in", "though"],
+          answerIndex: 1,
+          translation: "우리는 마침내 집값에 대해 합의에 도달했다.",
+          explanation: "'agreement on + 사안(~에 대한 합의)' 결합이므로 전치사 on이 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 126,
+          question: "He was punished ------- breaking the school rules.",
+          options: ["for", "because", "with", "since"],
+          answerIndex: 0,
+          translation: "그는 교칙을 어긴 것 때문에 처벌을 받았다.",
+          explanation: "'be punished for + 이유/행동(~ 때문에 벌을 받다)' 구조이므로 전치사 for가 정답입니다[cite: 415, 421]."
+        },
+        {
+          id: 127,
+          question: "The students thanked the teacher ------- the detailed explanation.",
+          options: ["to", "for", "with", "in"],
+          answerIndex: 1,
+          translation: "학생들은 자세한 설명에 대해 선생님께 감사했다.",
+          explanation: "'thank A for B(A에게 B에 대해 감사하다)' 구조이므로 전치사 for가 정답입니다[cite: 415, 422]."
+        },
+        {
+          id: 128,
+          question: "She always feels a little nervous ------- the first day of a new semester.",
+          options: ["in", "at", "on", "for"],
+          answerIndex: 2,
+          translation: "그녀는 새 학기 첫날에는 항상 조금 긴장한다.",
+          explanation: "특정 날(the first day) 앞에는 전치사 on을 사용합니다[cite: 415, 422]."
+        },
+        {
+          id: 129,
+          question: "A large mirror was hanging ------- the sofa in the living room.",
+          options: ["under", "below", "above", "beneath"],
+          answerIndex: 2,
+          translation: "거실 소파 위쪽에 큰 거울 하나가 걸려 있었다.",
+          explanation: "소파보다 위쪽 공간을 나타내므로 above가 정답입니다[cite: 415, 422]."
+        },
+        {
+          id: 130,
+          question: "She stayed at the library ------- midnight to finish her assignment.",
+          options: ["by", "within", "until", "for"],
+          answerIndex: 2,
+          translation: "그녀는 과제를 끝내기 위해 자정까지 도서관에 머물렀다.",
+          explanation: "자정까지 머무는 상태가 지속됨을 나타내므로 전치사 until이 정답입니다[cite: 415, 422]."
+        },
+        {
+          id: 131,
+          question: "The concert will begin ------- 7:30 this evening, so we should arrive early.",
+          options: ["in", "on", "at", "during"],
+          answerIndex: 2,
+          translation: "콘서트는 오늘 저녁 7시 30분에 시작하므로 일찍 도착해야 한다.",
+          explanation: "정확한 시각(7:30) 앞에는 전치사 at을 사용합니다[cite: 416, 422]."
+        },
+        {
+          id: 132,
+          question: "Many important changes happened ------- the 1990s in the field of technology.",
+          options: ["at", "on", "in", "for"],
+          answerIndex: 2,
+          translation: "기술 분야에서는 1990년대에 많은 중요한 변화가 일어났다.",
+          explanation: "연대(the 1990s)와 같은 넓은 기간 앞에는 전치사 in을 사용합니다[cite: 416, 422]."
+        },
+        {
+          id: 133,
+          question: "We didn't see each other ------- a long time after we graduated from high school.",
+          options: ["at", "on", "in", "for"],
+          answerIndex: 3,
+          translation: "우리는 고등학교 졸업 후 오랫동안 서로를 보지 못했다.",
+          explanation: "기간(a long time) 동안을 나타내므로 전치사 for가 정답입니다[cite: 416, 422]."
+        },
+        {
+          id: 134,
+          question: "The small café is located at the corner of the street, right ------- the bookstore.",
+          options: ["for", "on", "next to", "besides"],
+          answerIndex: 2,
+          translation: "그 작은 카페는 길 모퉁이 서점 바로 옆에 위치해 있다.",
+          explanation: "'~ 바로 옆에'라는 위치 관계를 나타내므로 next to가 정답입니다[cite: 416, 423]."
+        },
+        {
+          id: 135,
+          question: "The cat was hiding ------- the bed because it was frightened by the loud noise.",
+          options: ["over", "above", "underneath", "before"],
+          answerIndex: 2,
+          translation: "고양이는 큰 소리에 놀라 침대 아래에 숨어 있었다.",
+          explanation: "침대 바로 아래 공간을 나타내므로 underneath가 정답입니다[cite: 416, 423]."
+        },
+        {
+          id: 136,
+          question: "The temperature in the mountain village often falls ------- zero during the winter.",
+          options: ["under", "below", "beneath", "behind"],
+          answerIndex: 1,
+          translation: "그 산골 마을의 기온은 겨울에 영하(0도 아래)로 자주 떨어진다.",
+          explanation: "기온·수치가 영하/기준선 아래로 내려갈 때 below zero를 사용합니다[cite: 416, 423]."
+        },
+        {
+          id: 137,
+          question: "The small village is hidden ------- the mountains, so it is difficult to find on the map.",
+          options: ["above", "over", "behind", "across"],
+          answerIndex: 2,
+          translation: "그 작은 마을은 산 뒤에 가려져 있어서 지도에서 찾기가 어렵다.",
+          explanation: "산 뒤에 가려진 위치를 나타내므로 behind가 정답입니다[cite: 416, 423]."
+        },
+        {
+          id: 138,
+          question: "Our house is located ------- the river, so we can see the water from the window.",
+          options: ["close to", "away from", "next", "nearby"],
+          answerIndex: 0,
+          translation: "우리 집은 강과 가까운 곳에 있어서 창문에서 물이 보인다.",
+          explanation: "창문에서 강물이 보일 만큼 가깝다는 뜻이므로 'close to + 명사'가 정답입니다[cite: 416, 423]."
+        },
+        {
+          id: 139,
+          question: "You must submit the final report ------- Friday to be considered for the project.",
+          options: ["until", "by", "within", "during"],
+          answerIndex: 1,
+          translation: "그 프로젝트에 고려되기 위해 금요일까지 최종 보고서를 제출해야 한다.",
+          explanation: "마감 시점(Friday)까지 완료해야 하므로 전치사 by가 정답입니다[cite: 416, 423]."
+        },
+        {
+          id: 140,
+          question: "Please finish the online training ------- the end of this month.",
+          options: ["within", "until", "during", "by"],
+          answerIndex: 3,
+          translation: "이번 달 말까지 온라인 연수를 끝내세요.",
+          explanation: "특정 시점(the end of this month)까지 끝내야 하므로 전치사 by가 정답입니다[cite: 416, 424]."
+        }
+      ]
+    };
+
+    let currentSection = "basic";
+    const state = {
+      basic: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initSectionState(sec) {
+      questionSets[sec].forEach((q) => {
+        state[sec][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(sec, qId) {
+      state[sec][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentSection];
+    }
+
+    function getSectionState() {
+      return state[currentSection];
+    }
+
+    function switchSection(sec) {
+      currentSection = sec;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      Object.keys(sectionMeta).forEach((key) => {
+        document.getElementById(sectionMeta[key].btnId).classList.toggle("active", key === sec);
+      });
+
+      document.getElementById("lectureTag").textContent = sectionMeta[sec].tag;
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function renderNextChoices() {
+      const box = document.getElementById("nextChoiceBtns");
+      const otherKeys = Object.keys(sectionMeta).filter((k) => k !== currentSection);
+      box.innerHTML = otherKeys
+        .map(
+          (key) =>
+            `<button type="button" class="choice-next-btn" onclick="switchSection('${key}')">${sectionMeta[key].label} 문제를 푸시겠습니까?</button>`
+        )
+        .join("");
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      renderNextChoices();
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentSection, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentSection, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    initSectionState("basic");
+    initSectionState("hard");
+    visibleQuestionIds = questionSets.basic.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

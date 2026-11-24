@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 12 동명사 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 난이도 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .level-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .level-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .level-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .hard-challenge-box {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hard-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hard-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .yes-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .yes-btn:hover {
+      background-color: var(--primary);
+    }
+
+    .no-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .no-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 12 · 동명사 (기본 A · 총 41문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 난이도 전환 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="level-switch">
+        <button type="button" id="btnEasy" class="level-btn active" onclick="switchLevel('easy')">기본 (A)</button>
+        <button type="button" id="btnHard" class="level-btn" onclick="switchLevel('hard')">고난도 (B)</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 41</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 고난도 도전 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/41)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/41)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div id="hardChallengeBox" class="hard-challenge-box">
+        <p class="hard-question">더 어려운 문제에 도전하시겠습니까?</p>
+        <div class="hard-btns">
+          <button type="button" class="yes-btn" onclick="handleHardYes()">yes</button>
+          <a class="no-btn" href="index.html">no</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questionSets = {
+      easy: [
+        {
+          id: 101,
+          question: "We are looking forward to ------- at the conference.",
+          options: ["see", "seeing", "seen", "be seen"],
+          answerIndex: 1,
+          translation: "저희는 컨퍼런스에서 귀하를 뵙기를 기대하고 있습니다.",
+          explanation: "'look forward to + 명사/동명사(~을 기대하다)'에서 to는 전치사이므로 동명사 seeing이 정답입니다."
+        },
+        {
+          id: 102,
+          question: "Mr. Reed still has some problems ------- the new software.",
+          options: ["operate", "operating", "to operate", "operated"],
+          answerIndex: 1,
+          translation: "Reed 씨는 새 소프트웨어를 운용하는 데 여전히 어려움을 겪고 있다.",
+          explanation: "'have a problem/difficulty/trouble (in) + ~ing(~하는 데 어려움을 겪다)' 구문이므로 operating이 정답입니다."
+        },
+        {
+          id: 103,
+          question: "Ms. Anderson's team members have spent 8 months ------- the new smartphone.",
+          options: ["invent", "inventor", "to invent", "inventing"],
+          answerIndex: 3,
+          translation: "Anderson 씨의 팀원들은 새 스마트폰을 개발하는 데 8개월을 보냈다.",
+          explanation: "'spend + 시간/돈 + (in) + ~ing(~하는 데 시간/돈을 쓰다)' 구문이므로 inventing이 정답입니다."
+        },
+        {
+          id: 104,
+          question: "The board is considering ------- more sales representatives.",
+          options: ["hiring", "hired", "to hire", "being hired"],
+          answerIndex: 0,
+          translation: "이사회는 영업사원을 더 채용하는 것을 고려하고 있다.",
+          explanation: "consider는 동명사를 목적어로 취하는 동사이므로 hiring이 정답입니다."
+        },
+        {
+          id: 105,
+          question: "We apologize for the delay in ------- your order.",
+          options: ["ship", "shipping", "shipment", "shipped"],
+          answerIndex: 1,
+          translation: "귀하의 주문 배송이 지연된 점에 대해 사과드립니다.",
+          explanation: "전치사 in 뒤에 이어지며 목적어(your order)를 취할 수 있는 동명사 shipping이 정답입니다."
+        },
+        {
+          id: 106,
+          question: "We have been committed to ------- you high quality products.",
+          options: ["provide", "provided", "providing", "provision"],
+          answerIndex: 2,
+          translation: "저희는 귀하께 고품질 제품을 제공하기 위해 전념해 왔습니다.",
+          explanation: "'be committed to + 명사/동명사(~에 전념하다)'에서 to는 전치사이므로 providing이 정답입니다."
+        },
+        {
+          id: 107,
+          question: "The company increased sales by ------- promotional events.",
+          options: ["conduct", "conducting", "conduction", "conducted"],
+          answerIndex: 1,
+          translation: "회사는 판촉 행사를 진행함으로써 매출을 늘렸다.",
+          explanation: "전치사 by 뒤에서 목적어(promotional events)를 취할 수 있는 동명사 conducting이 정답입니다."
+        },
+        {
+          id: 108,
+          question: "Mr. King is responsible for ------- employees.",
+          options: ["schedule", "schedules", "scheduling", "to schedule"],
+          answerIndex: 2,
+          translation: "King 씨는 직원들의 근무 일정을 짜는 것을 담당하고 있다.",
+          explanation: "'be responsible for + 명사/동명사(~을 담당하다)' 구문이며 뒤에 목적어(employees)가 있으므로 scheduling이 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The company is seeking a way of ------- an innovative automatic system.",
+          options: ["introducing", "introduction", "introduced", "introduce"],
+          answerIndex: 0,
+          translation: "회사는 혁신적인 자동화 시스템을 도입할 방법을 모색하고 있다.",
+          explanation: "전치사 of 뒤에서 목적어(an innovative automatic system)를 취할 수 있는 동명사 introducing이 정답입니다."
+        },
+        {
+          id: 110,
+          question: "Ms. Kim's idea was definitely worth -------.",
+          options: ["consider", "to consider", "considering", "considerate"],
+          answerIndex: 2,
+          translation: "Kim 씨의 아이디어는 분명 고려해 볼 만한 가치가 있었다.",
+          explanation: "'be worth + 명사/동명사(~할 가치가 있다)' 관용 표현이므로 considering이 정답입니다."
+        },
+        {
+          id: 111,
+          question: "We would like to thank you for ------- our service.",
+          options: ["choose", "choice", "chosen", "choosing"],
+          answerIndex: 3,
+          translation: "저희 서비스를 선택해 주셔서 감사드립니다.",
+          explanation: "'thank A for + 명사/동명사' 구문이며 뒤에 목적어(our service)가 있으므로 choosing이 정답입니다."
+        },
+        {
+          id: 112,
+          question: "We would like to extend our appreciation for your generous ------- of $1000.",
+          options: ["donate", "donation", "donor", "donating"],
+          answerIndex: 1,
+          translation: "1,000달러의 관대한 기부에 대해 깊은 감사를 전하고 싶습니다.",
+          explanation: "형용사 generous 뒤이자 전치사 of 앞에 오는 명사 자리이므로 donation이 정답입니다."
+        },
+        {
+          id: 113,
+          question: "------- cell phones is prohibited while driving except using hands free.",
+          options: ["Use", "Using", "Usage", "Used"],
+          answerIndex: 1,
+          translation: "핸즈프리를 사용하는 경우를 제외하고 운전 중 휴대전화 사용은 금지되어 있다.",
+          explanation: "문장의 주어 자리이며 뒤에 목적어(cell phones)를 취할 수 있는 동명사 Using이 정답입니다."
+        },
+        {
+          id: 114,
+          question: "The director of public relations is accountable for ------- the firm's reputation through ongoing publicity and community outreach campaigns.",
+          options: ["promoting", "promotion", "promotes", "promoted"],
+          answerIndex: 0,
+          translation: "홍보이사는 지속적인 홍보와 지역사회 봉사 캠페인을 통해 회사의 평판을 높이는 책임을 맡고 있다.",
+          explanation: "'be accountable for + 명사/동명사' 구문이며 뒤에 목적어(the firm's reputation)를 취하므로 promoting이 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Changing anything to the original construction plan is not allowed without ------- from the government.",
+          options: ["approve", "approval", "approved", "approving"],
+          answerIndex: 1,
+          translation: "정부의 승인 없이는 기존 건설 계획의 어떤 내용도 변경하는 것이 허용되지 않는다.",
+          explanation: "전치사 without 뒤에 이어지며 목적어 없이 단독 명사로 쓰이는 approval이 정답입니다."
+        },
+        {
+          id: 116,
+          question: "------- the entire presentation by heart is not an easy task.",
+          options: ["Memorize", "Memorized", "Memorizing", "Memory"],
+          answerIndex: 2,
+          translation: "발표 전체를 외우는 것은 쉬운 일이 아니다.",
+          explanation: "문장의 주어 자리이며 뒤에 목적어(the entire presentation)를 취하는 동명사 Memorizing이 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The success of the campaign depends on ------- the target audience effectively.",
+          options: ["reaching", "to reach", "reach", "reached"],
+          answerIndex: 0,
+          translation: "캠페인의 성공은 목표 고객에게 효과적으로 도달하는 것에 달려 있다.",
+          explanation: "전치사 on 뒤에 이어지는 동명사 reaching이 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The director considered ------- the merger agreement until the next meeting.",
+          options: ["postponing", "to postpone", "postponed", "postpone"],
+          answerIndex: 0,
+          translation: "이사는 다음 회의까지 합병 계약을 연기하는 것을 고려했다.",
+          explanation: "consider는 동명사를 목적어로 취하는 동사이므로 postponing이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The team finished ------- the quality assurance report just before the deadline.",
+          options: ["to write", "writing", "write", "wrote"],
+          answerIndex: 1,
+          translation: "그 팀은 마감 직전에 품질 보증 보고서 작성을 마쳤다.",
+          explanation: "finish는 동명사를 목적어로 취하는 동사이므로 writing이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The primary responsibility of the new hire is ------- all incoming communication.",
+          options: ["to handling", "handle", "handling", "handled"],
+          answerIndex: 2,
+          translation: "신입 사원의 주요 업무는 들어오는 모든 연락을 처리하는 것이다.",
+          explanation: "주어 The primary responsibility를 보충 설명하는 보어 자리이므로 동명사 handling이 정답입니다."
+        },
+        {
+          id: 121,
+          question: "Thank you for your ------- our GTX Home Theater.",
+          options: ["purchase", "purchases", "purchased", "purchasing"],
+          answerIndex: 3,
+          translation: "저희 GTX 홈시어터를 구매해 주셔서 감사합니다.",
+          explanation: "소유격 your 뒤에서 목적어(our GTX Home Theater)를 바로 취할 수 있는 동명사 purchasing이 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The technical staff is currently busy ------- the server for the system migration.",
+          options: ["to configure", "configuring", "configures", "configure"],
+          answerIndex: 1,
+          translation: "기술팀은 현재 시스템 이전을 위해 서버를 구성하느라 바쁘다.",
+          explanation: "'be busy + ~ing(~하느라 바쁘다)' 관용 표현이므로 configuring이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The security team avoids ------- external USB devices without permission.",
+          options: ["use", "to use", "using", "used"],
+          answerIndex: 2,
+          translation: "보안팀은 허가 없이 외부 USB 장치를 사용하는 것을 피한다.",
+          explanation: "avoid는 동명사를 목적어로 취하는 동사이므로 using이 정답입니다."
+        },
+        {
+          id: 124,
+          question: "The primary focus of the discussion was on ------- a more sustainable business model.",
+          options: ["developing", "to develop", "development", "developed"],
+          answerIndex: 0,
+          translation: "논의의 주된 초점은 더 지속 가능한 비즈니스 모델을 개발하는 데 있었다.",
+          explanation: "전치사 on 뒤에서 목적어(a more sustainable business model)를 취할 수 있는 동명사 developing이 정답입니다."
+        },
+        {
+          id: 125,
+          question: "The engineer suggested ------- the old parts to improve the machine's performance.",
+          options: ["replacement", "to replace", "replacing", "replaced"],
+          answerIndex: 2,
+          translation: "그 엔지니어는 기계 성능을 향상시키기 위해 오래된 부품을 교체할 것을 제안했다.",
+          explanation: "suggest는 동명사를 목적어로 취하는 동사이므로 replacing이 정답입니다."
+        },
+        {
+          id: 126,
+          question: "The manager could not help ------- at the unexpected error in the final report.",
+          options: ["to laugh", "laugh", "laughed", "laughing"],
+          answerIndex: 3,
+          translation: "매니저는 최종 보고서의 예상치 못한 오류를 보고 웃지 않을 수 없었다.",
+          explanation: "'cannot help + ~ing(~하지 않을 수 없다)' 관용 표현이므로 laughing이 정답입니다."
+        },
+        {
+          id: 127,
+          question: "------- client expectations is the key to maintaining a successful business relationship.",
+          options: ["Meeting", "For meeting", "Meets", "Met"],
+          answerIndex: 0,
+          translation: "고객의 기대를 충족시키는 것이 성공적인 비즈니스 관계를 유지하는 핵심이다.",
+          explanation: "문장의 주어 자리이며 뒤에 목적어(client expectations)를 취하는 동명사 Meeting이 정답입니다."
+        },
+        {
+          id: 128,
+          question: "I regret ------- the details of the contract before signing it.",
+          options: ["missing", "to miss", "missed", "that misses"],
+          answerIndex: 0,
+          translation: "계약서에 서명하기 전에 세부 사항을 놓친 것을 후회한다.",
+          explanation: "'한 일을 후회하다'라는 의미일 때 regret은 동명사를 목적어로 취하므로 missing이 정답입니다."
+        },
+        {
+          id: 129,
+          question: "The CEO postponed ------- the press conference until the final data was ready.",
+          options: ["to hold", "holding", "held", "hold"],
+          answerIndex: 1,
+          translation: "CEO는 최종 데이터가 준비될 때까지 기자회견 개최를 연기했다.",
+          explanation: "postpone은 동명사를 목적어로 취하는 동사이므로 holding이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "We succeeded in ------- the funding required for the infrastructure project.",
+          options: ["securing", "to secure", "secure", "secured"],
+          answerIndex: 0,
+          translation: "우리는 기반 시설 프로젝트에 필요한 자금을 확보하는 데 성공했다.",
+          explanation: "'succeed in + ~ing(~하는 데 성공하다)' 구문이므로 securing이 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The company strongly objected to ------- the current business model.",
+          options: ["change", "changing", "changes", "be changed"],
+          answerIndex: 1,
+          translation: "회사는 현재 비즈니스 모델을 변경하는 것에 강하게 반대했다.",
+          explanation: "'object to + 명사/동명사(~에 반대하다)'에서 to는 전치사이므로 changing이 정답입니다."
+        },
+        {
+          id: 132,
+          question: "The veteran employee is used to ------- the high pressure of the job.",
+          options: ["handle", "handling", "be handled", "to handle"],
+          answerIndex: 1,
+          translation: "그 베테랑 직원은 업무의 높은 압박감을 다루는 것에 익숙하다.",
+          explanation: "'be used to + 명사/동명사(~에 익숙하다)'에서 to는 전치사이므로 handling이 정답입니다."
+        },
+        {
+          id: 133,
+          question: "The supervisor admitted ------- an error in the calculation.",
+          options: ["make", "to make", "making", "made"],
+          answerIndex: 2,
+          translation: "관리자는 계산에서 오류를 범한 사실을 인정했다.",
+          explanation: "admit은 동명사를 목적어로 취하는 동사이므로 making이 정답입니다."
+        },
+        {
+          id: 134,
+          question: "The research team spent the entire week ------- the experimental data.",
+          options: ["to analyze", "analyzing", "analyze", "analyzed"],
+          answerIndex: 1,
+          translation: "연구팀은 일주일 내내 실험 데이터를 분석하며 시간을 보냈다.",
+          explanation: "'spend + 시간 + (in) + ~ing' 구문이므로 analyzing이 정답입니다."
+        },
+        {
+          id: 135,
+          question: "We encountered no difficulty in ------- the system to the new server.",
+          options: ["migrate", "migrating", "to migrate", "migrated"],
+          answerIndex: 1,
+          translation: "우리는 시스템을 새 서버로 이전하는 데 아무런 어려움을 겪지 않았다.",
+          explanation: "'have difficulty in + ~ing' 구문이므로 migrating이 정답입니다."
+        },
+        {
+          id: 136,
+          question: "This software specializes in ------- large sets of complex data quickly.",
+          options: ["process", "to process", "processing", "processed"],
+          answerIndex: 2,
+          translation: "이 소프트웨어는 방대한 복잡 데이터 세트를 신속하게 처리하는 데 특화되어 있다.",
+          explanation: "'specialize in + 명사/동명사(~에 특화되다)' 구문이므로 processing이 정답입니다."
+        },
+        {
+          id: 137,
+          question: "------- the safety regulations is the highest priority for the factory management.",
+          options: ["Follow", "Following", "Followed", "Follower"],
+          answerIndex: 1,
+          translation: "안전 규정을 따르는 것이 공장 경영진의 최우선 과제이다.",
+          explanation: "단수 동사 is의 주어 자리이며 뒤에 목적어(the safety regulations)를 취하는 동명사 Following이 정답입니다."
+        },
+        {
+          id: 138,
+          question: "We need to decide on a suitable strategy before ------- the new market.",
+          options: ["enter", "entering", "entered", "entrance"],
+          answerIndex: 1,
+          translation: "우리는 새 시장에 진입하기 전에 적절한 전략을 결정해야 한다.",
+          explanation: "전치사 before 뒤에서 목적어(the new market)를 취할 수 있는 동명사 entering이 정답입니다."
+        },
+        {
+          id: 139,
+          question: "The company recommends ------- the software immediately to avoid security risks.",
+          options: ["to update", "updating", "update", "updated"],
+          answerIndex: 1,
+          translation: "회사는 보안 위험을 피하기 위해 소프트웨어를 즉시 업데이트할 것을 권장한다.",
+          explanation: "recommend는 동명사를 목적어로 취하는 동사이므로 updating이 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The staff denied ------- any confidential information to the competitor.",
+          options: ["release", "to release", "released", "releasing"],
+          answerIndex: 3,
+          translation: "직원들은 경쟁사에 기밀 정보를 유출했다는 사실을 부인했다.",
+          explanation: "deny는 동명사를 목적어로 취하는 동사이므로 releasing이 정답입니다."
+        },
+        {
+          id: 141,
+          question: "We must refrain from ------- any official announcement until the data is verified.",
+          options: ["make", "making", "to make", "made"],
+          answerIndex: 1,
+          translation: "우리는 데이터가 검증될 때까지 공식 발표를 하는 것을 삼가야 한다.",
+          explanation: "'refrain from + 명사/동명사(~하는 것을 삼가다)'에서 from은 전치사이므로 making이 정답입니다."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "The new medication can be used to ------- chronic respiratory diseases such as asthma.",
+          options: ["treating", "treat", "treats", "treated"],
+          answerIndex: 1,
+          translation: "그 새 약은 천식 같은 만성 호흡기 질환을 치료하는 데 사용될 수 있다.",
+          explanation: "수동태 'be used to + 동사원형(~하는 데 사용되다)' 구문이므로 treat가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "Please accept our apologies for the delay in ------- your shipment due to the unexpected system failure last week.",
+          options: ["delivery", "deliver", "delivering", "delivered"],
+          answerIndex: 2,
+          translation: "지난주 예상치 못한 시스템 장애로 인해 배송이 지연된 점 양해 부탁드립니다.",
+          explanation: "전치사 in 뒤에서 목적어(your shipment)를 취할 수 있는 동명사 delivering이 정답입니다."
+        },
+        {
+          id: 103,
+          question: "In addition to ------- the local time, the new A210 mobile phone shows the temperature and the user's location on a map.",
+          options: ["displayed", "displaying", "display", "displays"],
+          answerIndex: 1,
+          translation: "현지 시간을 표시하는 것 외에도 새 A210 휴대전화는 기온과 사용자의 위치를 지도상에 보여 준다.",
+          explanation: "'in addition to + 명사/동명사(~에 더하여)'에서 to는 전치사이므로 displaying이 정답입니다."
+        },
+        {
+          id: 104,
+          question: "Although many consultants suggested ------- our factory to other area due to relatively higher labor costs, we decided to stay here.",
+          options: ["moved", "moving", "move", "movement"],
+          answerIndex: 1,
+          translation: "상대적으로 높은 인건비 때문에 많은 컨설턴트가 공장을 다른 지역으로 이전하라고 제안했지만, 우리는 이곳에 남기로 결정했다.",
+          explanation: "suggest는 동명사를 목적어로 취하는 동사이므로 moving이 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Damon Joo enjoys spending time with his colleagues and ------- around the park during lunch break.",
+          options: ["walks", "walked", "walking", "to walk"],
+          answerIndex: 2,
+          translation: "Damon Joo는 점심시간에 동료들과 시간을 보내며 공원을 걷는 것을 즐긴다.",
+          explanation: "enjoys spending time with his colleagues and walking around the park처럼 동명사 병렬 구조이므로 walking이 정답입니다."
+        },
+        {
+          id: 106,
+          question: "The new energy efficiency plan is worth ------- in the long run.",
+          options: ["implement", "to implement", "implementing", "implemented"],
+          answerIndex: 2,
+          translation: "새로운 에너지 효율 계획은 장기적으로 실행할 가치가 있다.",
+          explanation: "'be worth + 명사/동명사(~할 가치가 있다)' 관용 표현이므로 implementing이 정답입니다."
+        },
+        {
+          id: 107,
+          question: "There is no use in ------- the decision now that the meeting is over.",
+          options: ["argue", "arguing", "to argue", "argued"],
+          answerIndex: 1,
+          translation: "회의가 끝났으니 이제 그 결정에 대해 논쟁해 봐야 소용없다.",
+          explanation: "'there is no use (in) + ~ing(~해도 소용없다)' 관용 표현이므로 arguing이 정답입니다."
+        },
+        {
+          id: 108,
+          question: "I appreciated his ------- the report for the entire team before the deadline.",
+          options: ["summarizing", "summary", "summarized", "to summarize"],
+          answerIndex: 0,
+          translation: "마감 전에 전체 팀을 위해 그가 보고서를 요약해 준 것에 감사했다.",
+          explanation: "appreciate의 목적어 자리이며 뒤에 목적어(the report)를 취하는 동명사 summarizing이 정답입니다(his는 의미상 주어)."
+        },
+        {
+          id: 109,
+          question: "We are all looking forward to ------- the new product line next month.",
+          options: ["launching", "launch", "be launched", "launched"],
+          answerIndex: 0,
+          translation: "우리는 모두 다음 달에 새 제품 라인을 출시하기를 고대하고 있다.",
+          explanation: "'look forward to + 명사/동명사(~을 고대하다)'에서 to는 전치사이므로 launching이 정답입니다."
+        },
+        {
+          id: 110,
+          question: "Local residents and the municipal government have been busy ------- for the Inchon Asian Game.",
+          options: ["to prepare", "prepared", "preparing", "prepare"],
+          answerIndex: 2,
+          translation: "지역 주민들과 시정부는 인천 아시안게임을 준비하느라 분주하다.",
+          explanation: "'be busy + ~ing(~하느라 바쁘다/분주하다)' 관용 표현이므로 preparing이 정답입니다."
+        },
+        {
+          id: 111,
+          question: "The HR department is considering ------- a revised benefits package for employees' healthier lives.",
+          options: ["introduce", "introducing", "to introduce", "introduction"],
+          answerIndex: 1,
+          translation: "인사부는 직원들의 더 건강한 삶을 위해 개정된 복리후생 패키지를 도입하는 것을 고려하고 있다.",
+          explanation: "consider는 동명사를 목적어로 취하는 동사이므로 introducing이 정답입니다."
+        },
+        {
+          id: 112,
+          question: "We at Fidelity Financial Consultancy look forward to ------- you do your business without financial difficulties.",
+          options: ["helping", "help", "helpful", "helped"],
+          answerIndex: 0,
+          translation: "Fidelity Financial Consultancy는 귀하가 재정적 어려움 없이 사업을 운영하시도록 돕게 되기를 기대합니다.",
+          explanation: "'look forward to + 명사/동명사' 구문에서 to는 전치사이므로 helping이 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Our specially trained consultants are good at ------- tailored solutions to any size of business owner.",
+          options: ["offer", "offering", "offered", "offers"],
+          answerIndex: 1,
+          translation: "특별 훈련을 받은 우리 컨설턴트들은 어떤 규모의 사업자에게도 맞춤형 해결책을 제공하는 데 능숙하다.",
+          explanation: "'be good at + 명사/동명사(~을 잘하다)' 구문이며 뒤에 목적어(tailored solutions)가 있으므로 offering이 정답입니다."
+        },
+        {
+          id: 114,
+          question: "The director stopped ------- instead distributed a printed summary.",
+          options: ["to speak", "speaking", "spoke", "speak"],
+          answerIndex: 1,
+          translation: "이사는 말하는 것을 멈추고 대신 인쇄된 요약본을 배포했다.",
+          explanation: "'하던 것을 멈추다'라는 의미일 때 stop은 동명사를 목적어로 취하므로 speaking이 정답입니다."
+        },
+        {
+          id: 115,
+          question: "We are grateful for ------- the deadline for the submission of the final report.",
+          options: ["extending", "extend", "to extend", "extended"],
+          answerIndex: 0,
+          translation: "최종 보고서 제출 마감 기한을 연장해 주신 것에 감사드립니다.",
+          explanation: "전치사 for 뒤에서 목적어(the deadline)를 취할 수 있는 동명사 extending이 정답입니다."
+        },
+        {
+          id: 116,
+          question: "The new staff member has difficulty ------- the complex operating procedures.",
+          options: ["to follow", "following", "follow", "follows"],
+          answerIndex: 1,
+          translation: "신입 직원은 복잡한 운영 절차를 따르는 데 어려움을 겪고 있다.",
+          explanation: "'have difficulty (in) + ~ing(~하는 데 어려움을 겪다)' 구문이므로 following이 정답입니다."
+        },
+        {
+          id: 117,
+          question: "You will have the option of ------- your subscription to our newspaper or not after a one-month free trial.",
+          options: ["renewed", "renewal", "renewing", "renew"],
+          answerIndex: 2,
+          translation: "1개월 무료 체험 후 신문 구독을 갱신할지 여부를 선택하실 수 있습니다.",
+          explanation: "전치사 of 뒤에서 목적어(your subscription)를 취할 수 있는 동명사 renewing이 정답입니다."
+        },
+        {
+          id: 118,
+          question: "Our staff at Seoul Tours will be devoted to ------- your business trip with a fast but meticulous plan.",
+          options: ["arrange", "arrangement", "arranging", "arrangements"],
+          answerIndex: 2,
+          translation: "서울투어 직원들은 신속하면서도 세심한 계획으로 귀하의 출장을 주선하는 데 최선을 다할 것입니다.",
+          explanation: "'be devoted to + 명사/동명사(~에 헌신하다)'에서 to는 전치사이므로 arranging이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "Allen's Jewelry Shop is in the process of ------- its security system to prevent any break-ins.",
+          options: ["improve", "improves", "improving", "to improve"],
+          answerIndex: 2,
+          translation: "Allen's Jewelry Shop은 침입을 막기 위해 보안 시스템을 개선하는 과정에 있다.",
+          explanation: "'be in the process of + ~ing(~하는 과정 중에 있다)' 구문이므로 improving이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "Application may be completed simply by ------- your resume and required documents.",
+          options: ["mail", "to mail", "mails", "mailing"],
+          answerIndex: 3,
+          translation: "지원은 이력서와 필수 서류를 우편으로 발송하기만 하면 완료될 수 있습니다.",
+          explanation: "전치사 by 뒤에서 목적어(your resume and required documents)를 취하는 동명사 mailing이 정답입니다."
+        },
+        {
+          id: 121,
+          question: "------- weekly progress reports takes up a significant portion of the manager's time.",
+          options: ["Review", "Reviewable", "Reviewing", "Reviewed"],
+          answerIndex: 2,
+          translation: "주간 진행 보고서를 검토하는 것은 매니저 시간의 상당 부분을 차지한다.",
+          explanation: "단수 동사 takes의 주어 자리이며 뒤에 목적어(weekly progress reports)를 취하는 동명사 Reviewing이 정답입니다."
+        },
+        {
+          id: 122,
+          question: "Upon ------- the final contract, the client immediately transferred the full payment.",
+          options: ["signing", "to sign", "sign", "signature"],
+          answerIndex: 0,
+          translation: "최종 계약서에 서명하자마자 고객은 즉시 전액을 송금했다.",
+          explanation: "'upon/on + ~ing(~하자마자)' 관용 표현이므로 signing이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The greatest mistake of the negotiation was ------- to state the key demands clearly.",
+          options: ["failing", "failed", "to fail", "failure"],
+          answerIndex: 0,
+          translation: "협상의 가장 큰 실수는 핵심 요구 사항을 명확히 밝히지 못한 것이었다.",
+          explanation: "주어 The greatest mistake를 설명하는 보어 자리이므로 동명사 failing이 정답입니다."
+        },
+        {
+          id: 124,
+          question: "The director apologized ------- not attending the meeting without prior notice.",
+          options: ["for", "that", "because", "since"],
+          answerIndex: 0,
+          translation: "이사는 사전 통지 없이 회의에 참석하지 못한 것에 대해 사과했다.",
+          explanation: "'apologize for + 명사/동명사(~에 대해 사과하다)' 구문이므로 for가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "The director suggested ------- mentoring programs to all employees.",
+          options: ["expand", "expansion", "to expand", "expanding"],
+          answerIndex: 3,
+          translation: "이사는 전 직원에게 멘토링 프로그램을 확대할 것을 제안했다.",
+          explanation: "suggest는 동명사를 목적어로 취하는 동사이므로 expanding이 정답입니다."
+        },
+        {
+          id: 126,
+          question: "------- recent industry trends is vital for making informed strategic decisions.",
+          options: ["Understanding", "Understandable", "Understand", "Understood"],
+          answerIndex: 0,
+          translation: "최근 산업 동향을 이해하는 것은 정보에 기반한 전략적 결정을 내리는 데 필수적이다.",
+          explanation: "단수 동사 is의 주어 자리이며 뒤에 목적어(recent industry trends)를 취하는 동명사 Understanding이 정답입니다."
+        },
+        {
+          id: 127,
+          question: "Do you mind ------- your presentation slides one more time for final review?",
+          options: ["to check", "checking", "check", "checked"],
+          answerIndex: 1,
+          translation: "최종 검토를 위해 프레젠테이션 슬라이드를 한 번 더 확인해 주시겠습니까?",
+          explanation: "mind는 동명사를 목적어로 취하는 동사이므로 checking이 정답입니다."
+        },
+        {
+          id: 128,
+          question: "There is no point in ------- the matter further since the contract has been signed.",
+          options: ["discuss", "to discuss", "discussing", "discussed"],
+          answerIndex: 2,
+          translation: "계약서에 서명했으므로 그 문제를 더 이상 논의해 봐야 소용없다.",
+          explanation: "'there is no point in + ~ing(~해도 소용없다)' 관용 표현이므로 discussing이 정답입니다."
+        },
+        {
+          id: 129,
+          question: "------- a positive work environment is essential for improving employee morale.",
+          options: ["Foster", "To fostering", "Fostering", "Fostered"],
+          answerIndex: 2,
+          translation: "긍정적인 근무 환경을 조성하는 것은 직원 사기를 높이는 데 필수적이다.",
+          explanation: "단수 동사 is의 주어 자리이며 뒤에 목적어(a positive work environment)를 취하는 동명사 Fostering이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "Mr. Jackson has been accustomed to ------- a night shift at a hospital.",
+          options: ["work", "workers", "working", "be worked"],
+          answerIndex: 2,
+          translation: "Jackson 씨는 병원에서 야간 근무를 하는 데 익숙해져 왔다.",
+          explanation: "'be accustomed to + 명사/동명사(~에 익숙하다)'에서 to는 전치사이므로 working이 정답입니다."
+        },
+        {
+          id: 131,
+          question: "After the long project, the team felt like ------- a well-deserved vacation.",
+          options: ["take", "to take", "taking", "took"],
+          answerIndex: 2,
+          translation: "긴 프로젝트를 마친 뒤 팀은 마땅히 누릴 만한 휴가를 떠나고 싶어 했다.",
+          explanation: "'feel like + ~ing(~하고 싶다)' 관용 표현이므로 taking이 정답입니다."
+        },
+        {
+          id: 132,
+          question: "We appreciate ------- the document to the correct department.",
+          options: ["forwarding", "forwards", "to forward", "forwarded"],
+          answerIndex: 0,
+          translation: "문서를 올바른 부서로 전달해 주셔서 감사합니다.",
+          explanation: "appreciate는 동명사를 목적어로 취하는 동사이므로 forwarding이 정답입니다."
+        },
+        {
+          id: 133,
+          question: "The board decided to keep ------- production for another quarter.",
+          options: ["to continue", "continuing", "continue", "continued"],
+          answerIndex: 1,
+          translation: "이사회는 한 분기 더 생산을 계속하기로 결정했다.",
+          explanation: "'keep + ~ing(계속해서 ~하다)' 구문이므로 continuing이 정답입니다."
+        },
+        {
+          id: 134,
+          question: "------- accurate data is impossible without proper collection methods.",
+          options: ["Obtain", "Obtainable", "Obtaining", "Obtained"],
+          answerIndex: 2,
+          translation: "적절한 수집 방법 없이는 정확한 데이터를 얻는 것이 불가능하다.",
+          explanation: "단수 동사 is의 주어 자리이며 뒤에 목적어(accurate data)를 취하는 동명사 Obtaining이 정답입니다."
+        },
+        {
+          id: 135,
+          question: "------- new product lines will be the team's main task this quarter.",
+          options: ["Launch", "Launched", "Launchable", "Launching"],
+          answerIndex: 3,
+          translation: "새로운 제품 라인을 출시하는 것이 이번 분기 팀의 주요 임무가 될 것이다.",
+          explanation: "주어 자리이며 뒤에 목적어(new product lines)를 취하는 동명사 Launching이 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The new regulation is aimed at ------- safety standards in the manufacturing sector.",
+          options: ["raising", "to raise", "raise", "raised"],
+          answerIndex: 0,
+          translation: "새 규정은 제조 부문의 안전 기준을 높이는 것을 목표로 한다.",
+          explanation: "'be aimed at + 명사/동명사(~을 목표로 하다)'에서 at은 전치사이므로 raising이 정답입니다."
+        },
+        {
+          id: 137,
+          question: "The company must obtain official approval before ------- confidential data.",
+          options: ["releasing", "release", "released", "releasable"],
+          answerIndex: 0,
+          translation: "회사는 기밀 데이터를 공개하기 전에 공식 승인을 받아야 한다.",
+          explanation: "전치사 before 뒤에서 목적어(confidential data)를 취할 수 있는 동명사 releasing이 정답입니다."
+        },
+        {
+          id: 138,
+          question: "The company delayed ------- the new software due to technical glitches.",
+          options: ["implementing", "to implement", "implementation", "implements"],
+          answerIndex: 0,
+          translation: "회사는 기술적 결함 때문에 새 소프트웨어 도입을 연기했다.",
+          explanation: "delay는 동명사를 목적어로 취하는 동사이므로 implementing이 정답입니다."
+        },
+        {
+          id: 139,
+          question: "We are committed to ------- the highest standards of customer service in the industry.",
+          options: ["maintain", "maintained", "maintaining", "maintenance"],
+          answerIndex: 2,
+          translation: "저희는 업계 최고 수준의 고객 서비스를 유지하는 데 전념하고 있습니다.",
+          explanation: "'be committed to + 명사/동명사(~에 전념하다)'에서 to는 전치사이므로 maintaining이 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The regulatory body prohibits local banks from ------- in highly speculative investments.",
+          options: ["participation", "participates", "participating", "participated"],
+          answerIndex: 2,
+          translation: "규제 당국은 지방 은행들이 고도로 투기적인 투자에 참여하는 것을 금지한다.",
+          explanation: "'prohibit A from + ~ing(A가 ~하는 것을 금지하다)' 구문이므로 participating이 정답입니다."
+        }
+      ]
+    };
+
+    let currentLevel = "easy";
+    const state = {
+      easy: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initLevelState(level) {
+      questionSets[level].forEach((q) => {
+        state[level][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(level, qId) {
+      state[level][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentLevel];
+    }
+
+    function getLevelState() {
+      return state[currentLevel];
+    }
+
+    function switchLevel(level) {
+      currentLevel = level;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      document.getElementById("btnEasy").classList.toggle("active", level === "easy");
+      document.getElementById("btnHard").classList.toggle("active", level === "hard");
+      document.getElementById("lectureTag").textContent =
+        level === "easy"
+          ? "TPA 12 · 동명사 (기본 A · 총 41문항)"
+          : "TPA 12 · 동명사 (고난도 B · 총 40문항)";
+
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if (st.status === "correct" && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+            if (st.status === "wrong" && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      const hardChallengeBox = document.getElementById("hardChallengeBox");
+      hardChallengeBox.style.display = currentLevel === "easy" ? "block" : "none";
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    function handleHardYes() {
+      switchLevel("hard");
+    }
+
+    initLevelState("easy");
+    initLevelState("hard");
+    visibleQuestionIds = questionSets.easy.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

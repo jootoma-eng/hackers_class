@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영어 문법 정복(토익 Part 5,6) - English Easy~!</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 20px 20px 64px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 바 (좌: 메인으로 / 우: English Easy~!) */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+
+    .home-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      transform: translateX(-2px);
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    /* 상단 헤더 및 강사 프로필 카드 */
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .instructor-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mini-photo {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(30, 58, 138, 0.22);
+      border: 4px solid #ffffff;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .instructor-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      background-color: var(--primary-light);
+      padding: 6px 16px;
+      border-radius: 999px;
+      letter-spacing: -0.01em;
+    }
+
+    .main-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .sub-description {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+    }
+
+    .sub-description p {
+      margin: 2px 0;
+      font-weight: 500;
+    }
+
+    .sub-description .no-line {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    .sub-description .yes-line {
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    /* 섹션 헤더 */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding: 0 4px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .section-count {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      background-color: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* 20개 강의 목록 그리드 */
+    .lecture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .lecture-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .lecture-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .lecture-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .lecture-code {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .lecture-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .lecture-arrow {
+      font-size: 1.1rem;
+      color: #9ca3af;
+      font-weight: 700;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+
+    .lecture-card:hover .lecture-arrow {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .top-nav {
+        padding: 10px 14px;
+      }
+
+      .site-brand {
+        font-size: 1rem;
+      }
+
+      .hero-card {
+        padding: 28px 18px;
+      }
+
+      .sub-description {
+        font-size: 0.95rem;
+        padding: 14px 16px;
+      }
+
+      .lecture-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- 상단 내비게이션 바 -->
+    <header class="top-nav">
+      <a class="home-btn" href="../index.html">← 메인으로</a>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 상단 헤더 & 강사 프로필 -->
+    <section class="hero-card" aria-label="강의 소개">
+      <div class="instructor-badge">
+        <div class="instructor-mini">
+          <div class="mini-photo" title="영어 Master 주대명">
+            <img
+              src="remove_background_2.png"
+              alt="영어 Master 주대명"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            />
+            <svg style="display:none;" width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="32" cy="22" r="11" fill="#FFFFFF" fill-opacity="0.95"/>
+              <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF" fill-opacity="0.95"/>
+            </svg>
+          </div>
+          <span class="instructor-name">영어 Master 주대명</span>
+        </div>
+      </div>
+
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+
+      <div class="sub-description">
+        <p>문법을 위한 문법은 <span class="no-line">NO!</span></p>
+        <p>문장 구조 파악과 맥락을 바탕으로 한 문법 학습 <span class="yes-line">YES!</span></p>
+        <p>구문 분석으로 독해력이 좋아하지는 문법 학습 <span class="yes-line">YES!</span></p>
+      </div>
+    </section>
+
+    <!-- 20개 강의 목록 -->
+    <section aria-label="강의 목록">
+      <div class="section-header">
+        <h2 class="section-title">전체 커리큘럼</h2>
+        <span class="section-count">총 20강</span>
+      </div>
+
+      <div class="lecture-grid">
+        <a class="lecture-card" href="TPA practice web/TPA_1_문장구조.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 1</span>
+            <span class="lecture-name">문장구조</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_2_동사형태구조.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 2</span>
+            <span class="lecture-name">동사형태구조</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_3_수일치.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 3</span>
+            <span class="lecture-name">수 일치</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_4_태.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 4</span>
+            <span class="lecture-name">태</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_5_시제.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 5</span>
+            <span class="lecture-name">시제</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_6_등위명사절.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 6</span>
+            <span class="lecture-name">등위 명사절</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_7_관계절.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 7</span>
+            <span class="lecture-name">관계절</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_8_부사절.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 8</span>
+            <span class="lecture-name">부사절</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_9_전치사1.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 9</span>
+            <span class="lecture-name">전치사(1)</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_10_전치사2.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 10</span>
+            <span class="lecture-name">전치사(2)</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_11_to부정사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 11</span>
+            <span class="lecture-name">to 부정사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_12_동명사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 12</span>
+            <span class="lecture-name">동명사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_13_분사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 13</span>
+            <span class="lecture-name">분사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_14_명사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 14</span>
+            <span class="lecture-name">명사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_15_대명사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 15</span>
+            <span class="lecture-name">대명사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_16_형용사.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 16</span>
+            <span class="lecture-name">형용사</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_17_부사1.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 17</span>
+            <span class="lecture-name">부사(1)</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_18_부사2.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 18</span>
+            <span class="lecture-name">부사(2)</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_19_비교.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 19</span>
+            <span class="lecture-name">비교</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+
+        <a class="lecture-card" href="TPA practice web/TPA_20_병치도치생략.html">
+          <div class="lecture-info">
+            <span class="lecture-code">TPA 20</span>
+            <span class="lecture-name">병치도치생략</span>
+          </div>
+          <span class="lecture-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

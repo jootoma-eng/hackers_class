@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 18 부사 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 난이도 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .level-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .level-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .level-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .hard-challenge-box {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hard-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hard-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .yes-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .yes-btn:hover {
+      background-color: var(--primary);
+    }
+
+    .no-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .no-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 18 · 부사 (기본 C · 총 39문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 난이도 전환 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="level-switch">
+        <button type="button" id="btnEasy" class="level-btn active" onclick="switchLevel('easy')">기본 (C)</button>
+        <button type="button" id="btnHard" class="level-btn" onclick="switchLevel('hard')">고난도 (D)</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 39</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 고난도 도전 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/39)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/39)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div id="hardChallengeBox" class="hard-challenge-box">
+        <p class="hard-question">더 어려운 문제에 도전하시겠습니까?</p>
+        <div class="hard-btns">
+          <button type="button" class="yes-btn" onclick="handleHardYes()">yes</button>
+          <a class="no-btn" href="index.html">no</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questionSets = {
+      easy: [
+        {
+          id: 101,
+          question: "Green Clean Repair has been providing reliable service to local customers for ------- 50 years.",
+          options: ["neared", "nearest", "nearby", "nearly"],
+          answerIndex: 3,
+          translation: "그린 클린 리페어는 약 50년 동안 지역 고객들에게 신뢰할 수 있는 서비스를 제공해 왔다.",
+          explanation: "수치 표현(50 years) 앞에서 '거의, 약'이라는 의미로 수식하는 부사 nearly가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "There is no way to thank you for making the award dinner ------- a success.",
+          options: ["so", "much", "such", "most"],
+          answerIndex: 2,
+          translation: "시상식 만찬을 그토록 성공적으로 만들어 주신 것에 대해 감사할 길이 없습니다.",
+          explanation: "부정관사 a와 명사 a success를 함께 강조할 수 있는 such가 정답입니다."
+        },
+        {
+          id: 103,
+          question: "The procedures for the travel reimbursement were ------- complicated that many department managers asked the company to revise them.",
+          options: ["well", "very", "too", "so"],
+          answerIndex: 3,
+          translation: "출장비 정산 절차가 너무 복잡해서 많은 부서장이 회사에 개정을 요청했다.",
+          explanation: "'so + 형용사(complicated) + that S+V(너무 ~해서 ~하다)' 구문을 이루는 부사 so가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "Mr. Wang will be reorganizing his schedule because he has ------- many appointments next week.",
+          options: ["so", "much", "highly", "mostly"],
+          answerIndex: 0,
+          translation: "왕 씨는 다음 주에 너무 많은 약속이 있어서 일정을 재조정할 것이다.",
+          explanation: "수량 형용사 many를 강조하는 부사 so('so many + 복수명사')가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Ms. Lee has ------- begun working on resolving the problems with the client.",
+          options: ["tried", "quick", "been", "already"],
+          answerIndex: 3,
+          translation: "이 씨는 이미 고객과의 문제를 해결하는 작업에 착수했다.",
+          explanation: "현재완료(has begun) 사이에서 '이미'라는 의미를 더하는 부사 already가 정답입니다."
+        },
+        {
+          id: 106,
+          question: "Management has ------- to determine which of you will be sent to the event.",
+          options: ["not", "finally", "yet", "already"],
+          answerIndex: 2,
+          translation: "경영진은 여러분 중 누가 행사에 파견될지 아직 결정하지 못했다.",
+          explanation: "'have yet to + 동사원형(아직 ~하지 않았다)' 관용 표현을 이루는 부사 yet이 정답입니다."
+        },
+        {
+          id: 107,
+          question: "As a newly launched item, Fruit-fruit Juice's reputation among customers is not ------- established.",
+          options: ["so", "still", "yet", "but"],
+          answerIndex: 2,
+          translation: "새로 출시된 제품인 프루트프루트 주스의 고객 평판은 아직 자리 잡지 않았다.",
+          explanation: "부정어 not과 함께 쓰여 '아직 ~않다(not yet)'를 만드는 부사 yet이 정답입니다."
+        },
+        {
+          id: 108,
+          question: "Representatives from Tiara Motors have ------- met with contractors to see if there is any difficulty or predicament.",
+          options: ["recently", "yet", "soon", "shortly"],
+          answerIndex: 0,
+          translation: "티아라 모터스 대표들은 어려움이나 난관이 있는지 파악하기 위해 최근 계약업체들과 만났다.",
+          explanation: "현재완료 시제(have met)와 잘 어울리며 '최근에'를 나타내는 부사 recently가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "It will take ------- 30 minutes to drive from the airport to the Bong Conference Center.",
+          options: ["enough", "somewhat", "exceedingly", "approximately"],
+          answerIndex: 3,
+          translation: "공항에서 봉 컨퍼런스 센터까지 차로 약 30분이 걸릴 것이다.",
+          explanation: "수치 표현(30 minutes) 앞에서 '대략, 약'을 나타내는 부사 approximately가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "For security reasons, effective next month, ------- team managers can access computer databases.",
+          options: ["only", "easily", "also", "merely"],
+          answerIndex: 0,
+          translation: "보안상의 이유로 다음 달부터 팀 매니저만 컴퓨터 데이터베이스에 접근할 수 있다.",
+          explanation: "접근 권한을 특정 대상으로 한정하는 '오직, ~만' 뜻의 부사 only가 정답입니다."
+        },
+        {
+          id: 111,
+          question: "When taking a tour of the museum and art gallery, please speak ------- not to distract other tourists nearby.",
+          options: ["quiet", "quietly", "quietest", "quieted"],
+          answerIndex: 1,
+          translation: "박물관과 미술관을 관람할 때 주변 다른 관광객들의 주의를 흐트러뜨리지 않도록 조용히 말씀해 주십시오.",
+          explanation: "자동사 speak를 수식하는 부사 자리이므로 '조용히' 뜻의 quietly가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "After only six months of introducing new incentive programs, the atmosphere at Global Insurance Group had ------- changed for the better.",
+          options: ["signified", "signification", "significantly", "significant"],
+          answerIndex: 2,
+          translation: "새 인센티브 제도를 도입한 지 불과 6개월 만에 글로벌 인슈어런스 그룹의 분위기는 크게 호전되었다.",
+          explanation: "had와 changed 사이 부사 자리이며 change와 잘 어울리는 significantly가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Sales of Morales' latest book have ------- increased since the publisher has started actively promoting it.",
+          options: ["consideration", "considerable", "considering", "considerably"],
+          answerIndex: 3,
+          translation: "출판사가 적극적으로 홍보를 시작한 이후 모랄레스의 신간 판매량이 상당히 증가했다.",
+          explanation: "have와 increased 사이 부사 자리이며 increase와 잘 어울리는 considerably가 정답입니다."
+        },
+        {
+          id: 114,
+          question: "As a result of the summer sports events, sales at convenience stores have ------- increased.",
+          options: ["extremely", "retroactively", "adversely", "dramatically"],
+          answerIndex: 3,
+          translation: "여름 스포츠 행사의 결과로 편의점 매출이 급격히 증가했다.",
+          explanation: "매출 증가 폭을 나타내는 increase와 어울리는 부사 dramatically가 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Ms. Clark read the research report from our laboratory ------- and found two errors that need further investigation.",
+          options: ["thoroughly", "considerably", "informatively", "usefully"],
+          answerIndex: 0,
+          translation: "클라크 씨는 우리 연구실의 연구 보고서를 꼼꼼히 읽고 추가 조사가 필요한 오류 두 개를 찾아냈다.",
+          explanation: "동사 read와 어울려 '꼼꼼히, 철저히'를 나타내는 부사 thoroughly가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "Prices of organic produce are ------- higher than those of conventional goods.",
+          options: ["slight", "slightly", "slighting", "slighted"],
+          answerIndex: 1,
+          translation: "유기농 농산물 가격은 일반 제품 가격보다 약간 더 높다.",
+          explanation: "비교급 형용사 higher를 수식하는 부사 자리이므로 '약간' 뜻의 slightly가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The supervisor is ------- reviewing the applications to select the most qualified candidates.",
+          options: ["recently", "prominently", "formerly", "currently"],
+          answerIndex: 3,
+          translation: "관리자는 가장 적격인 후보자를 선발하기 위해 현재 지원서를 검토하고 있다.",
+          explanation: "현재진행형(is reviewing)과 함께 쓰여 '현재'를 나타내는 부사 currently가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The online store ------- sells organic skin care products made from natural ingredients.",
+          options: ["exclusive", "exclusively", "exclusion", "exclusivity"],
+          answerIndex: 1,
+          translation: "그 온라인 매장은 천연 성분으로 만든 유기농 스킨케어 제품만 독점적으로 판매한다.",
+          explanation: "동사 sells를 수식하는 부사 자리이므로 '독점적으로, 오로지' 뜻의 exclusively가 정답입니다."
+        },
+        {
+          id: 119,
+          question: "Because the weather was ------- cold, the outdoor concert was postponed.",
+          options: ["extreme", "extremely", "extremes", "extremity"],
+          answerIndex: 1,
+          translation: "날씨가 극도로 추웠기 때문에 야외 콘서트가 연기되었다.",
+          explanation: "형용사 cold를 수식하는 부사 자리이므로 '극도로' 뜻의 extremely가 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The CEO consistently ------- the importance of innovation to maintain a competitive edge.",
+          options: ["emphasizing", "emphasizes", "emphasis", "emphatic"],
+          answerIndex: 1,
+          translation: "CEO는 경쟁 우위를 유지하기 위해 혁신의 중요성을 일관되게 강조한다.",
+          explanation: "단수 주어 The CEO 뒤 본동사 자리이므로 단수 동사 emphasizes가 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The project manager will ------- monitor the progress of the task to ensure no deadlines are missed.",
+          options: ["closely", "nearly", "highly", "hardly"],
+          answerIndex: 0,
+          translation: "프로젝트 매니저는 마감 기한을 놓치지 않도록 업무 진행 상황을 면밀히 관찰할 것이다.",
+          explanation: "동사 monitor와 어울려 '면밀히'를 나타내는 부사 closely가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "Thanks to your hard work, the first overseas branch in Canada is expected to open within ------- two months.",
+          options: ["approximately", "approximate", "approximating", "approximation"],
+          answerIndex: 0,
+          translation: "여러분의 노고 덕분에 캐나다 첫 해외 지점이 약 두 달 이내에 문을 열 것으로 예상된다.",
+          explanation: "수치 표현(two months) 앞에서 '대략, 약'을 나타내는 부사 approximately가 정답입니다."
+        },
+        {
+          id: 123,
+          question: "Mr. Lee is ------- responsible for conducting the merger with Lakeland Inc.",
+          options: ["large", "larger", "largest", "largely"],
+          answerIndex: 3,
+          translation: "이 씨는 레이크랜드 사와의 합병을 진행하는 주된 책임을 맡고 있다.",
+          explanation: "형용사 responsible 앞에서 '대체로, 주로' 뜻을 나타내는 부사 largely가 정답입니다."
+        },
+        {
+          id: 124,
+          question: "As public relations manager, Catherine Choi has excellent oral and written skills to communicate ------- with a variety of audiences.",
+          options: ["effect", "effectively", "effective", "effectiveness"],
+          answerIndex: 1,
+          translation: "홍보 매니저로서 캐서린 최는 다양한 청중과 효과적으로 소통할 수 있는 뛰어난 구두 및 서면 역량을 갖추고 있다.",
+          explanation: "자동사 communicate를 수식하는 부사 자리이므로 effectively가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "The hotel is ------- located near the city's main tourist attractions.",
+          options: ["convenient", "conveniently", "convenience", "convening"],
+          answerIndex: 1,
+          translation: "그 호텔은 도시의 주요 관광 명소 인근에 편리하게 위치해 있다.",
+          explanation: "과거분사 located와 함께 쓰여 '편리하게 위치한' 뜻을 만드는 부사 conveniently가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "The technical issue was ------- resolved by the IT support team within an hour.",
+          options: ["promptly", "eventually", "mutually", "potentially"],
+          answerIndex: 0,
+          translation: "기술적 문제는 한 시간 이내에 IT 지원팀에 의해 즉각적으로 해결되었다.",
+          explanation: "한 시간 이내 해결 맥락과 어울리는 '즉각적으로' 뜻의 부사 promptly가 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The CEO ------- suggested that the company should focus more on sustainable energy.",
+          options: ["strongly", "nearly", "sharply", "rarely"],
+          answerIndex: 0,
+          translation: "CEO는 회사가 지속 가능한 에너지에 더 집중해야 한다고 강력히 제안했다.",
+          explanation: "제안(suggested)을 강조할 때 어울리는 부사 strongly가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "Please respond ------- to the client's request to maintain a good professional relationship.",
+          options: ["prompt", "promptly", "promptness", "prompted"],
+          answerIndex: 1,
+          translation: "좋은 업무 관계를 유지하기 위해 고객의 요청에 즉각적으로 응답해 주십시오.",
+          explanation: "동사 respond를 수식하는 부사 자리이므로 '즉각적으로' 뜻의 promptly가 정답입니다."
+        },
+        {
+          id: 129,
+          question: "The new policy affects all part-time staff members -------.",
+          options: ["direct", "directly", "direction", "director"],
+          answerIndex: 1,
+          translation: "새 정책은 모든 시간제 직원들에게 직접적으로 영향을 미친다.",
+          explanation: "동사 affects를 수식하는 부사 자리이므로 directly가 정답입니다."
+        },
+        {
+          id: 130,
+          question: "The budget was ------- distributed among the various departments.",
+          options: ["equalized", "equal", "equality", "equally"],
+          answerIndex: 3,
+          translation: "예산이 여러 부서에 균등하게 배분되었다.",
+          explanation: "과거분사 distributed를 수식하는 부사 자리이므로 '균등하게' 뜻의 equally가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "To ensure the safety of our data, you must update your password -------.",
+          options: ["regular", "regularly", "regularity", "regulation"],
+          answerIndex: 1,
+          translation: "데이터 보안을 위해 비밀번호를 정기적으로 업데이트해야 한다.",
+          explanation: "동사 update를 수식하며 반복 주기를 나타내는 부사 regularly가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "Working conditions have been better in ------- all industries.",
+          options: ["most", "mostly", "almost", "the most"],
+          answerIndex: 2,
+          translation: "근무 여건은 거의 모든 산업에서 개선되어 왔다.",
+          explanation: "all 앞에 쓰여 '거의 모든'이라는 의미를 만드는 부사 almost가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "This project is ------- more difficult than the previous one.",
+          options: ["much", "many", "such", "very"],
+          answerIndex: 0,
+          translation: "이 프로젝트는 이전 프로젝트보다 훨씬 더 어렵다.",
+          explanation: "비교급 more difficult를 강조할 수 있는 부사 much가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "It will take us ------- 2 hours to fix the copier.",
+          options: ["approximate", "approximately", "approximation", "proximity"],
+          answerIndex: 1,
+          translation: "복사기를 수리하는 데 약 2시간 정도가 걸릴 것이다.",
+          explanation: "수치 표현(2 hours) 앞에서 '대략, 약'을 나타내는 부사 approximately가 정답입니다."
+        },
+        {
+          id: 135,
+          question: "Profits have increased ------- since the company implemented the new cost-cutting measures.",
+          options: ["dramatic", "drama", "dramatically", "dramatize"],
+          answerIndex: 2,
+          translation: "회사가 새 비용 절감 조치를 시행한 이후 수익이 급격히 증가했다.",
+          explanation: "동사 increased를 수식하는 부사 자리이며 증가 폭을 강조하는 dramatically가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The fitness center is ------- located on the third floor of the Sky Tower building.",
+          options: ["convenience", "convenient", "conveniences", "conveniently"],
+          answerIndex: 2,
+          translation: "그 피트니스 센터는 스카이 타워 빌딩 3층에 편리하게 위치해 있다.",
+          explanation: "'be + 부사 + located' 구조에서 '편리하게 위치한' 뜻을 완성하는 부사 conveniently가 정답입니다."
+        },
+        {
+          id: 137,
+          question: "The sales revenue increased ------- after the new product was launched last month.",
+          options: ["significantly", "relatively", "eventually", "lately"],
+          answerIndex: 0,
+          translation: "지난달 신제품 출시 이후 매출 수익이 상당히 증가했다.",
+          explanation: "증가(increased)를 강조할 때 자주 쓰이는 부사 significantly가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "Entrance to the research laboratory is permitted ------- to authorized personnel.",
+          options: ["only", "even", "yet", "still"],
+          answerIndex: 0,
+          translation: "연구소 출입은 허가된 인원에게만 허용된다.",
+          explanation: "허용 대상을 특정하여 강조하는 '오직, ~만' 뜻의 부사 only가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "This new engine model is ------- as efficient as the previous one but uses less fuel.",
+          options: ["just", "even", "such", "so"],
+          answerIndex: 0,
+          translation: "이 신형 엔진 모델은 이전 모델만큼이나 효율적이지만 연료는 더 적게 소모한다.",
+          explanation: "원급 비교(as efficient as) 앞에서 '~만큼이나, 딱 그만큼'을 강조하는 부사 just가 정답입니다."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "The price of computer chips plunged ------- faster than most experts had predicted.",
+          options: ["more", "most", "much", "many"],
+          answerIndex: 2,
+          translation: "컴퓨터 칩 가격이 대부분 전문가의 예상보다 훨씬 더 빠르게 급락했다.",
+          explanation: "비교급 부사 faster를 강조할 수 있는 부사 much가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "This year's annual report should be ------- more helpful than last year's.",
+          options: ["too", "such", "very", "much"],
+          answerIndex: 3,
+          translation: "올해 연례 보고서는 작년 것보다 훨씬 더 유용할 것이다.",
+          explanation: "비교급 more helpful을 강조하는 비교급 강조 부사 much가 정답입니다."
+        },
+        {
+          id: 103,
+          question: "Based on last year's financial report, the company has been ------- concerned with short-term profits.",
+          options: ["excess", "excessive", "excessively", "exceeded"],
+          answerIndex: 2,
+          translation: "작년 재무 보고서에 따르면 회사는 단기 이익에 과도하게 치중해 왔다.",
+          explanation: "형용사 concerned를 수식하는 부사 자리이므로 '과도하게, 지나치게' 뜻의 excessively가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "The last two weeks of April are ------- busy for accountants.",
+          options: ["particularly", "slowly", "abruptly", "lately"],
+          answerIndex: 0,
+          translation: "4월 마지막 2주는 회계사들에게 특히 바쁘다.",
+          explanation: "형용사 busy를 수식하며 강조하는 부사 particularly('특히')가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "The board meeting will begin ------- at 9:00 AM, so please arrive on time.",
+          options: ["precisely", "closely", "clearly", "nearly"],
+          answerIndex: 0,
+          translation: "이사회는 오전 9시 정각에 시작되니 제시간에 도착해 주십시오.",
+          explanation: "정확한 시각(at 9:00 AM)을 강조할 때 쓰는 부사 precisely('정확히, 정각에')가 정답입니다."
+        },
+        {
+          id: 106,
+          question: "The board of directors ------- appointed Mr. Martin to the position of Financial Director.",
+          options: ["formal", "formally", "formality", "formalize"],
+          answerIndex: 1,
+          translation: "이사회는 마틴 씨를 재무이사로 공식 임명했다.",
+          explanation: "동사 appointed를 수식하는 부사 자리이므로 '공식적으로' 뜻의 formally가 정답입니다."
+        },
+        {
+          id: 107,
+          question: "HK Automotive Group is ------- recalling its defective model of LK240 through all dealer shops in the country.",
+          options: ["voluntary", "volunteer", "voluntarily", "volunteering"],
+          answerIndex: 2,
+          translation: "HK 오토모티브 그룹은 전국 모든 대리점을 통해 결함 모델 LK240을 자발적으로 리콜하고 있다.",
+          explanation: "is와 recalling 사이 부사 자리이므로 '자발적으로' 뜻의 voluntarily가 정답입니다."
+        },
+        {
+          id: 108,
+          question: "If the new model is successful, TG Motors will become the largest company in the country running ------- on commercial vehicles.",
+          options: ["exclusive", "excluding", "exclusively", "exclusion"],
+          answerIndex: 2,
+          translation: "신모델이 성공하면 TG 모터스는 상용차만 전문으로 운용하는 국내 최대 기업이 될 것이다.",
+          explanation: "동사 running을 수식하는 부사 자리이므로 '독점적으로, 전적으로' 뜻의 exclusively가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The event organizers will need ------- 25 minutes to rearrange the tables and seats for the official dinner after the conference.",
+          options: ["approximately", "briefly", "rapidly", "unpredictably"],
+          answerIndex: 0,
+          translation: "행사 주최측은 컨퍼런스 후 공식 만찬을 위해 테이블과 좌석을 재배치하는 데 약 25분이 필요할 것이다.",
+          explanation: "수치 표현(25 minutes) 앞에서 '대략, 약'을 나타내는 부사 approximately가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "The book's sales are expected to reach their initial estimate ------- a few months after the release.",
+          options: ["just", "when", "so", "since"],
+          answerIndex: 0,
+          translation: "그 책의 판매량은 출시 후 불과 몇 달 만에 초기 예상치에 도달할 것으로 기대된다.",
+          explanation: "시간 부사구(a few months after the release)를 강조할 수 있는 부사 just('불과, 단지')가 정답입니다."
+        },
+        {
+          id: 111,
+          question: "The newly released action movie was ------- reviewed by most critics.",
+          options: ["positive", "positively", "positivity", "positiveness"],
+          answerIndex: 1,
+          translation: "새로 개봉한 액션 영화는 대부분의 비평가로부터 긍정적으로 평가받았다.",
+          explanation: "수동태 was reviewed 사이에서 과거분사를 수식하는 부사 positively가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "------- $2 million has been put in for the construction project of the headquarters.",
+          options: ["Over", "Higher", "Much", "More"],
+          answerIndex: 0,
+          translation: "본사 건설 프로젝트에 200만 달러 이상이 투입되었다.",
+          explanation: "금액·수치 표현 앞에서 '~이 넘는'이라는 의미로 쓰이는 부사 Over가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Keynote speaker Ana Escudero will address the banquet attendees ------- after dessert is served.",
+          options: ["shorten", "shorter", "short", "shortly"],
+          answerIndex: 3,
+          translation: "기조연설자 아나 에스쿠데로는 디저트가 제공된 직후 연회 참석자들에게 연설할 것이다.",
+          explanation: "'shortly after(~한 직후)' 관용 표현을 이루는 부사 shortly가 정답입니다."
+        },
+        {
+          id: 114,
+          question: "To make the most of our product, first, rinse and dry the item ------- after you use it.",
+          options: ["gradually", "periodically", "immediately", "suddenly"],
+          answerIndex: 2,
+          translation: "제품을 최대한 잘 활용하려면 먼저 사용한 직후 물로 헹구고 말리십시오.",
+          explanation: "after와 함께 쓰여 '바로 직후에'라는 의미를 만드는 부사 immediately가 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Intask Electronics has manufactured quality laboratory products for ------- forty years.",
+          options: ["beside", "over", "during", "since"],
+          answerIndex: 1,
+          translation: "인태스크 일렉트로닉스는 40년 넘게 고품질 실험실 제품을 제조해 왔다.",
+          explanation: "기간 수치 표현(forty years) 앞에서 '~이 넘는' 뜻을 나타내는 부사 over가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "The manager was ------- disappointed with the poor sales performance this quarter.",
+          options: ["deeply", "highly", "strongly", "greatly"],
+          answerIndex: 0,
+          translation: "매니저는 이번 분기 저조한 매출 실적에 깊이 실망했다.",
+          explanation: "감정 형용사 disappointed를 강조할 때 자주 쓰이는 부사 deeply가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The results of the latest customer satisfaction survey were ------- impressive.",
+          options: ["extremely", "considerably", "hardly", "lately"],
+          answerIndex: 0,
+          translation: "최근 고객 만족도 조사 결과는 극도로 인상적이었다.",
+          explanation: "형용사 impressive를 강조하는 부사 extremely('극도로, 매우')가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The actual number of participants was ------- above the event organizer's expectations.",
+          options: ["well", "very", "so", "such"],
+          answerIndex: 0,
+          translation: "실제 참가자 수는 행사 주최측의 예상을 훨씬 웃돌았다.",
+          explanation: "전치사구 above ~ 앞에서 '훨씬'을 강조하는 부사 well('well above')이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The team managed to complete the project on time, ------- with limited resources.",
+          options: ["even", "simply", "so", "quite"],
+          answerIndex: 0,
+          translation: "그 팀은 제한된 자원만 있었음에도 불구하고 프로젝트를 제시간에 마쳐냈다.",
+          explanation: "예상하기 힘든 조건·상황을 강조하는 '~조차도, 심지어' 뜻의 부사 even이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "This textbook is ------- recommended for students preparing for the advanced level exam.",
+          options: ["highly", "deeply", "long", "much"],
+          answerIndex: 0,
+          translation: "이 교재는 상급 시험을 준비하는 학생들에게 매우 권장된다.",
+          explanation: "recommended와 어울려 '매우 권장되는' 뜻을 만드는 부사 highly가 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The outdoor event has been ------- scheduled for next Saturday, depending on the weather.",
+          options: ["tentatively", "permanently", "accurately", "frequently"],
+          answerIndex: 0,
+          translation: "야외 행사는 날씨에 따라 다음 주 토요일로 잠정 예정되었다.",
+          explanation: "날씨 변수에 따라 확정되지 않은 상태를 나타내는 부사 tentatively('잠정적으로')가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The software update was ------- designed to improve the security features of the system.",
+          options: ["primarily", "vaguely", "reluctantly", "slightly"],
+          answerIndex: 0,
+          translation: "그 소프트웨어 업데이트는 주로 시스템의 보안 기능을 개선하기 위해 설계되었다.",
+          explanation: "주된 설계 목적을 나타내는 부사 primarily('주로, 본래')가 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The new fitness center is ------- available to the residents of the Green Valley complex.",
+          options: ["occasionally", "exclusively", "accidentally", "initially"],
+          answerIndex: 1,
+          translation: "새 피트니스 센터는 그린 밸리 단지 거주자들에게만 독점적으로 이용 가능하다.",
+          explanation: "특정 거주자 집단으로 이용 대상을 한정하는 부사 exclusively('독점적으로, 오로지')가 정답입니다."
+        },
+        {
+          id: 124,
+          question: "The production costs for the new prototype were ------- lower than the research team had originally expected.",
+          options: ["slight", "slightly", "slighting", "slighted"],
+          answerIndex: 1,
+          translation: "새 시제품의 생산 비용은 연구팀이 당초 예상했던 것보다 약간 더 낮았다.",
+          explanation: "비교급 lower를 수식하는 부사 자리이므로 '약간, 조금' 뜻의 slightly가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "The upcoming merger has been ------- approved by the board of directors.",
+          options: ["unanimously", "extremely", "relatively", "previously"],
+          answerIndex: 0,
+          translation: "다가오는 합병안은 이사회에 의해 만장일치로 승인되었다.",
+          explanation: "이사회 승인 방식을 나타내는 부사 unanimously('만장일치로')가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "The heavy rain will ------- affect the construction schedule of the new bridge.",
+          options: ["adverse", "adversely", "adversity", "adverseness"],
+          answerIndex: 1,
+          translation: "폭우가 새 교량 건설 일정에 불리한 영향을 미칠 것이다.",
+          explanation: "동사 affect를 수식하는 부사 자리이며 'adversely affect' 콜로케이션을 이루는 adversely가 정답입니다."
+        },
+        {
+          id: 127,
+          question: "Both parties have reached a ------- beneficial agreement after long negotiations.",
+          options: ["mutual", "mutually", "mutuality", "mutualization"],
+          answerIndex: 1,
+          translation: "양측은 오랜 협상 끝에 상호 유익한 합의에 도달했다.",
+          explanation: "형용사 beneficial을 수식하는 부사 자리이며 'mutually beneficial' 표현을 이루는 mutually가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "The conference was attended by ------- 500 professionals from various industries.",
+          options: ["approximate", "approximation", "approximately", "proximately"],
+          answerIndex: 2,
+          translation: "그 컨퍼런스에는 다양한 산업 분야의 전문가 약 500명이 참석했다.",
+          explanation: "숫자 500 앞에서 '대략, 약'을 나타내는 부사 approximately가 정답입니다."
+        },
+        {
+          id: 129,
+          question: "The price of the software was ------- higher than what most customers expected.",
+          options: ["signify", "significant", "significantly", "significance"],
+          answerIndex: 2,
+          translation: "그 소프트웨어의 가격은 대부분의 고객이 예상했던 것보다 상당히 더 높았다.",
+          explanation: "비교급 higher를 수식하는 부사 자리이므로 '상당히' 뜻의 significantly가 정답입니다."
+        },
+        {
+          id: 130,
+          question: "This special discount is ------- available for members of our loyalty program.",
+          options: ["exclusively", "relatively", "commonly", "accidentally"],
+          answerIndex: 0,
+          translation: "이 특별 할인은 로열티 프로그램 회원들에게만 독점적으로 제공된다.",
+          explanation: "혜택 대상을 특정 회원으로 한정하는 부사 exclusively('독점적으로, 오로지')가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The construction project was completed ------- than the original deadline.",
+          options: ["early", "earlier", "earliest", "early on"],
+          answerIndex: 1,
+          translation: "건설 프로젝트는 원래 마감 기한보다 더 일찍 완료되었다.",
+          explanation: "than과 함께 쓰여 '더 일찍'을 나타내는 비교급 부사 earlier가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "Fresh fruit should be kept in a cool place. -------, vegetables stay fresh longer when refrigerated.",
+          options: ["Therefore", "Otherwise", "However", "Likewise"],
+          answerIndex: 3,
+          translation: "신선한 과일은 서늘한 곳에 보관해야 한다. 마찬가지로 채소도 냉장 보관할 때 신선함이 더 오래 유지된다.",
+          explanation: "유사한 사례나 비교를 연결하는 부사이므로 '마찬가지로' 뜻의 Likewise가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "Due to the high demand, we recommend that you book your tickets -------.",
+          options: ["lately", "beforehand", "fairly", "actually"],
+          answerIndex: 1,
+          translation: "높은 수요 때문에 티켓을 사전에 예약하시길 권장한다.",
+          explanation: "예약 시점을 나타내는 부사 beforehand('사전에, 미리')가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "The technical support team promised to respond ------- to all customer inquiries.",
+          options: ["promptly", "highly", "widely", "steadily"],
+          answerIndex: 0,
+          translation: "기술 지원 팀은 모든 고객 문의에 즉각적으로 응답하겠다고 약속했다.",
+          explanation: "동사 respond와 어울려 '즉각적으로'를 나타내는 부사 promptly가 정답입니다."
+        },
+        {
+          id: 135,
+          question: "The new corporate headquarters is ------- located near the central subway station.",
+          options: ["nearly", "conveniently", "highly", "tightly"],
+          answerIndex: 1,
+          translation: "새 본사는 중앙 지하철역 근처에 편리하게 위치해 있다.",
+          explanation: "located와 함께 쓰여 '편리하게 위치한' 뜻을 만드는 부사 conveniently가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The marketing department works ------- with the design team to create new advertisements.",
+          options: ["closely", "hardly", "deeply", "vastly"],
+          answerIndex: 0,
+          translation: "마케팅 부서는 새 광고를 제작하기 위해 디자인 팀과 긴밀히 협력한다.",
+          explanation: "'work closely with(~와 긴밀히 일하다)' 표현을 이루는 부사 closely가 정답입니다."
+        },
+        {
+          id: 137,
+          question: "Quality control inspectors will ------- examine each product before it is packaged.",
+          options: ["thoroughly", "extremely", "nearly", "mutually"],
+          answerIndex: 0,
+          translation: "품질관리 검사관들은 제품이 포장되기 전에 각 제품을 철저히 검사할 것이다.",
+          explanation: "동사 examine과 어울려 '철저히'를 나타내는 부사 thoroughly가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "Sales of the luxury sedan have increased ------- since the price reduction.",
+          options: ["dramatically", "eventually", "previously", "highly"],
+          answerIndex: 0,
+          translation: "가격 인하 이후 럭셔리 세단 판매량이 급격히 증가했다.",
+          explanation: "증가(increased)의 폭을 강조할 때 어울리는 부사 dramatically가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "This luxury sedan is ------- expensive.",
+          options: ["much", "too much", "much too", "almost"],
+          answerIndex: 2,
+          translation: "이 고급 세단은 너무 지나치게 비싸다.",
+          explanation: "원급 형용사 expensive 앞에서 '너무 지나치게'를 강조하는 부사 덩어리 much too가 정답입니다."
+        }
+      ]
+    };
+
+    let currentLevel = "easy";
+    const state = {
+      easy: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initLevelState(level) {
+      questionSets[level].forEach((q) => {
+        state[level][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(level, qId) {
+      state[level][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentLevel];
+    }
+
+    function getLevelState() {
+      return state[currentLevel];
+    }
+
+    function switchLevel(level) {
+      currentLevel = level;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      document.getElementById("btnEasy").classList.toggle("active", level === "easy");
+      document.getElementById("btnHard").classList.toggle("active", level === "hard");
+      document.getElementById("lectureTag").textContent =
+        level === "easy"
+          ? "TPA 18 · 부사 (기본 C · 총 39문항)"
+          : "TPA 18 · 부사 (고난도 D · 총 39문항)";
+
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      const hardChallengeBox = document.getElementById("hardChallengeBox");
+      hardChallengeBox.style.display = currentLevel === "easy" ? "block" : "none";
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    function handleHardYes() {
+      switchLevel("hard");
+    }
+
+    initLevelState("easy");
+    initLevelState("hard");
+    visibleQuestionIds = questionSets.easy.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 20 병치도치 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 난이도 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .level-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .level-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .level-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .hard-challenge-box {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hard-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hard-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .yes-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .yes-btn:hover {
+      background-color: var(--primary);
+    }
+
+    .no-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .no-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 20 · 병치도치 (기본 A · 총 41문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 난이도 전환 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="level-switch">
+        <button type="button" id="btnEasy" class="level-btn active" onclick="switchLevel('easy')">기본 (A)</button>
+        <button type="button" id="btnHard" class="level-btn" onclick="switchLevel('hard')">고난도 (B)</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 41</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 고난도 도전 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/41)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/41)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div id="hardChallengeBox" class="hard-challenge-box">
+        <p class="hard-question">더 어려운 문제에 도전하시겠습니까?</p>
+        <div class="hard-btns">
+          <button type="button" class="yes-btn" onclick="handleHardYes()">yes</button>
+          <a class="no-btn" href="index.html">no</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questionSets = {
+      easy: [
+        {
+          id: 101,
+          question: "------- did Mr. Black admit that the system failure was his fault.",
+          options: ["Whatever", "Nothing", "Never", "None"],
+          answerIndex: 2,
+          translation: "블랙 씨는 시스템 고장이 자신의 잘못이라는 것을 결코 인정하지 않았다.",
+          explanation: "부정어가 문두에 강조되어 '조동사(did) + 주어 + 동사원형' 도치 어순이 만들어졌으므로 부정부사 Never가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "------- he arrived on time, Mr. Kim could have caught the train.",
+          options: ["If", "Should", "Had", "Were"],
+          answerIndex: 2,
+          translation: "김 씨가 제시간에 도착했더라면 기차를 탈 수도 있었을 것이다.",
+          explanation: "주절이 could have caught(가정법 과거완료)이므로 if가 생략된 가정법 과거완료 도치 'Had + 주어 + p.p.'를 만드는 Had가 정답입니다."
+        },
+        {
+          id: 103,
+          question: "------- is the revised schedule for your business trip to Hong Kong.",
+          options: ["Attach", "Attaching", "Attached", "Attachment"],
+          answerIndex: 2,
+          translation: "홍콩 출장에 관한 수정된 일정이 첨부되어 있습니다.",
+          explanation: "'the revised schedule is attached'에서 보어가 앞으로 나온 도치 구문이므로 과거분사 Attached가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "We are sure this training course will help you prepare for the future job and ------- your communication skills.",
+          options: ["develop", "developing", "to develop", "development"],
+          answerIndex: 0,
+          translation: "이 훈련 과정이 여러분이 미래 취업을 준비하고 의사소통 역량을 키우는 데 도움이 될 것이라 확신합니다.",
+          explanation: "help you 뒤 목적격 보어 자리인 prepare와 and로 병치되는 동사원형 develop이 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Equipment should be in place ------- not in use.",
+          options: ["while", "during", "to", "for"],
+          answerIndex: 0,
+          translation: "장비는 사용하지 않을 때 제자리에 있어야 한다.",
+          explanation: "'while (it is) not in use'에서 주어+be동사가 생략된 부사절 축약 구조이므로 접속사 while이 정답입니다."
+        },
+        {
+          id: 106,
+          question: "------- possible, please send the report through e-mail.",
+          options: ["If", "It is", "For", "So"],
+          answerIndex: 0,
+          translation: "가능하다면 보고서를 이메일로 보내 주십시오.",
+          explanation: "'If it is possible'에서 it is가 생략된 관용 표현이므로 접속사 If가 정답입니다."
+        },
+        {
+          id: 107,
+          question: "Bruno's Grill is looking for experienced chefs and -------.",
+          options: ["assist", "assistant", "assistance", "assistants"],
+          answerIndex: 3,
+          translation: "브루노스 그릴은 숙련된 요리사와 보조 인력을 찾고 있다.",
+          explanation: "and 앞에 사람 명사구 experienced chefs가 나열되었으므로 병치를 이루는 복수 명사 assistants가 정답입니다."
+        },
+        {
+          id: 108,
+          question: "Had we ------- the product was defective, we wouldn't have launched it this month.",
+          options: ["know", "knew", "known", "been known"],
+          answerIndex: 2,
+          translation: "제품에 결함이 있다는 것을 알았더라면 이번 달에 출시하지 않았을 것이다.",
+          explanation: "가정법 과거완료 도치 'Had we + p.p.' 구조이므로 과거분사 known이 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The new model C304 is rather expensive but ------- advanced.",
+          options: ["high", "highly", "highest", "higher"],
+          answerIndex: 1,
+          translation: "신형 모델 C304는 다소 비싸지만 매우 진보된 제품이다.",
+          explanation: "expensive와 advanced가 대조를 이루는 가운데 형용사 advanced를 수식하는 부사 highly가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "Those ------- in the seminar should contact Jane Honda.",
+          options: ["interest", "interests", "interesting", "interested"],
+          answerIndex: 3,
+          translation: "세미나에 관심 있는 분들은 제인 혼다에게 연락해 주십시오.",
+          explanation: "'those (who are) interested in ~'에서 주격 관계대명사와 be동사가 생략된 형태이므로 과거분사 interested가 정답입니다."
+        },
+        {
+          id: 111,
+          question: "------- you have any questions, please feel free to contact us.",
+          options: ["While", "Since", "Through", "Should"],
+          answerIndex: 3,
+          translation: "궁금한 점이 있으시면 편하게 문의해 주십시오.",
+          explanation: "'If you should have any questions'에서 if가 생략되어 도치된 조건 표현이므로 Should가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "The manager is responsible for planning, organizing, and ------- the team's workflow.",
+          options: ["supervise", "supervising", "supervision", "supervised"],
+          answerIndex: 1,
+          translation: "매니저는 팀의 업무 흐름을 계획하고 조직하며 감독하는 책임을 맡고 있다.",
+          explanation: "전치사 for의 목적어인 동명사 planning, organizing과 and로 병치되는 동명사 supervising이 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Mr. Kim is not only talented but also ------- in his approach to problem-solving.",
+          options: ["diligence", "diligent", "diligently", "more diligence"],
+          answerIndex: 1,
+          translation: "김 씨는 재능이 있을 뿐만 아니라 문제 해결 방식에 있어서도 성실하다.",
+          explanation: "'not only A but also B' 상관접속사 구조에서 A 자리의 형용사 talented와 병치되는 형용사 diligent가 정답입니다."
+        },
+        {
+          id: 114,
+          question: "------- do they go to the cinema these days due to their busy schedules.",
+          options: ["Always", "Frequently", "Mostly", "Seldom"],
+          answerIndex: 3,
+          translation: "바쁜 일정 때문에 그들은 요즘 영화관에 거의 가지 않는다.",
+          explanation: "문두 부정어 도치(do they go)를 유도하는 부정부사 Seldom('거의 ~않는')이 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Should you ------- any further information, please contact our office.",
+          options: ["need", "needing", "to need", "needed"],
+          answerIndex: 0,
+          translation: "추가 정보가 필요하시면 저희 사무실로 연락해 주십시오.",
+          explanation: "가정법 도치 'Should + 주어 + 동사원형' 구조이므로 동사원형 need가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "The tour guide led the tour group very humorously but -------.",
+          options: ["profession", "professional", "professionally", "professionalism"],
+          answerIndex: 2,
+          translation: "투어 가이드는 매우 유머러스하면서도 전문적으로 투어 그룹을 이끌었다.",
+          explanation: "but 앞에 부사 humorously가 왔으므로 병치를 이루는 부사 professionally가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "Mr. White suggested that the product launch -------.",
+          options: ["postpones", "postpone", "is postponed", "be postponed"],
+          answerIndex: 3,
+          translation: "화이트 씨는 제품 출시가 연기되어야 한다고 제안했다.",
+          explanation: "제안 동사 suggest 뒤 that절에서 당위성을 나타내는 '(should) be postponed' 형태이므로 be postponed가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The hotel room was clean, spacious, and -------.",
+          options: ["comfort", "comfortably", "comfortable", "comforting"],
+          answerIndex: 2,
+          translation: "호텔 객실은 깨끗하고 넓으며 쾌적했다.",
+          explanation: "주격 보어 형용사 clean, spacious와 병치되는 형용사 comfortable이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The engine runs smoothly, quietly, and -------.",
+          options: ["efficiency", "efficient", "efficiently", "more efficient"],
+          answerIndex: 2,
+          translation: "그 엔진은 부드럽고 조용하며 효율적으로 작동한다.",
+          explanation: "동사 runs를 수식하는 부사 smoothly, quietly와 병치되는 부사 efficiently가 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The system will analyze data and ------- reports automatically.",
+          options: ["generate", "generating", "generated", "generation"],
+          answerIndex: 0,
+          translation: "그 시스템은 데이터를 분석하고 보고서를 자동으로 생성할 것이다.",
+          explanation: "조동사 will 뒤 동사원형 analyze와 and로 병치되는 동사원형 generate가 정답입니다."
+        },
+        {
+          id: 121,
+          question: "Never ------- such a beautiful sunset in my life.",
+          options: ["I saw", "I have seen", "have I seen", "I had seen"],
+          answerIndex: 2,
+          translation: "평생 그렇게 아름다운 일몰을 본 적이 없다.",
+          explanation: "부정어 Never가 문두에 와서 'have + 주어 + p.p.'로 도치되어야 하므로 have I seen이 정답입니다."
+        },
+        {
+          id: 122,
+          question: "Although ------- for several months, the project is still in its early stages.",
+          options: ["planning", "planned", "plans", "plan"],
+          answerIndex: 1,
+          translation: "몇 달 동안 계획되었음에도 불구하고 그 프로젝트는 여전히 초기 단계에 있다.",
+          explanation: "'Although (it was) planned'에서 주어+be동사가 생략된 분사 축약이므로 과거분사 planned가 정답입니다."
+        },
+        {
+          id: 123,
+          question: "If -------, please include your contact information in the application form.",
+          options: ["possible", "possibly", "possibility", "possibilities"],
+          answerIndex: 0,
+          translation: "가능하다면 신청서에 연락처 정보를 기재해 주십시오.",
+          explanation: "'If it is possible'에서 주어+be동사가 생략된 관용 표현이므로 형용사 possible이 정답입니다."
+        },
+        {
+          id: 124,
+          question: "While ------- the document, the manager found several minor errors.",
+          options: ["review", "reviewed", "reviewing", "reviews"],
+          answerIndex: 2,
+          translation: "문서를 검토하는 동안 매니저는 몇 가지 사소한 오류를 발견했다.",
+          explanation: "주어(the manager)가 직접 검토하는 능동 관계이므로 'While (he was) reviewing'의 현재분사 reviewing이 정답입니다."
+        },
+        {
+          id: 125,
+          question: "When -------, the chemicals must be handled with extreme care.",
+          options: ["store", "storing", "stored", "storage"],
+          answerIndex: 2,
+          translation: "보관될 때 그 화학 물질들은 각별한 주의를 기울여 다루어야 한다.",
+          explanation: "주어(the chemicals)가 보관되는 수동 관계이므로 'When (they are) stored'의 과거분사 stored가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "Unless ------- by a parent, children under 12 are not allowed in the pool.",
+          options: ["accompany", "accompanying", "accompanied", "accompaniment"],
+          answerIndex: 2,
+          translation: "부모가 동반하지 않는 한 12세 미만 어린이는 수영장 이용이 허용되지 않는다.",
+          explanation: "아이들이 동반되는 수동 관계이므로 'Unless (they are) accompanied'의 과거분사 accompanied가 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The job requires both extensive experience and -------.",
+          options: ["creatively", "creative", "creativity", "create"],
+          answerIndex: 2,
+          translation: "그 직무는 폭넓은 경험과 창의성 둘 다를 요구한다.",
+          explanation: "'both A and B' 구조에서 명사구 extensive experience와 병치되는 명사 creativity가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "Some experts agree with the proposal, ------- others don't.",
+          options: ["while", "during", "despite", "meanwhile"],
+          answerIndex: 0,
+          translation: "일부 전문가들은 그 제안에 동의하는 반면 다른 전문가들은 그렇지 않다.",
+          explanation: "절(others don't)을 이끄는 대조의 부사절 접속사 while('~인 반면에')이 정답입니다."
+        },
+        {
+          id: 129,
+          question: "Please send the samples as soon as ------- to the headquarters.",
+          options: ["possibly", "possible", "possibility", "possibilities"],
+          answerIndex: 1,
+          translation: "가능한 한 빨리 본사로 샘플을 보내 주십시오.",
+          explanation: "'as soon as (it is) possible' 관용 표현이므로 형용사 possible이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "The technician will repair the machine if -------.",
+          options: ["necessary", "necessarily", "necessity", "necessitate"],
+          answerIndex: 0,
+          translation: "기술자는 필요하다면 기계를 수리할 것이다.",
+          explanation: "'if (it is) necessary'에서 주어+be동사가 생략된 표현이므로 형용사 necessary가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "To stay healthy, it is better to exercise regularly than ------- on a strict diet.",
+          options: ["gone", "to go", "going", "goes"],
+          answerIndex: 1,
+          translation: "건강을 유지하기 위해 엄격한 식단 관리를 하는 것보다 규칙적으로 운동하는 것이 더 낫다.",
+          explanation: "비교 대상이 to부정사(to exercise)이므로 병치를 이루는 to go가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "The information ------- on the website is not always accurate.",
+          options: ["provide", "providing", "provides", "provided"],
+          answerIndex: 3,
+          translation: "웹사이트에 제공된 정보가 항상 정확한 것은 아니다.",
+          explanation: "'The information (which is) provided'에서 주격 관계대명사와 be동사가 생략된 수동 과거분사 provided가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "The CEO suggested that we ------- the marketing strategy immediately.",
+          options: ["change", "changes", "changed", "changing"],
+          answerIndex: 0,
+          translation: "CEO는 우리가 마케팅 전략을 즉시 변경할 것을 제안했다.",
+          explanation: "제안 동사 suggest 뒤 that절에는 '(should) + 동사원형'이 쓰이므로 change가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "The climate of Southern Europe is much warmer than ------- of Northern Europe.",
+          options: ["this", "those", "that", "them"],
+          answerIndex: 2,
+          translation: "남유럽의 기후는 북유럽의 기후보다 훨씬 더 따뜻하다.",
+          explanation: "단수 명사 The climate의 반복을 피하는 지시대명사 that이 정답입니다."
+        },
+        {
+          id: 135,
+          question: "Investing in stocks requires more careful analysis than ------- money in a savings account.",
+          options: ["keep", "to keep", "keeping", "keeps"],
+          answerIndex: 2,
+          translation: "주식에 투자하는 것은 저축 계좌에 돈을 넣어 두는 것보다 더 세심한 분석을 필요로 한다.",
+          explanation: "주어인 동명사구(Investing ~)와 병치를 이루는 동명사 keeping이 정답입니다."
+        },
+        {
+          id: 136,
+          question: "It is often easier to make a promise than ------- it.",
+          options: ["keeps", "to keep", "keeping", "kept"],
+          answerIndex: 1,
+          translation: "약속을 지키는 것보다 약속을 하는 것이 종종 더 쉽다.",
+          explanation: "비교 대상 to make와 병치를 이루는 to keep이 정답입니다."
+        },
+        {
+          id: 137,
+          question: "Running a marathon is physically tougher than ------- a short sprint.",
+          options: ["finish", "to finish", "finishing", "finished"],
+          answerIndex: 2,
+          translation: "마라톤을 뛰는 것은 단거리 전력 질주를 마치는 것보다 신체적으로 더 힘들다.",
+          explanation: "주어인 동명사구(Running ~)와 병치를 이루는 동명사 finishing이 정답입니다."
+        },
+        {
+          id: 138,
+          question: "His opinion on the matter is more radical than -------.",
+          options: ["mine", "me", "my", "I"],
+          answerIndex: 0,
+          translation: "그 사안에 대한 그의 의견은 내 의견보다 더 급진적이다.",
+          explanation: "'His opinion'과 비교되는 '나의 의견(my opinion)'을 대신하는 소유대명사 mine이 정답입니다."
+        },
+        {
+          id: 139,
+          question: "The manager reviewed the final report and ------- a few important suggestions.",
+          options: ["make", "making", "made", "to make"],
+          answerIndex: 2,
+          translation: "매니저는 최종 보고서를 검토하고 몇 가지 중요한 제안을 했다.",
+          explanation: "과거 시제 동사 reviewed와 and로 병치되는 과거 시제 동사 made가 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The marketing presentation was long but ------- to all the attendees.",
+          options: ["inform", "informative", "information", "informatively"],
+          answerIndex: 1,
+          translation: "마케팅 발표는 길었지만 모든 참석자에게 유익했다.",
+          explanation: "주격 보어 형용사 long과 but으로 병치되는 형용사 informative가 정답입니다."
+        },
+        {
+          id: 141,
+          question: "We need to focus on both reducing operational costs and ------- overall productivity.",
+          options: ["increase", "increasing", "increases", "to increase"],
+          answerIndex: 1,
+          translation: "우리는 운영 비용 절감과 전반적인 생산성 향상 둘 다에 집중해야 한다.",
+          explanation: "'both A and B'에서 동명사 reducing과 병치되는 동명사 increasing이 정답입니다."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "------- you have any questions concerning your paycheck, please do not hesitate to contact Grisham McDonald in accounting.",
+          options: ["Had", "Perhaps", "Whether", "Should"],
+          answerIndex: 3,
+          translation: "급여와 관련해 궁금한 점이 있으시면 회계팀의 그리샴 맥도널드에게 주저하지 말고 연락해 주십시오.",
+          explanation: "'If you should have any questions'에서 if가 생략되어 도치된 조건 표현이므로 Should가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "Attached is a summary of the analysis on the risks your organizations -------.",
+          options: ["to face", "facing", "are faced", "face"],
+          answerIndex: 3,
+          translation: "귀 기관이 직면한 위험 요소 분석 요약본이 첨부되어 있습니다.",
+          explanation: "목적격 관계대명사가 생략된 관계절 내에서 주어 your organizations에 이어지는 능동 본동사 자리이므로 face가 정답입니다."
+        },
+        {
+          id: 103,
+          question: "------- have market conditions been more favorable for investing in the stock market.",
+          options: ["Seldom", "Ever", "Adequately", "Since"],
+          answerIndex: 0,
+          translation: "주식 시장에 투자하기에 시장 여건이 이보다 더 유리했던 적은 거의 없었다.",
+          explanation: "문두 부정어 도치(have market conditions been)를 유도하는 부정부사 Seldom('좀처럼/거의 ~않는')이 정답입니다."
+        },
+        {
+          id: 104,
+          question: "------- had Mr. Jones invested in stocks than the stock market crashed.",
+          options: ["As soon as", "No sooner", "Soon", "Sooner or later"],
+          answerIndex: 1,
+          translation: "존스 씨가 주식에 투자하자마자 주식 시장이 폭락했다.",
+          explanation: "'No sooner + had + 주어 + p.p. + than + S+V(~하자마자 ~하다)' 도치 구문이므로 No sooner가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "The survey indicates that city workers tend to spend more and ------- less than those in the rural area.",
+          options: ["save", "saving", "saves", "saved"],
+          answerIndex: 0,
+          translation: "설문 조사에 따르면 도시 근로자들은 농촌 지역 근로자들보다 더 많이 소비하고 덜 저축하는 경향이 있다.",
+          explanation: "tend to spend와 and로 병치되는 '(to) save' 구조이므로 동사원형 save가 정답입니다."
+        },
+        {
+          id: 106,
+          question: "AV Tech decided to expand not only locally ------- internationally.",
+          options: ["however", "also", "but", "and"],
+          answerIndex: 2,
+          translation: "AV 테크는 국내뿐만 아니라 해외로도 확장하기로 결정했다.",
+          explanation: "'not only A but (also) B(A뿐만 아니라 B도)' 상관접속사 구문이므로 but이 정답입니다."
+        },
+        {
+          id: 107,
+          question: "Should your copy machine ------- improperly, please call us any time.",
+          options: ["function", "functions", "functioned", "functioning"],
+          answerIndex: 0,
+          translation: "복사기가 제대로 작동하지 않으면 언제든지 전화해 주십시오.",
+          explanation: "가정법 도치 'Should + 주어 + 동사원형' 구조이므로 동사원형 function이 정답입니다."
+        },
+        {
+          id: 108,
+          question: "As an assistant manager, Ms. Joan is responsible for ordering staplers, pens, paper clips, and other -------.",
+          options: ["facilities", "members", "attributes", "supplies"],
+          answerIndex: 3,
+          translation: "부매니저로서 조안 씨는 스테이플러, 펜, 종이클립 및 기타 사무용품을 주문하는 책임을 맡고 있다.",
+          explanation: "스테이플러·펜·클립과 같은 맥락으로 병치되는 복수 명사 supplies(용품, 비품)가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "------- are the tickets for your cruise to Alaska, for January 12th.",
+          options: ["Attach", "Attachments", "Attaching", "Attached"],
+          answerIndex: 3,
+          translation: "1월 12일 출발 알래스카 크루즈 여행 티켓이 첨부되어 있습니다.",
+          explanation: "'Attached are + 주어(the tickets)' 보어 도치 구문이므로 수동의 과거분사 Attached가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "------- you would like to join the ceremony, please tick the bottom box of the attached sign-up form.",
+          options: ["If", "What", "Should", "Never"],
+          answerIndex: 0,
+          translation: "행사 참석을 원하시면 첨부된 신청서 하단 박스에 체크해 주십시오.",
+          explanation: "도치 없이 'S+V' 어순으로 이어지는 조건 부사절을 이끄는 접속사 If가 정답입니다."
+        },
+        {
+          id: 111,
+          question: "The old system has more technical problems ------- anticipated.",
+          options: ["while", "when", "than", "that"],
+          answerIndex: 2,
+          translation: "구형 시스템은 예상했던 것보다 더 많은 기술적 문제를 안고 있다.",
+          explanation: "비교급 more와 호응하는 비교 접속사 than이 정답입니다."
+        },
+        {
+          id: 112,
+          question: "Had we ------- the 3:10 train, we initially wouldn't have been late for the competition.",
+          options: ["take", "took", "taking", "taken"],
+          answerIndex: 3,
+          translation: "우리가 처음에 3시 10분 기차를 탔었더라면 대회에 늦지 않았을 것이다.",
+          explanation: "가정법 과거완료 도치 'Had we + p.p.' 구조이므로 과거분사 taken이 정답입니다."
+        },
+        {
+          id: 113,
+          question: "------- has there been a time in history when there was a huge gap between the rich and the poor.",
+          options: ["Entirely", "Too much", "Exactly", "Rarely"],
+          answerIndex: 3,
+          translation: "역사상 빈부 격차가 이토록 컸던 때는 거의 없었다.",
+          explanation: "문두 도치(has there been)를 이끄는 부정부사 Rarely('거의 ~않는')가 정답입니다."
+        },
+        {
+          id: 114,
+          question: "------- is a manual with which you can easily assemble our furniture for yourself and make your room cozier.",
+          options: ["Include", "Including", "Included", "Inclusion"],
+          answerIndex: 2,
+          translation: "저희 가구를 직접 쉽게 조립하고 방을 더 아늑하게 꾸밀 수 있는 설명서가 포함되어 있습니다.",
+          explanation: "'Included is + 주어(a manual)' 보어 도치 구문이므로 과거분사 Included가 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Mr. Adams showed his keen interest in developing his analyzing skills at a strong and ------- company.",
+          options: ["reputably", "reputable", "repute", "reputation"],
+          answerIndex: 1,
+          translation: "애덤스 씨는 탄탄하고 평판이 좋은 회사에서 분석 역량을 키우는 데 강한 관심을 보였다.",
+          explanation: "형용사 strong과 and로 병치되어 명사 company를 수식하는 형용사 reputable('평판이 좋은')이 정답입니다."
+        },
+        {
+          id: 116,
+          question: "His proposal on the construction is more feasible than -------.",
+          options: ["mine", "me", "my", "I"],
+          answerIndex: 0,
+          translation: "그 공사에 대한 그의 제안은 내 제안보다 더 실현 가능성이 높다.",
+          explanation: "'His proposal'과 비교되는 '나의 제안(my proposal)'을 나타내는 소유대명사 mine이 정답입니다."
+        },
+        {
+          id: 117,
+          question: "Driving to work during rush hour can be as stressful as ------- the crowded subway.",
+          options: ["take", "took", "taking", "taken"],
+          answerIndex: 2,
+          translation: "러시아워에 운전해 출근하는 것은 혼잡한 지하철을 타는 것만큼 스트레스를 줄 수 있다.",
+          explanation: "주어인 동명사구(Driving ~)와 병치를 이루는 동명사 taking이 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The features of the new smartphone are superior to ------- of the previous model.",
+          options: ["that", "this", "those", "them"],
+          answerIndex: 2,
+          translation: "새 스마트폰의 기능들은 이전 모델의 기능들보다 우수하다.",
+          explanation: "복수 명사 The features의 반복을 피하는 지시대명사 those가 정답입니다."
+        },
+        {
+          id: 119,
+          question: "Studying for a professional certification is as demanding as ------- a full-time job.",
+          options: ["work", "to work", "working", "worked"],
+          answerIndex: 2,
+          translation: "전문 자격증을 위해 공부하는 것은 정규직 일을 하는 것만큼이나 고되다.",
+          explanation: "주어인 동명사구(Studying ~)와 병치를 이루는 동명사 working이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "Many people prefer ordering food online to ------- at a restaurant.",
+          options: ["eat", "eating", "ate", "to eat"],
+          answerIndex: 1,
+          translation: "많은 사람이 식당에서 먹는 것보다 온라인으로 음식을 주문하는 것을 선호한다.",
+          explanation: "'prefer A to B' 구조에서 전치사 to 뒤에 동명사 ordering과 병치되는 동명사 eating이 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The cost of living in Seoul is much higher than ------- in rural areas.",
+          options: ["this", "that", "those", "these"],
+          answerIndex: 1,
+          translation: "서울의 생활비는 농촌 지역의 생활비보다 훨씬 더 높다.",
+          explanation: "단수 명사 The cost of living을 대신하는 지시대명사 that이 정답입니다."
+        },
+        {
+          id: 122,
+          question: "He has not yet completed the task, ------- does he intend to.",
+          options: ["nor", "either", "so as", "and"],
+          answerIndex: 0,
+          translation: "그는 아직 그 업무를 완료하지 않았으며 그럴 의도도 없다.",
+          explanation: "부정문 뒤에서 도치(does he intend)를 이끄는 접속사 nor('~도 역시 아니다')가 정답입니다."
+        },
+        {
+          id: 123,
+          question: "Though ------- by the board, the new policy faced opposition from staff.",
+          options: ["approve", "approved", "approving", "approval"],
+          answerIndex: 1,
+          translation: "이사회에서 승인되었음에도 불구하고 새 정책은 직원들의 반대에 부딪혔다.",
+          explanation: "'Though (it was) approved'에서 주어+be동사가 생략된 수동 과거분사 approved가 정답입니다."
+        },
+        {
+          id: 124,
+          question: "It is essential that the supervisor ------- the report by the end of the day.",
+          options: ["finish", "finished", "finishes", "finishing"],
+          answerIndex: 0,
+          translation: "관리자가 오늘 일과가 끝나기 전까지 보고서를 마치는 것이 필수적이다.",
+          explanation: "이성적 판단 형용사 essential 뒤 that절에는 '(should) + 동사원형'이 쓰이므로 finish가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "Most customers prefer high-quality products, ------- expensive.",
+          options: ["although", "otherwise", "in spite of", "instead"],
+          answerIndex: 0,
+          translation: "대부분의 고객은 비싸더라도 고품질 제품을 선호한다.",
+          explanation: "'although (they are) expensive'에서 주어+be동사가 생략된 구조이므로 접속사 although가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "------- reviewing the document, the manager found several minor errors.",
+          options: ["During", "Although", "While", "Even so"],
+          answerIndex: 2,
+          translation: "문서를 검토하는 동안 매니저는 몇 가지 사소한 오류를 발견했다.",
+          explanation: "현재분사 reviewing과 함께 분사구문 축약을 이루는 부사절 접속사 While이 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The marketing team is working harder than ------- before to meet the deadline.",
+          options: ["ever", "never", "even", "always"],
+          answerIndex: 0,
+          translation: "마케팅 팀은 마감 기한을 맞추기 위해 이전 어느 때보다 더 열심히 일하고 있다.",
+          explanation: "'than ever before(이전 어느 때보다)' 관용 표현을 이루는 부사 ever가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "Unless ------- otherwise, all employees must attend the workshop tomorrow.",
+          options: ["notify", "notifying", "notified", "notification"],
+          answerIndex: 2,
+          translation: "달리 통지받지 않는 한 모든 직원은 내일 워크숍에 참석해야 한다.",
+          explanation: "'Unless (they are) notified otherwise' 수동 축약 구조이므로 과거분사 notified가 정답입니다."
+        },
+        {
+          id: 129,
+          question: "------- you need any further information, please contact our office.",
+          options: ["Should", "Would", "Might", "Could"],
+          answerIndex: 0,
+          translation: "추가 정보가 필요하시면 저희 사무실로 연락해 주십시오.",
+          explanation: "if가 생략된 조건 도치 표현이므로 Should가 정답입니다."
+        },
+        {
+          id: 130,
+          question: "Had the company ------- the market trends, they would have survived.",
+          options: ["predict", "predicting", "predicted", "predicts"],
+          answerIndex: 2,
+          translation: "그 회사가 시장 추세를 예측했더라면 살아남았을 것이다.",
+          explanation: "가정법 과거완료 도치 'Had + 주어 + p.p.' 구조이므로 과거분사 predicted가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "Hardly ------- at the station when the train pulled out.",
+          options: ["I arrived", "had I arrived", "to arrive", "arrived"],
+          answerIndex: 1,
+          translation: "내가 역에 도착하자마자 기차가 떠났다.",
+          explanation: "'Hardly + had + 주어 + p.p. + when ~' 도치 구문이므로 had I arrived가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "------- did he clean the windows, but he also mopped the floor.",
+          options: ["When", "Even as", "Not only", "In order to"],
+          answerIndex: 2,
+          translation: "그는 창문을 닦았을 뿐만 아니라 바닥도 물걸레질했다.",
+          explanation: "문두 도치(did he clean)를 이끄는 상관접속사 표현 Not only가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "To reduce costs and ------- efficiency, we implemented a new system.",
+          options: ["improve", "improving", "improved", "improvement"],
+          answerIndex: 0,
+          translation: "비용을 절감하고 효율성을 높이기 위해 우리는 새 시스템을 도입했다.",
+          explanation: "To reduce와 and로 병치되는 '(to) improve' 구조이므로 동사원형 improve가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "We need to decide whether to expand the business or ------- it.",
+          options: ["sold", "sell", "selling", "sale"],
+          answerIndex: 1,
+          translation: "우리는 사업을 확장할지 아니면 매각할지 결정해야 한다.",
+          explanation: "whether to expand와 or로 병치되는 '(to) sell' 구조이므로 동사원형 sell이 정답입니다."
+        },
+        {
+          id: 135,
+          question: "Neither the manager nor the ------- attended the emergency meeting.",
+          options: ["assistants", "assist", "assisting", "assisted"],
+          answerIndex: 0,
+          translation: "매니저도 보조 인력도 비상 회의에 참석하지 않았다.",
+          explanation: "'neither A nor B' 구조에서 사람 명사 the manager와 병치되는 복수 명사 assistants가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "I prefer to walk rather than ------- the bus.",
+          options: ["take", "taking", "taken", "took"],
+          answerIndex: 0,
+          translation: "나는 버스를 타기보다 걷는 것을 선호한다.",
+          explanation: "to walk와 rather than으로 병치되는 '(to) take' 구조이므로 동사원형 take가 정답입니다."
+        },
+        {
+          id: 137,
+          question: "The technician arrived, inspected the machine, and ------- the problem.",
+          options: ["fix", "fixing", "fixed", "was fixing"],
+          answerIndex: 2,
+          translation: "기술자는 도착해서 기계를 점검하고 문제를 해결했다.",
+          explanation: "과거 동사 arrived, inspected와 and로 병치되는 과거 시제 동사 fixed가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "We never refund any DVD ------- do we exchange it.",
+          options: ["nor", "and", "or", "but"],
+          answerIndex: 0,
+          translation: "우리는 어떤 DVD도 환불해 주지 않으며 교환해 주지도 않는다.",
+          explanation: "도치(do we exchange)를 이끄는 부정부사 접속사 nor가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "When ------- to deliver a speech, Ms. Myer kindly declined the request.",
+          options: ["ask", "asking", "asked", "asks"],
+          answerIndex: 2,
+          translation: "연설해 달라는 요청을 받았을 때 마이어 씨는 정중히 요청을 거절했다.",
+          explanation: "주어 Ms. Myer가 요청받는 수동 관계이므로 'When (she was) asked'의 과거분사 asked가 정답입니다."
+        },
+        {
+          id: 140,
+          question: "Mr. Jackson applied for the accountant position and ------- did I.",
+          options: ["so", "but", "because", "what"],
+          answerIndex: 0,
+          translation: "잭슨 씨는 회계사 직무에 지원했고 나도 그랬다.",
+          explanation: "긍정문 뒤 도치(did I)를 이끌어 '나도 역시'라는 뜻을 만드는 부사 so가 정답입니다."
+        },
+        {
+          id: 141,
+          question: "Enclosed in this letter ------- sales figures of this year.",
+          options: ["is", "are", "be", "to be"],
+          answerIndex: 1,
+          translation: "이 편지에 올해 매출 수치가 동봉되어 있습니다.",
+          explanation: "보어 도치 구문에서 실제 주어가 복수 명사구 sales figures이므로 복수 동사 are가 정답입니다."
+        }
+      ]
+    };
+
+    let currentLevel = "easy";
+    const state = {
+      easy: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initLevelState(level) {
+      questionSets[level].forEach((q) => {
+        state[level][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(level, qId) {
+      state[level][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentLevel];
+    }
+
+    function getLevelState() {
+      return state[currentLevel];
+    }
+
+    function switchLevel(level) {
+      currentLevel = level;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      document.getElementById("btnEasy").classList.toggle("active", level === "easy");
+      document.getElementById("btnHard").classList.toggle("active", level === "hard");
+      document.getElementById("lectureTag").textContent =
+        level === "easy"
+          ? "TPA 20 · 병치도치 (기본 A · 총 41문항)"
+          : "TPA 20 · 병치도치 (고난도 B · 총 41문항)";
+
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      const hardChallengeBox = document.getElementById("hardChallengeBox");
+      hardChallengeBox.style.display = currentLevel === "easy" ? "block" : "none";
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    function handleHardYes() {
+      switchLevel("hard");
+    }
+
+    initLevelState("easy");
+    initLevelState("hard");
+    visibleQuestionIds = questionSets.easy.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

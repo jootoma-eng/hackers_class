@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 6 등위상관·명사절 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 섹션 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .section-switch {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .section-btn {
+      padding: 7px 13px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .section-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .next-challenge-box {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .next-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .next-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .choice-next-btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .choice-next-btn:hover {
+      background-color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 6 · 등위상관 (총 35문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 섹션 선택 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="section-switch">
+        <button type="button" id="btnCoord" class="section-btn active" onclick="switchSection('coord')">등위상관</button>
+        <button type="button" id="btnNounEasy" class="section-btn" onclick="switchSection('nounEasy')">명사절 기본</button>
+        <button type="button" id="btnNounHard" class="section-btn" onclick="switchSection('nounHard')">명사절 고난도</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 35</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 다음 파트로 이동 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/35)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/35)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div class="next-challenge-box">
+        <p class="next-question">다음으로 어떤 문제를 푸시겠습니까?</p>
+        <div id="nextChoiceBtns" class="next-btns"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const sectionMeta = {
+      coord: {
+        label: "등위상관",
+        tag: "TPA 6 · 등위상관 (총 35문항)",
+        btnId: "btnCoord"
+      },
+      nounEasy: {
+        label: "명사절 기본",
+        tag: "TPA 6 · 명사절 기본 (총 40문항)",
+        btnId: "btnNounEasy"
+      },
+      nounHard: {
+        label: "명사절 고난도",
+        tag: "TPA 6 · 명사절 고난도 (총 38문항)",
+        btnId: "btnNounHard"
+      }
+    };
+
+    const questionSets = {
+      coord: [
+        {
+          id: 101,
+          question: "Our innovative system will increase productivity and ------- errors.",
+          options: ["reduce", "reduced", "reducing", "reduction"],
+          answerIndex: 0,
+          translation: "우리의 혁신적인 시스템은 생산성을 높이고 오류를 줄일 것이다.",
+          explanation: "조동사 will 뒤 동사원형 increase와 and로 병치되는 동사원형 reduce가 정답입니다[cite: 359, 363]."
+        },
+        {
+          id: 102,
+          question: "You can pay the bill by mail ------- online.",
+          options: ["and", "or", "but", "so"],
+          answerIndex: 1,
+          translation: "우편이나 온라인으로 요금을 지불할 수 있습니다.",
+          explanation: "by mail과 online을 선택 관계로 연결하는 등위접속사 or가 정답입니다[cite: 359, 363]."
+        },
+        {
+          id: 103,
+          question: "------- you or I need to participate in the workshop.",
+          options: ["Both", "One of", "Either", "All"],
+          answerIndex: 2,
+          translation: "당신이나 나 중 한 명이 워크숍에 참여해야 한다.",
+          explanation: "뒤에 or가 있으므로 'either A or B(A 또는 B)' 상관접속사를 만드는 Either가 정답입니다[cite: 359, 363]."
+        },
+        {
+          id: 104,
+          question: "Our products are designed for not only beginners but also -------.",
+          options: ["profession", "professional", "professionals", "professionalism"],
+          answerIndex: 2,
+          translation: "당사의 제품은 초보자뿐만 아니라 전문가들을 위해서도 설계되었습니다.",
+          explanation: "'not only A but also B' 구조에서 복수 명사 beginners와 병치되는 복수 명사 professionals가 정답입니다[cite: 359, 363]."
+        },
+        {
+          id: 105,
+          question: "Customers can choose ------- a free sauna ticket or complimentary breakfast.",
+          options: ["both", "either", "neither", "only"],
+          answerIndex: 1,
+          translation: "고객들은 무료 사우나 이용권이나 무료 조식 중 하나를 선택할 수 있다.",
+          explanation: "뒤에 or가 있으므로 'either A or B' 상관접속사를 이루는 either가 정답입니다[cite: 359, 364]."
+        },
+        {
+          id: 106,
+          question: "Please be in a hurry, ------- you may lose your train.",
+          options: ["nor", "or", "but", "either"],
+          answerIndex: 1,
+          translation: "서두르십시오, 그렇지 않으면 기차를 놓칠 수도 있습니다.",
+          explanation: "'명령문 + or + S+V(~해라, 그렇지 않으면 ~하다)' 구조이므로 or가 정답입니다[cite: 359, 364]."
+        },
+        {
+          id: 107,
+          question: "Neither the manager ------- his assistant replied to the press inquiries concerning the upcoming merger.",
+          options: ["both", "either", "nor", "and"],
+          answerIndex: 2,
+          translation: "매니저도 그의 조수도 다가오는 합병에 관한 언론 문의에 답하지 않았다.",
+          explanation: "'neither A nor B(A도 B도 아닌)' 상관접속사 짝을 이루는 nor가 정답입니다[cite: 359, 364]."
+        },
+        {
+          id: 108,
+          question: "Applicants can take a bus to the company ------- ride a taxi with a minimal fare.",
+          options: ["but", "also", "when", "or"],
+          answerIndex: 3,
+          translation: "지원자들은 회사까지 버스를 타거나 최소 요금으로 택시를 탈 수 있다.",
+          explanation: "동사구 take a bus와 ride a taxi를 선택적으로 연결하는 등위접속사 or가 정답입니다[cite: 359, 364]."
+        },
+        {
+          id: 109,
+          question: "The researcher not only presented a complete report on his findings, ------- prepared summaries of it for the audience.",
+          options: ["but", "and", "also", "however"],
+          answerIndex: 0,
+          translation: "그 연구원은 연구 결과에 대한 완전한 보고서를 발표했을 뿐만 아니라 청중을 위해 요약본도 준비했다.",
+          explanation: "'not only A, but (also) B' 상관접속사 짝을 이루는 but이 정답입니다[cite: 359, 365]."
+        },
+        {
+          id: 110,
+          question: "To get the exam, all test-takers are required to present ------- driver's license or a passport.",
+          options: ["both", "neither", "either", "not only"],
+          answerIndex: 2,
+          translation: "시험에 응시하기 위해 모든 응시자는 운전면허증이나 여권을 제시해야 한다.",
+          explanation: "뒤에 or가 있으므로 'either A or B' 상관접속사를 이루는 either가 정답입니다[cite: 360, 365]."
+        },
+        {
+          id: 111,
+          question: "Ms. Gray is now looking for ------- a caterer and a florist for the company's annual dinner party.",
+          options: ["either", "both", "whether", "never"],
+          answerIndex: 1,
+          translation: "그레이 씨는 회사의 연례 만찬을 위해 출장 연회 업체와 플로리스트를 모두 찾고 있다.",
+          explanation: "뒤에 and가 있으므로 'both A and B(A와 B 모두)' 상관접속사를 이루는 both가 정답입니다[cite: 360, 365]."
+        },
+        {
+          id: 112,
+          question: "All service agreements with Sternwell Electronics must be signed by ------- a sales representative and a district manager.",
+          options: ["both", "whether", "either", "not only"],
+          answerIndex: 0,
+          translation: "스턴웰 일렉트로닉스와의 모든 서비스 계약서는 영업 담당자와 지사장 모두의 서명을 받아야 한다.",
+          explanation: "뒤에 and가 있으므로 'both A and B' 상관접속사 짝을 이루는 both가 정답입니다[cite: 360, 365]."
+        },
+        {
+          id: 113,
+          question: "The movie, The Castle, received rave reviews from ------- film critics and general viewers.",
+          options: ["both", "each", "either", "every"],
+          answerIndex: 0,
+          translation: "영화 <더 캐슬>은 평론가와 일반 관객 모두로부터 극찬을 받았다.",
+          explanation: "뒤에 and가 있으므로 'both A and B' 상관접속사를 이루는 both가 정답입니다[cite: 360, 365]."
+        },
+        {
+          id: 114,
+          question: "Attendants at the luncheon next Saturday may request ------- a regular set menu or a special vegetarian meal.",
+          options: ["not only", "either", "both", "yet"],
+          answerIndex: 1,
+          translation: "다음 주 토요일 오찬 참석자들은 일반 세트 메뉴나 특별 채식 식단 중 하나를 요청할 수 있다.",
+          explanation: "뒤에 or가 있으므로 'either A or B' 상관접속사를 이루는 either가 정답입니다[cite: 360, 365]."
+        },
+        {
+          id: 115,
+          question: "Local residents can sign up for activities at the cultural center by phone ------- e-mail.",
+          options: ["or", "nor", "whether", "either"],
+          answerIndex: 0,
+          translation: "지역 주민들은 전화나 이메일로 문화센터 프로그램에 신청할 수 있다.",
+          explanation: "by phone과 e-mail을 연결하는 등위접속사 or가 정답입니다[cite: 360, 366]."
+        },
+        {
+          id: 116,
+          question: "She enjoys ------- books in the evening and taking long walks in the park on weekends.",
+          options: ["read", "reading", "to read", "reads"],
+          answerIndex: 1,
+          translation: "그녀는 저녁에는 책을 읽고 주말에는 공원에서 길게 산책하는 것을 즐긴다.",
+          explanation: "and 뒤 동명사 taking과 병치를 이루는 동명사 reading이 정답입니다[cite: 360, 366]."
+        },
+        {
+          id: 117,
+          question: "The teacher asked the students to be quiet in class and ------- attention to the instructions carefully.",
+          options: ["pays", "paying", "to pay", "paid"],
+          answerIndex: 2,
+          translation: "선생님은 학생들에게 수업 중에 조용히 하고 지시 사항에 주의 깊게 집중하라고 요청했다.",
+          explanation: "and 앞 to be quiet와 병치를 이루는 to pay가 정답입니다[cite: 360, 366]."
+        },
+        {
+          id: 118,
+          question: "He was responsible for planning the event, preparing the materials, and ------- the final presentation.",
+          options: ["organize", "organizing", "to organize", "organized"],
+          answerIndex: 1,
+          translation: "그는 행사 기획, 자료 준비, 최종 발표를 담당했다.",
+          explanation: "동명사 planning, preparing과 and로 병치되는 동명사 organizing이 정답입니다[cite: 360, 366]."
+        },
+        {
+          id: 119,
+          question: "She decided not only to study abroad but also ------- an internship at a global company during the vacation.",
+          options: ["take", "taking", "to take", "took"],
+          answerIndex: 2,
+          translation: "그녀는 방학 동안 해외 유학을 할 뿐만 아니라 글로벌 기업에서 인턴십을 하기로 결정했다.",
+          explanation: "not only 뒤 to study와 병치를 이루는 to take가 정답입니다[cite: 360, 366]."
+        },
+        {
+          id: 120,
+          question: "The job requires strong communication skills, careful problem-solving ability, and ------- under pressure.",
+          options: ["work", "working", "to work", "worked"],
+          answerIndex: 1,
+          translation: "그 직무는 뛰어난 의사소통 능력, 신중한 문제 해결 능력, 압박 속에서 일하는 능력을 요구한다.",
+          explanation: "명사구 skills, ability와 병치되는 동명사구 working under pressure의 working이 정답입니다[cite: 361, 366]."
+        },
+        {
+          id: 121,
+          question: "She is interested in not only ------- English literature in college but also teaching English to young children after graduation.",
+          options: ["to study", "study", "studying", "studied"],
+          answerIndex: 2,
+          translation: "그녀는 대학에서 영문학을 공부하는 것뿐만 아니라 졸업 후 어린아이들에게 영어를 가르치는 것에도 관심이 있다.",
+          explanation: "but also 뒤 동명사 teaching과 병치를 이루는 동명사 studying이 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 122,
+          question: "The final exam will test either your understanding of grammar ------- your ability to use English in real-life situations.",
+          options: ["or", "and", "nor", "but"],
+          answerIndex: 0,
+          translation: "기말고사는 문법 이해력이나 실제 상황에서 영어를 활용하는 능력 중 하나를 평가할 것이다.",
+          explanation: "'either A or B' 상관접속사 짝을 이루는 or가 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 123,
+          question: "The manager said that neither the budget cuts ------- the tight schedule was the main cause of the project's failure.",
+          options: ["or", "and", "nor", "but"],
+          answerIndex: 2,
+          translation: "매니저는 예산 삭감도 빠듯한 일정도 프로젝트 실패의 주된 원인이 아니었다고 말했다.",
+          explanation: "'neither A nor B' 상관접속사 짝을 이루는 nor가 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 124,
+          question: "The scholarship is offered to both students who show excellent academic performance ------- those who demonstrate outstanding leadership skills.",
+          options: ["or", "nor", "but", "and"],
+          answerIndex: 3,
+          translation: "그 장학금은 뛰어난 학업 성취를 보이는 학생들과 탁월한 리더십 역량을 보여 주는 학생들 모두에게 수여된다.",
+          explanation: "'both A and B' 상관접속사 짝을 이루는 and가 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 125,
+          question: "Not only the teacher but also the students ------- actively involved in preparing the school festival this year.",
+          options: ["is", "was", "are", "be"],
+          answerIndex: 2,
+          translation: "선생님뿐만 아니라 학생들도 올해 학교 축제를 준비하는 데 적극적으로 참여하고 있다.",
+          explanation: "'not only A but also B'에서 동사 수 일치는 B(the students)에 맞추므로 복수 동사 are가 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 126,
+          question: "She plans to finish her homework before dinner and ------- a short review of today's lessons before going to bed.",
+          options: ["does", "doing", "to do", "did"],
+          answerIndex: 2,
+          translation: "그녀는 저녁 전에 숙제를 마치고 잠자리에 들기 전에 오늘 배운 내용을 짧게 복습할 계획이다.",
+          explanation: "plan to finish와 and로 병치되는 to do가 정답입니다[cite: 361, 367]."
+        },
+        {
+          id: 127,
+          question: "The coach asked the players not only to practice harder but also ------- more attention to teamwork during the game.",
+          options: ["pay", "paying", "to pay", "paid"],
+          answerIndex: 2,
+          translation: "코치는 선수들에게 더 열심히 연습할 뿐만 아니라 경기 중 팀워크에도 더 주의를 기울이라고 요청했다.",
+          explanation: "not only 뒤 to practice와 병치를 이루는 to pay가 정답입니다[cite: 361, 368]."
+        },
+        {
+          id: 128,
+          question: "He bought the laptop for online classes and ------- his younger sister who needed one for her schoolwork.",
+          options: ["help", "helps", "helping", "to help"],
+          answerIndex: 3,
+          translation: "그는 온라인 수업을 위해 노트북을 샀고 학교 과제 때문에 노트북이 필요했던 여동생을 돕기 위해서도 그것을 샀다.",
+          explanation: "목적 부사구 for online classes와 목적을 나타내는 to help가 병치되므로 to help가 정답입니다[cite: 362, 368]."
+        },
+        {
+          id: 129,
+          question: "Neither the long distance between their houses ------- the busy schedule prevented them from meeting regularly.",
+          options: ["or", "nor", "and", "but"],
+          answerIndex: 1,
+          translation: "집 사이의 먼 거리도 바쁜 일정도 그들이 정기적으로 만나는 것을 막지 못했다.",
+          explanation: "'neither A nor B' 상관접속사 짝을 이루는 nor가 정답입니다[cite: 362, 368]."
+        },
+        {
+          id: 130,
+          question: "Not only the parents but also the student council members ------- responsible for organizing the school charity event.",
+          options: ["is", "was", "are", "be"],
+          answerIndex: 2,
+          translation: "학부모들뿐만 아니라 학생회 임원들도 학교 자선 행사를 기획할 책임을 맡고 있다.",
+          explanation: "B에 해당하는 복수 명사 members에 동사 수를 맞추므로 are가 정답입니다[cite: 362, 368]."
+        },
+        {
+          id: 131,
+          question: "The job requires both the ability to communicate clearly ------- the skill to solve problems under pressure.",
+          options: ["either", "neither", "nor", "and"],
+          answerIndex: 3,
+          translation: "그 직무는 명확하게 소통하는 능력과 압박 속에서 문제를 해결하는 기술을 모두 요구한다.",
+          explanation: "'both A and B' 상관접속사 짝을 이루는 and가 정답입니다[cite: 362, 368]."
+        },
+        {
+          id: 132,
+          question: "He enjoys listening to classical music in the evening and ------- early in the morning before work.",
+          options: ["jog", "to jog", "jogging", "jogged"],
+          answerIndex: 2,
+          translation: "그는 저녁에 클래식 음악을 듣는 것을 즐기고 출근 전 이른 아침에 조깅하는 것을 즐긴다.",
+          explanation: "동명사 listening과 and로 병치되는 동명사 jogging이 정답입니다[cite: 362, 368]."
+        },
+        {
+          id: 133,
+          question: "She hopes to improve her speaking skills by practicing every day ------- receiving feedback from her teacher after each lesson.",
+          options: ["and", "also", "both", "either"],
+          answerIndex: 0,
+          translation: "그녀는 매일 연습하고 매 수업 후 선생님에게 피드백을 받음으로써 말하기 실력을 향상시키고 싶어 한다.",
+          explanation: "동명사 practicing과 receiving을 연결하는 등위접속사 and가 정답입니다[cite: 362, 369]."
+        },
+        {
+          id: 134,
+          question: "The program is designed to help students develop critical thinking, improve communication skills, and ------- confidence in public speaking.",
+          options: ["build", "building", "to build", "built"],
+          answerIndex: 0,
+          translation: "이 프로그램은 학생들이 비판적 사고력을 기르고 의사소통 능력을 향상시키며 대중 연설 자신감을 키우도록 설계되었다.",
+          explanation: "동사원형 develop, improve와 병치되는 동사원형 build가 정답입니다[cite: 362, 369]."
+        },
+        {
+          id: 135,
+          question: "She was known for her honesty, her strong sense of responsibility, and ------- others in difficult situations.",
+          options: ["help", "helps", "helping", "helped"],
+          answerIndex: 2,
+          translation: "그녀는 정직함, 강한 책임감, 어려운 상황에서 다른 사람들을 돕는 것으로 알려져 있었다.",
+          explanation: "명사구 her honesty, her strong sense of responsibility와 병치되는 동명사 helping이 정답입니다[cite: 362, 369]."
+        }
+      ],
+      nounEasy: [
+        {
+          id: 101,
+          question: "I don't know ------- the construction will be completed.",
+          options: ["what", "who", "which", "when"],
+          answerIndex: 3,
+          translation: "나는 공사가 언제 완료될지 모른다.",
+          explanation: "know의 목적어인 완전한 절 앞에서 시간을 묻는 의문부사 when이 정답입니다[cite: 370, 374]."
+        },
+        {
+          id: 102,
+          question: "Mr. Brown is trying to figure out ------- the new machine works.",
+          options: ["that", "what", "which", "who"],
+          answerIndex: 0,
+          translation: "브라운 씨는 새 기계가 어떻게 작동하는지 파악하려고 애쓰고 있다.",
+          explanation: "완전한 절을 이끄는 접속사 that이 정답입니다[cite: 370, 374]."
+        },
+        {
+          id: 103,
+          question: "The press release explains ------- the product launch has been delayed.",
+          options: ["why", "what", "which", "whereas"],
+          answerIndex: 0,
+          translation: "보도 자료는 왜 제품 출시가 연기되었는지 설명한다.",
+          explanation: "explains의 목적어인 완전한 절 앞에서 이유를 나타내는 의문부사 why가 정답입니다[cite: 370, 374]."
+        },
+        {
+          id: 104,
+          question: "The expert anticipated ------- gold prices would steadily increase.",
+          options: ["it", "that", "they", "those"],
+          answerIndex: 1,
+          translation: "전문가는 금값이 꾸준히 상승할 것이라고 예상했다.",
+          explanation: "anticipated의 목적어인 완전한 절(gold prices would steadily increase)을 이끄는 접속사 that이 정답입니다[cite: 370, 375]."
+        },
+        {
+          id: 105,
+          question: "It is not certain ------- will be in charge of the expansion project.",
+          options: ["why", "how", "when", "who"],
+          answerIndex: 3,
+          translation: "확장 프로젝트의 책임을 누가 맡을지는 확실하지 않다.",
+          explanation: "가주어 It의 진주어 명사절 안에서 주어 역할을 겸하는 의문대명사 who가 정답입니다[cite: 370, 375]."
+        },
+        {
+          id: 106,
+          question: "I'm wondering ------- you would come to the conference.",
+          options: ["if", "unless", "while", "as"],
+          answerIndex: 0,
+          translation: "콘퍼런스에 오실 수 있을지 궁금합니다.",
+          explanation: "wondering의 목적어 자리에서 '~인지 아닌지'를 나타내는 명사절 접속사 if가 정답입니다[cite: 370, 375]."
+        },
+        {
+          id: 107,
+          question: "I'm sure ------- you will find the seminar very informative.",
+          options: ["how", "whether", "about", "what"],
+          answerIndex: 0,
+          translation: "세미나가 매우 유익하다는 것을 알게 되실 거라 확신합니다.",
+          explanation: "형용사 sure 뒤 완전한 절을 이끄는 명사절 접속사 how(해설 기준 정답 A)가 정답입니다[cite: 370, 374, 375]."
+        },
+        {
+          id: 108,
+          question: "------- I want is to get a good job.",
+          options: ["That", "What", "Those", "Because"],
+          answerIndex: 1,
+          translation: "내가 원하는 것은 좋은 직장을 얻는 것이다.",
+          explanation: "주어 자리 명사절을 이끌면서 want의 목적어 역할을 하는 관계대명사 What이 정답입니다[cite: 370, 375, 376]."
+        },
+        {
+          id: 109,
+          question: "I would like to inform you ------- we will relocate to a larger space.",
+          options: ["that", "because", "since", "although"],
+          answerIndex: 0,
+          translation: "우리가 더 넓은 공간으로 이전한다는 점을 알려드리고 싶습니다.",
+          explanation: "inform you 뒤 완전한 절을 이끄는 명사절 접속사 that이 정답입니다[cite: 370, 376]."
+        },
+        {
+          id: 110,
+          question: "It is evident ------- the charity auction will be a great success.",
+          options: ["it", "that", "they", "which"],
+          answerIndex: 1,
+          translation: "자선 경매가 큰 성공을 거둘 것이라는 점은 분명하다.",
+          explanation: "가주어 It에 대응하는 진주어 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 370, 376]."
+        },
+        {
+          id: 111,
+          question: "I called the theater to see ------- there are any seats available.",
+          options: ["that", "what", "them", "if"],
+          answerIndex: 3,
+          translation: "예약 가능한 좌석이 있는지 확인하려고 극장에 전화했다.",
+          explanation: "see의 목적어 자리에서 '~인지 아닌지'를 나타내는 접속사 if가 정답입니다[cite: 371, 376]."
+        },
+        {
+          id: 112,
+          question: "Mr. Shin doesn't know ------- to use this machine.",
+          options: ["about", "what", "that", "how"],
+          answerIndex: 3,
+          translation: "신 씨는 이 기계를 어떻게 사용하는지 모른다.",
+          explanation: "'의문사 + to do' 구조에서 방법을 나타내는 how가 정답입니다[cite: 371, 376]."
+        },
+        {
+          id: 113,
+          question: "I clearly remember ------- he said during the meeting about the future plan of the project.",
+          options: ["that", "what", "how", "whether"],
+          answerIndex: 1,
+          translation: "나는 프로젝트의 향후 계획에 대한 회의 중 그가 말한 내용을 분명히 기억한다.",
+          explanation: "said의 목적어가 빠진 불완전한 명사절을 이끄는 관계대명사 what이 정답입니다[cite: 371, 377]."
+        },
+        {
+          id: 114,
+          question: "The teacher explained ------- we must submit the assignment by Friday without any exceptions.",
+          options: ["what", "whether", "that", "how"],
+          answerIndex: 2,
+          translation: "선생님은 예외 없이 금요일까지 과제를 제출해야 한다고 설명했다.",
+          explanation: "explained의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 371, 377]."
+        },
+        {
+          id: 115,
+          question: "She asked me ------- I had finished writing the report for the science competition.",
+          options: ["what", "that", "whether", "who"],
+          answerIndex: 2,
+          translation: "그녀는 내가 과학 경시대회 보고서 작성을 마쳤는지 물었다.",
+          explanation: "asked의 목적어 자리에서 '~인지 아닌지'를 묻는 명사절 접속사 whether가 정답입니다[cite: 371, 377]."
+        },
+        {
+          id: 116,
+          question: "No one could understand ------- he suddenly decided to quit the team just before the final match.",
+          options: ["how", "that", "what", "why"],
+          answerIndex: 3,
+          translation: "결승전을 바로 앞두고 그가 갑자기 팀을 떠나기로 결심한 이유를 아무도 이해할 수 없었다.",
+          explanation: "이유를 나타내는 명사절을 이끄는 의문부사 why가 정답입니다[cite: 371, 377]."
+        },
+        {
+          id: 117,
+          question: "The student was confused about ------- he should start writing the essay for the entrance exam.",
+          options: ["that", "whether", "what", "why"],
+          answerIndex: 1,
+          translation: "그 학생은 입학시험 에세이를 쓰기 시작해야 할지 여부에 대해 혼란스러워했다.",
+          explanation: "전치사 about 뒤 완전한 절을 이끌어 '~인지 아닌지'를 나타내는 whether가 정답입니다[cite: 371, 377]."
+        },
+        {
+          id: 118,
+          question: "------- he said during the press conference surprised everyone in the audience.",
+          options: ["That", "What", "Whether", "How"],
+          answerIndex: 1,
+          translation: "그가 기자회견에서 말한 내용은 청중 모두를 놀라게 했다.",
+          explanation: "주어 자리 명사절을 이끌면서 said의 목적어 역할을 하는 관계대명사 What이 정답입니다[cite: 371, 377, 378]."
+        },
+        {
+          id: 119,
+          question: "------- the team will win the final match remains uncertain until the last moment.",
+          options: ["What", "How", "Whether", "That"],
+          answerIndex: 2,
+          translation: "그 팀이 결승전에서 이길지 여부는 마지막 순간까지 불확실하다.",
+          explanation: "불확실성을 나타내는 주어 자리 명사절을 이끄는 접속사 Whether가 정답입니다[cite: 371, 378]."
+        },
+        {
+          id: 120,
+          question: "She is worried about ------- will happen to her family while she is studying abroad next year.",
+          options: ["that", "what", "whether", "how"],
+          answerIndex: 1,
+          translation: "그녀는 내년에 유학하는 동안 가족에게 무슨 일이 생길지 걱정하고 있다.",
+          explanation: "전치사 about 뒤 주어가 없는 불완전한 명사절을 이끄는 what이 정답입니다[cite: 371, 378]."
+        },
+        {
+          id: 121,
+          question: "He apologized for ------- he had said during the heated argument the night before.",
+          options: ["that", "what", "how", "whether"],
+          answerIndex: 1,
+          translation: "그는 전날 밤 격렬한 말다툼 중에 자신이 했던 말에 대해 사과했다.",
+          explanation: "전치사 for 뒤 목적어가 없는 불완전한 명사절을 이끄는 what이 정답입니다[cite: 372, 378]."
+        },
+        {
+          id: 122,
+          question: "My parents promised to support ------- I decide to do after graduating from high school.",
+          options: ["that", "who", "whatever", "whether"],
+          answerIndex: 2,
+          translation: "부모님은 내가 고등학교 졸업 후 무엇을 하기로 결정하든 지원해 주겠다고 약속하셨다.",
+          explanation: "명사절을 이끌면서 절 내부에서 do의 목적어 역할을 하는 복합관계대명사 whatever가 정답입니다[cite: 372, 378]."
+        },
+        {
+          id: 123,
+          question: "The investigation team finally concluded ------- the accident was caused by a mechanical failure and human error.",
+          options: ["who", "what", "that", "where"],
+          answerIndex: 2,
+          translation: "조사팀은 마침내 그 사고가 기계적 결함과 인적 오류로 인해 발생했다는 결론을 내렸다.",
+          explanation: "concluded의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 372, 378, 379]."
+        },
+        {
+          id: 124,
+          question: "The teacher asked the students ------- they had completed their homework assignment.",
+          options: ["if", "while", "although", "until"],
+          answerIndex: 0,
+          translation: "선생님은 학생들에게 숙제를 마쳤는지 물었다.",
+          explanation: "asked의 목적어 자리에서 '~인지 아닌지'를 나타내는 접속사 if가 정답입니다[cite: 372, 379]."
+        },
+        {
+          id: 125,
+          question: "We need to decide quickly ------- we should take the bus or the subway to the station.",
+          options: ["that", "whether", "how", "where"],
+          answerIndex: 1,
+          translation: "우리는 역까지 버스를 탈지 지하철을 탈지 빨리 결정해야 한다.",
+          explanation: "뒤에 or가 있어 선택을 나타내는 명사절 접속사 whether가 정답입니다[cite: 372, 379]."
+        },
+        {
+          id: 126,
+          question: "Despite numerous warnings, the workers completely ignored ------- the safety supervisor repeatedly emphasized during the training session.",
+          options: ["what", "which", "why", "though"],
+          answerIndex: 0,
+          translation: "수많은 경고에도 불구하고 작업자들은 안전 관리자가 교육 시간에 반복적으로 강조했던 것을 완전히 무시했다.",
+          explanation: "emphasized의 목적어가 빠진 불완전한 명사절을 이끄는 관계대명사 what이 정답입니다[cite: 372, 379]."
+        },
+        {
+          id: 127,
+          question: "I believe ------- the company will announce the new policy tomorrow morning.",
+          options: ["who", "what", "that", "where"],
+          answerIndex: 2,
+          translation: "나는 회사가 내일 아침 새 정책을 발표할 것이라고 믿는다.",
+          explanation: "believe의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 372, 379]."
+        },
+        {
+          id: 128,
+          question: "I don't know ------- the manager wants us to do next.",
+          options: ["if", "that", "what", "when"],
+          answerIndex: 2,
+          translation: "나는 매니저가 다음에 우리에게 무엇을 하기를 원하는지 모르겠다.",
+          explanation: "do의 목적어가 빠진 불완전한 명사절을 이끄는 관계대명사 what이 정답입니다[cite: 372, 380]."
+        },
+        {
+          id: 129,
+          question: "The problem is ------- we don't have enough time to finish all the preparations before the deadline.",
+          options: ["that", "if", "even so", "how much"],
+          answerIndex: 0,
+          translation: "문제는 마감 기한 전에 모든 준비를 마칠 충분한 시간이 없다는 점이다.",
+          explanation: "주격 보어 자리의 완전한 명사절을 이끄는 접속사 that이 정답입니다[cite: 372, 380]."
+        },
+        {
+          id: 130,
+          question: "Please tell me ------- the event will start so I won't be late.",
+          options: ["who", "where", "what", "when"],
+          answerIndex: 3,
+          translation: "내가 늦지 않도록 행사가 언제 시작할지 알려 주세요.",
+          explanation: "시간 정보를 묻는 완전한 명사절을 이끄는 의문부사 when이 정답입니다[cite: 372, 380]."
+        },
+        {
+          id: 131,
+          question: "No one could figure out ------- broke the antique vase in the museum.",
+          options: ["who", "how", "that", "where"],
+          answerIndex: 0,
+          translation: "박물관에서 골동품 꽃병을 누가 깼는지 아무도 알아낼 수 없었다.",
+          explanation: "broke의 주어가 빠진 불완전한 명사절에서 사람을 나타내는 의문대명사 who가 정답입니다[cite: 373, 380]."
+        },
+        {
+          id: 132,
+          question: "The map clearly shows us ------- the treasure is actually hidden.",
+          options: ["who", "where", "what", "if"],
+          answerIndex: 1,
+          translation: "그 지도는 보물이 실제로 어디에 숨겨져 있는지 명확하게 보여 준다.",
+          explanation: "장소를 나타내는 완전한 명사절을 이끄는 의문부사 where가 정답입니다[cite: 373, 380]."
+        },
+        {
+          id: 133,
+          question: "Please remember to check ------- the restaurant closes early on Sundays.",
+          options: ["while", "what", "if", "when"],
+          answerIndex: 2,
+          translation: "일요일에 그 레스토랑이 일찍 닫는지 확인하는 것을 잊지 마세요.",
+          explanation: "check 뒤에서 '~인지 아닌지' 여부를 확인하는 접속사 if(해설 기준 정답 C)가 정답입니다[cite: 373, 374, 380]."
+        },
+        {
+          id: 134,
+          question: "Everyone agreed with ------- the sales director proposed at the meeting.",
+          options: ["which", "what", "that", "when"],
+          answerIndex: 1,
+          translation: "모두가 영업 이사가 회의에서 제안한 것에 동의했다.",
+          explanation: "전치사 with 뒤 proposed의 목적어가 빠진 불완전한 명사절을 이끄는 what이 정답입니다[cite: 373, 381]."
+        },
+        {
+          id: 135,
+          question: "It is true ------- the earth revolves around the sun.",
+          options: ["what", "that", "when", "who"],
+          answerIndex: 1,
+          translation: "지구가 태양 주위를 공전한다는 것은 사실이다.",
+          explanation: "가주어 It의 진주어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 373, 381]."
+        },
+        {
+          id: 136,
+          question: "Please find out exactly ------- the new library will be located in the city.",
+          options: ["that", "where", "how", "what"],
+          answerIndex: 1,
+          translation: "새 도서관이 시내 어디에 위치할지 정확히 알아봐 주세요.",
+          explanation: "위치를 나타내는 완전한 명사절을 이끄는 의문부사 where가 정답입니다[cite: 373, 381]."
+        },
+        {
+          id: 137,
+          question: "The company announced this morning ------- they will hire twenty new employees next month.",
+          options: ["what", "whether", "that", "who"],
+          answerIndex: 2,
+          translation: "회사는 다음 달에 신입 직원 20명을 채용할 것이라고 오늘 아침 발표했다.",
+          explanation: "announced의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 373, 381]."
+        },
+        {
+          id: 138,
+          question: "The little girl asked her mother ------- the stars came from.",
+          options: ["when", "where", "that", "who"],
+          answerIndex: 1,
+          translation: "그 어린 소녀는 별들이 어디에서 왔는지 엄마에게 물었다.",
+          explanation: "기원·출처 장소를 나타내는 명사절을 이끄는 의문부사 where가 정답입니다[cite: 373, 381]."
+        },
+        {
+          id: 139,
+          question: "------- surprised everyone was his sudden decision to leave the country.",
+          options: ["That", "What", "How", "If"],
+          answerIndex: 1,
+          translation: "모두를 놀라게 한 것은 나라를 떠나겠다는 그의 갑작스러운 결정이었다.",
+          explanation: "주어 자리 명사절을 이끌면서 surprised의 주어 역할을 하는 관계대명사 What이 정답입니다[cite: 373, 381, 382]."
+        },
+        {
+          id: 140,
+          question: "They are discussing ------- they can improve customer service next year.",
+          options: ["that", "what", "how", "where"],
+          answerIndex: 2,
+          translation: "그들은 내년에 고객 서비스를 어떻게 개선할 수 있을지 논의하고 있다.",
+          explanation: "개선 방법을 나타내는 완전한 명사절을 이끄는 의문부사 how가 정답입니다[cite: 373, 382]."
+        }
+      ],
+      nounHard: [
+        {
+          id: 101,
+          question: "It is possible ------- the missing documents are somewhere in this office.",
+          options: ["what", "that", "which", "who"],
+          answerIndex: 1,
+          translation: "누락된 문서들이 이 사무실 어딘가에 있다는 것은 가능하다.",
+          explanation: "가주어 It의 진주어인 완전한 절을 이끄는 명사절 접속사 that이 정답입니다[cite: 383, 387]."
+        },
+        {
+          id: 102,
+          question: "The police officer wanted to know ------- the witness saw at the scene of the accident.",
+          options: ["who", "that", "how", "what"],
+          answerIndex: 3,
+          translation: "경찰관은 목격자가 사고 현장에서 무엇을 보았는지 알고 싶어 했다.",
+          explanation: "saw의 목적어가 빠진 불완전한 명사절을 이끄는 관계대명사 what이 정답입니다[cite: 383, 387]."
+        },
+        {
+          id: 103,
+          question: "We are in the process of deciding ------- will be in charge of the new product development project.",
+          options: ["who", "when", "they", "about"],
+          answerIndex: 0,
+          translation: "우리는 신제품 개발 프로젝트를 누가 담당할지 결정하는 과정에 있다.",
+          explanation: "deciding의 목적어인 불완전한 명사절에서 주어 역할을 겸하는 의문대명사 who가 정답입니다[cite: 383, 387]."
+        },
+        {
+          id: 104,
+          question: "PEledu announced yesterday ------- it would introduce a new educational program for young students.",
+          options: ["whether", "what", "which", "that"],
+          answerIndex: 3,
+          translation: "PEledu는 어제 어린 학생들을 위한 새로운 교육 프로그램을 도입할 것이라고 발표했다.",
+          explanation: "announced의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 383, 387]."
+        },
+        {
+          id: 105,
+          question: "The survey results suggest ------- majority of customers want the company to open more stores.",
+          options: ["about", "that", "and", "within"],
+          answerIndex: 1,
+          translation: "설문 결과는 대다수 고객이 회사가 매장을 더 열기를 원한다는 것을 시사한다.",
+          explanation: "suggest 뒤 완전한 명사절을 이끄는 접속사 that이 정답입니다[cite: 383, 387, 388]."
+        },
+        {
+          id: 106,
+          question: "The managers will talk about ------- the new product will be successful.",
+          options: ["whether", "if", "that", "this"],
+          answerIndex: 0,
+          translation: "관리자들은 신제품이 성공할지 여부에 대해 이야기할 것이다.",
+          explanation: "전치사 about 뒤에서 '~인지 아닌지'를 이끄는 명사절 접속사 whether가 정답입니다[cite: 383, 387, 388]."
+        },
+        {
+          id: 107,
+          question: "Mr. Back called at the World Conference Center and asked ------- is in charge of organizing the corporate events.",
+          options: ["that", "who", "whom", "what"],
+          answerIndex: 1,
+          translation: "백 씨는 월드 콘퍼런스 센터에 전화해 기업 행사를 주관하는 책임자가 누구인지 물었다.",
+          explanation: "asked의 목적어인 불완전한 명사절에서 주어 역할을 겸하는 의문대명사 who가 정답입니다[cite: 383, 387, 388]."
+        },
+        {
+          id: 108,
+          question: "A group of visitors are scheduled to take a tour of the Lemon Bakery's main factory to see ------- its products are made.",
+          options: ["what", "when", "how", "whom"],
+          answerIndex: 2,
+          translation: "방문자 일행은 제품이 어떻게 만들어지는지 보기 위해 레몬 베이커리 본사 공장을 견학할 예정이다.",
+          explanation: "완전한 절 앞에서 제조 방법을 나타내는 의문부사 how가 정답입니다[cite: 383, 387, 388]."
+        },
+        {
+          id: 109,
+          question: "------- CEO Ms. Jina Davis will give a talk at the annual conference has not been firmly determined.",
+          options: ["Since", "Whether", "After", "Until"],
+          answerIndex: 1,
+          translation: "CEO 지나 데이비스 씨가 연례 콘퍼런스에서 강연할지 여부는 아직 확정되지 않았다.",
+          explanation: "주어 자리 명사절을 이끌어 '~인지 아닌지'를 나타내는 접속사 Whether가 정답입니다[cite: 384, 387, 388]."
+        },
+        {
+          id: 110,
+          question: "I was wondering ------- you could help me with making a Web site.",
+          options: ["that", "if", "as", "unless"],
+          answerIndex: 1,
+          translation: "웹사이트 제작을 도와주실 수 있을지 궁금했습니다.",
+          explanation: "wondering의 목적어 자리에서 '~인지 아닌지'를 나타내는 접속사 if가 정답입니다[cite: 384, 387, 389]."
+        },
+        {
+          id: 111,
+          question: "Customers will know ------- our product is inexpensive and well-designed.",
+          options: ["about", "over", "that", "it"],
+          answerIndex: 2,
+          translation: "고객들은 당사 제품이 저렴하면서도 디자인이 우수하다는 것을 알게 될 것이다.",
+          explanation: "know의 목적어인 완전한 절을 이끄는 명사절 접속사 that이 정답입니다[cite: 384, 387, 389]."
+        },
+        {
+          id: 112,
+          question: "Many customers asked ------- there is any discount on the items currently displayed.",
+          options: ["about", "that", "whether", "which"],
+          answerIndex: 2,
+          translation: "많은 고객이 현재 진열된 상품에 할인이 있는지 물었다.",
+          explanation: "asked의 목적어 자리에서 '~인지 아닌지'를 묻는 접속사 whether가 정답입니다[cite: 384, 387, 389]."
+        },
+        {
+          id: 113,
+          question: "After registering for the event, you can see ------- you're successfully registered or not.",
+          options: ["that", "when", "if", "what"],
+          answerIndex: 2,
+          translation: "행사에 등록한 후 성공적으로 등록되었는지 아닌지 확인할 수 있다.",
+          explanation: "뒤에 or not과 호응해 '~인지 아닌지'를 나타내는 접속사 if가 정답입니다[cite: 384, 387, 389]."
+        },
+        {
+          id: 114,
+          question: "We have not determined ------- the annual company picnic will be held on company grounds or in Jackson Park.",
+          options: ["regarding", "either", "nearby", "whether"],
+          answerIndex: 3,
+          translation: "연례 사내 소풍을 회사 부지에서 열지 잭슨 파크에서 열지 아직 결정하지 못했다.",
+          explanation: "A or B 선택의 명사절을 이끄는 접속사 whether가 정답입니다[cite: 384, 387, 389]."
+        },
+        {
+          id: 115,
+          question: "We repeatedly ask ------- you refrain from bringing food and beverages inside the aquarium.",
+          options: ["so", "that", "what", "unless"],
+          answerIndex: 1,
+          translation: "수족관 내부로 음식물 반입을 자제해 주시기를 거듭 요청드립니다.",
+          explanation: "ask 뒤 완전한 명사절을 이끄는 접속사 that이 정답입니다[cite: 384, 387, 389, 390]."
+        },
+        {
+          id: 116,
+          question: "After designing a new product, researchers continue experimenting to determine ------- it has other uses.",
+          options: ["which", "whether", "what", "unless"],
+          answerIndex: 1,
+          translation: "신제품을 설계한 후 연구자들은 다른 용도가 있는지 확인하기 위해 실험을 이어간다.",
+          explanation: "determine 뒤 완전한 절 앞에서 '~인지 아닌지'를 이끄는 접속사 whether가 정답입니다[cite: 384, 387, 390]."
+        },
+        {
+          id: 117,
+          question: "The main point of the lecture was ------- we should protect the environment for future generations.",
+          options: ["how", "what", "that", "who"],
+          answerIndex: 2,
+          translation: "그 강의의 요점은 미래 세대를 위해 환경을 보호해야 한다는 것이었다.",
+          explanation: "주격 보어 자리의 완전한 명사절을 이끄는 접속사 that이 정답입니다[cite: 384, 387, 390]."
+        },
+        {
+          id: 118,
+          question: "The reason for the delay is ------- the main power system suddenly failed this morning.",
+          options: ["what", "that", "which", "who"],
+          answerIndex: 1,
+          translation: "지연의 이유는 오늘 아침 주 전력 시스템이 갑자기 고장 났기 때문이다.",
+          explanation: "주격 보어 자리의 완전한 명사절을 이끄는 접속사 that이 정답입니다[cite: 384, 387, 390]."
+        },
+        {
+          id: 119,
+          question: "The project manager is currently reviewing the proposal to determine ------- the new budget allocation will be sufficient to cover all necessary expenses.",
+          options: ["that", "how", "whether", "why"],
+          answerIndex: 2,
+          translation: "프로젝트 관리자는 새 예산 배정이 필요한 모든 비용을 충당하기에 충분할지 판단하기 위해 제안서를 검토 중이다.",
+          explanation: "충분할지 여부를 결정하는 맥락이므로 접속사 whether가 정답입니다[cite: 385, 387, 390]."
+        },
+        {
+          id: 120,
+          question: "The scholarship will be awarded to ------- the committee selects as the most dedicated volunteer.",
+          options: ["what", "whomever", "how", "when"],
+          answerIndex: 1,
+          translation: "그 장학금은 위원회가 가장 헌신적인 자원봉사자로 선정하는 사람에게 수여될 것이다.",
+          explanation: "전치사 to 뒤 명사절을 이끌면서 selects의 목적어 역할을 하는 목적격 복합관계대명사 whomever가 정답입니다[cite: 385, 387, 391]."
+        },
+        {
+          id: 121,
+          question: "------- finishes the project first will be given the opportunity to present it at the national competition.",
+          options: ["Whoever", "Whom", "Anyone", "No one"],
+          answerIndex: 0,
+          translation: "그 프로젝트를 가장 먼저 끝내는 사람은 전국 대회에서 발표할 기회를 얻게 될 것이다.",
+          explanation: "주어 자리 명사절을 이끌면서 finishes의 주어 역할을 하는 주격 복합관계대명사 Whoever가 정답입니다[cite: 385, 387, 391]."
+        },
+        {
+          id: 122,
+          question: "My parents are interested in ------- I plan to study after I graduate from high school.",
+          options: ["that", "what", "whether", "how"],
+          answerIndex: 1,
+          translation: "부모님은 내가 고등학교 졸업 후 무엇을 공부할 계획인지에 관심이 있으시다.",
+          explanation: "전치사 in 뒤 study의 목적어가 빠진 불완전한 명사절을 이끄는 what이 정답입니다[cite: 385, 387, 391]."
+        },
+        {
+          id: 123,
+          question: "No one was confident of ------- the new policy would actually solve the housing problem.",
+          options: ["that", "what", "whether", "how"],
+          answerIndex: 2,
+          translation: "새 정책이 실제로 주택 문제를 해결할지 여부에 대해 확신하는 사람은 아무도 없었다.",
+          explanation: "전치사 of 뒤 완전한 절 앞에서 '~인지 아닌지'를 나타내는 접속사 whether가 정답입니다[cite: 385, 387, 391]."
+        },
+        {
+          id: 124,
+          question: "The students talked about ------- they should prepare for the final exam during the winter vacation.",
+          options: ["what", "that", "where", "which"],
+          answerIndex: 0,
+          translation: "학생들은 겨울 방학 동안 기말고사를 위해 무엇을 준비해야 할지 이야기했다.",
+          explanation: "전치사 about 뒤 prepare for의 대상이 빠진 불완전한 명사절을 이끄는 what이 정답입니다[cite: 385, 387, 391]."
+        },
+        {
+          id: 125,
+          question: "------- he forgot to bring his ID card caused a serious problem at the airport.",
+          options: ["That", "What", "Where", "Whether"],
+          answerIndex: 0,
+          translation: "그가 신분증을 가져오는 것을 잊은 일이 공항에서 심각한 문제를 일으켰다.",
+          explanation: "주어 자리의 완전한 사실 명사절을 이끄는 접속사 That이 정답입니다[cite: 385, 387, 392]."
+        },
+        {
+          id: 126,
+          question: "------- she managed to solve such a difficult problem without any help amazed her teachers.",
+          options: ["If", "What", "How", "Whether"],
+          answerIndex: 2,
+          translation: "그녀가 도움 없이 그렇게 어려운 문제를 어떻게 풀어냈는지는 선생님들을 놀라게 했다.",
+          explanation: "주어 자리 명사절에서 해결 방법을 나타내는 의문부사 How가 정답입니다[cite: 385, 387, 392]."
+        },
+        {
+          id: 127,
+          question: "The fact ------- Mr. Oh decided to retire suddenly made employees surprised.",
+          options: ["about", "of", "that", "which"],
+          answerIndex: 2,
+          translation: "오 씨가 갑자기 은퇴하기로 결심했다는 사실은 직원들을 놀라게 했다.",
+          explanation: "the fact 뒤에 완전한 절이 이어지는 동격 명사절 접속사 that이 정답입니다[cite: 385, 387, 392]."
+        },
+        {
+          id: 128,
+          question: "It is important ------- you be at work on time.",
+          options: ["thing", "for", "that", "to"],
+          answerIndex: 2,
+          translation: "제시간에 출근하는 것은 중요하다.",
+          explanation: "가주어 It에 대응하는 진주어 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 385, 387, 392]."
+        },
+        {
+          id: 129,
+          question: "Today's meeting will be about ------- supplier we have to choose.",
+          options: ["it", "that", "how", "which"],
+          answerIndex: 3,
+          translation: "오늘 회의는 우리가 어떤 공급업체를 선택해야 하는지에 관한 것이다.",
+          explanation: "단수 명사 supplier 앞에서 명사절을 이끄는 의문형용사 which가 정답입니다[cite: 386, 387, 393]."
+        },
+        {
+          id: 130,
+          question: "------- people believe about success often changes as they gain more life experience.",
+          options: ["Because", "What", "Whether", "However"],
+          answerIndex: 1,
+          translation: "사람들이 성공에 대해 믿는 것은 인생 경험을 더 쌓으면서 종종 변한다.",
+          explanation: "주어 자리 명사절을 이끌면서 believe의 목적어 역할을 하는 관계대명사 What이 정답입니다[cite: 386, 387, 393]."
+        },
+        {
+          id: 131,
+          question: "It is widely accepted by leading economists ------- the sudden spike in oil prices will inevitably lead to global inflation next quarter.",
+          options: ["that", "since", "because", "while"],
+          answerIndex: 0,
+          translation: "유가의 급격한 급등이 다음 분기에 세계적인 인플레이션으로 불가피하게 이어질 것이라는 점은 주요 경제학자들 사이에서 널리 받아들여진다.",
+          explanation: "가주어 It의 진주어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 386, 387, 393]."
+        },
+        {
+          id: 132,
+          question: "The team manager needs to know ------- we have enough funding to launch the new product line next quarter.",
+          options: ["what", "that", "if", "when"],
+          answerIndex: 2,
+          translation: "팀장은 우리가 다음 분기에 신제품 라인을 출시할 충분한 자금을 확보했는지 알아야 한다.",
+          explanation: "know 뒤에서 자금 확보 여부를 나타내는 접속사 if가 정답입니다[cite: 386, 387, 393, 394]."
+        },
+        {
+          id: 133,
+          question: "It is strongly advised by the health expert ------- you should drink at least eight glasses of water every day.",
+          options: ["which", "what", "that", "whether"],
+          answerIndex: 2,
+          translation: "매일 최소 여덟 잔의 물을 마셔야 한다는 것이 건강 전문가에 의해 강력히 권고된다.",
+          explanation: "가주어 It의 진주어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 386, 387, 394]."
+        },
+        {
+          id: 134,
+          question: "The CEO's announcement clearly stated ------- the company's financial status had dramatically improved this year.",
+          options: ["who", "how", "that", "what"],
+          answerIndex: 2,
+          translation: "CEO의 발표는 회사의 재무 상태가 올해 극적으로 개선되었다고 명확히 밝혔다.",
+          explanation: "stated의 목적어인 완전한 절을 이끄는 접속사 that이 정답입니다[cite: 386, 387, 394]."
+        },
+        {
+          id: 135,
+          question: "We still do not understand ------- caused the unexpected system failure in the main server room.",
+          options: ["that", "if", "what", "how"],
+          answerIndex: 2,
+          translation: "우리는 주 서버실에서 예상치 못한 시스템 고장을 무엇이 일으켰는지 여전히 이해하지 못한다.",
+          explanation: "caused의 주어가 빠진 불완전한 명사절에서 사물을 묻는 관계대명사 what이 정답입니다[cite: 386, 387, 394]."
+        },
+        {
+          id: 136,
+          question: "The primary concern for the travel agency is ------- they can offer customers better prices than their competitors.",
+          options: ["what", "that", "how", "who"],
+          answerIndex: 2,
+          translation: "여행사의 주요 관심사는 경쟁사보다 고객에게 더 나은 가격을 어떻게 제공할 수 있을지이다.",
+          explanation: "주격 보어 자리의 완전한 절에서 방법을 나타내는 의문부사 how가 정답입니다[cite: 386, 387, 394]."
+        },
+        {
+          id: 137,
+          question: "------- is the most important for a business is to earn a profit.",
+          options: ["It", "That", "When", "What"],
+          answerIndex: 3,
+          translation: "사업에서 가장 중요한 것은 이윤을 내는 것이다.",
+          explanation: "본동사 is 앞 주어 자리에서 is the most important의 주어가 빠진 불완전한 명사절을 이끄는 What이 정답입니다[cite: 386, 387, 395]."
+        },
+        {
+          id: 138,
+          question: "------- the new product will be successful or not remains to be seen.",
+          options: ["When", "While", "Whether", "What"],
+          answerIndex: 2,
+          translation: "신제품이 성공할지 여부는 좀 더 지켜봐야 한다.",
+          explanation: "본동사 remains 앞 주어 자리에서 or not과 호응해 '~인지 아닌지'를 이끄는 접속사 Whether가 정답입니다[cite: 386, 387, 395]."
+        }
+      ]
+    };
+
+    let currentSection = "coord";
+    const state = {
+      coord: {},
+      nounEasy: {},
+      nounHard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initSectionState(sec) {
+      questionSets[sec].forEach((q) => {
+        state[sec][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(sec, qId) {
+      state[sec][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentSection];
+    }
+
+    function getSectionState() {
+      return state[currentSection];
+    }
+
+    function switchSection(sec) {
+      currentSection = sec;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      Object.keys(sectionMeta).forEach((key) => {
+        document.getElementById(sectionMeta[key].btnId).classList.toggle("active", key === sec);
+      });
+
+      document.getElementById("lectureTag").textContent = sectionMeta[sec].tag;
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function renderNextChoices() {
+      const box = document.getElementById("nextChoiceBtns");
+      const otherKeys = Object.keys(sectionMeta).filter((k) => k !== currentSection);
+      box.innerHTML = otherKeys
+        .map(
+          (key) =>
+            `<button type="button" class="choice-next-btn" onclick="switchSection('${key}')">${sectionMeta[key].label} 문제를 푸시겠습니까?</button>`
+        )
+        .join("");
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      renderNextChoices();
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentSection, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getSectionState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentSection, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    initSectionState("coord");
+    initSectionState("nounEasy");
+    initSectionState("nounHard");
+    visibleQuestionIds = questionSets.coord.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

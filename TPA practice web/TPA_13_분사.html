@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 13 분사 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 난이도 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .level-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .level-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .level-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .hard-challenge-box {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hard-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hard-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .yes-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .yes-btn:hover {
+      background-color: var(--primary);
+    }
+
+    .no-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .no-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 13 · 분사 (기본 A · 총 42문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 난이도 전환 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="level-switch">
+        <button type="button" id="btnEasy" class="level-btn active" onclick="switchLevel('easy')">기본 (A)</button>
+        <button type="button" id="btnHard" class="level-btn" onclick="switchLevel('hard')">고난도 (B)</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 42</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 고난도 도전 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/42)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/42)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div id="hardChallengeBox" class="hard-challenge-box">
+        <p class="hard-question">더 어려운 문제에 도전하시겠습니까?</p>
+        <div class="hard-btns">
+          <button type="button" class="yes-btn" onclick="handleHardYes()">yes</button>
+          <a class="no-btn" href="index.html">no</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questionSets = {
+      easy: [
+        {
+          id: 101,
+          question: "We need to proceed with caution when ------- the sensitive data.",
+          options: ["handle", "handling", "to handle", "handled"],
+          answerIndex: 1,
+          translation: "민감한 데이터를 다룰 때 우리는 신중하게 진행해야 한다.",
+          explanation: "접속사 when 뒤에 주어(we)가 데이터를 다루는 능동 관계이고 목적어(the sensitive data)가 있으므로 handling이 정답입니다."
+        },
+        {
+          id: 102,
+          question: "Anyone ------- in this job position should submit a resume and a letter of recommendation.",
+          options: ["interests", "is interesting", "interesting", "interested"],
+          answerIndex: 3,
+          translation: "이 직책에 관심 있는 사람은 누구나 이력서와 추천서를 제출해야 한다.",
+          explanation: "사람 명사 Anyone이 흥미/관심의 감정을 느끼는 수동 관계이므로 과거분사 interested가 정답입니다."
+        },
+        {
+          id: 103,
+          question: "We are very ------- to see you again.",
+          options: ["please", "pleased", "pleasing", "pleasure"],
+          answerIndex: 1,
+          translation: "귀하를 다시 뵙게 되어 매우 기쁩니다.",
+          explanation: "사람 주어 We가 기쁨의 감정을 느끼는 수동 관계이므로 보어 자리에 pleased가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "We will give you an additional 10% discount on the products ------- online.",
+          options: ["purchase", "purchasing", "purchased", "to purchase"],
+          answerIndex: 2,
+          translation: "온라인으로 구매하신 제품에 대해 10% 추가 할인을 제공해 드립니다.",
+          explanation: "명사 the products가 구매되는 대상(수동)이고 뒤에 목적어가 없으므로 과거분사 purchased가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Employees ------- a coffee machine in the employee lounge should bring their own cups.",
+          options: ["use", "can use", "using", "used"],
+          answerIndex: 2,
+          translation: "직원 휴게실에 있는 커피 머신을 사용하는 직원들은 개인 컵을 가져와야 한다.",
+          explanation: "주어 Employees를 수식하며 뒤에 목적어(a coffee machine)가 있으므로 현재분사 using이 정답입니다."
+        },
+        {
+          id: 106,
+          question: "The number of participants at the conference is ------- to increase this year.",
+          options: ["expect", "expected", "expecting", "expectation"],
+          answerIndex: 1,
+          translation: "올해 컨퍼런스 참가자 수는 증가할 것으로 예상된다.",
+          explanation: "'be expected to do(~할 것으로 예상되다)' 관용 수동 표현이므로 expected가 정답입니다."
+        },
+        {
+          id: 107,
+          question: "To get a refund, please fill out the ------- request form.",
+          options: ["attached", "attach", "attaching", "attachment"],
+          answerIndex: 0,
+          translation: "환불을 받으시려면 첨부된 신청서를 작성해 주세요.",
+          explanation: "request form(신청서)이 첨부되는 대상(수동)이므로 명사 앞 과거분사 attached가 정답입니다."
+        },
+        {
+          id: 108,
+          question: "It is difficult to keep customers ------- all the time.",
+          options: ["satisfy", "satisfied", "satisfying", "satisfactory"],
+          answerIndex: 1,
+          translation: "고객들을 항상 만족한 상태로 유지하는 것은 어렵다.",
+          explanation: "목적어 customers(사람)가 만족감을 느끼는 수동 관계이므로 목적격 보어 자리에 satisfied가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "When ------- our book self, please read the easy-to-follow manual first.",
+          options: ["assemble", "assembly", "assembled", "assembling"],
+          answerIndex: 3,
+          translation: "책장을 조립할 때에는 먼저 따라 하기 쉬운 설명서를 읽어 주세요.",
+          explanation: "When 뒤 분사구문 자리이며 뒤에 목적어(our book self)가 있으므로 능동형 assembling이 정답입니다."
+        },
+        {
+          id: 110,
+          question: "------- a used item, you are advised to check carefully if it is damaged or not.",
+          options: ["Purchase", "Purchasing", "Purchased", "Purchases"],
+          answerIndex: 1,
+          translation: "중고품을 구매할 때에는 손상 여부를 꼼꼼히 확인하도록 권장됩니다.",
+          explanation: "주절 앞에 와서 목적어(a used item)를 취하는 분사구문 자리이므로 Purchasing이 정답입니다."
+        },
+        {
+          id: 111,
+          question: "Please make sure all lights are off before ------- the meeting room.",
+          options: ["leaving", "leave", "left", "to leave"],
+          answerIndex: 0,
+          translation: "회의실을 떠나기 전에 모든 조명이 꺼졌는지 확인해 주세요.",
+          explanation: "전치사/접속사 before 뒤에서 목적어(the meeting room)를 취할 수 있는 leaving이 정답입니다."
+        },
+        {
+          id: 112,
+          question: "If you have any problem with our computer, you can get it repaired at any ------- repair center.",
+          options: ["authority", "authorize", "authorizing", "authorized"],
+          answerIndex: 3,
+          translation: "저희 컴퓨터에 문제가 있으면 공인된 수리 센터에서 수리받으실 수 있습니다.",
+          explanation: "수리 센터가 허가/공인받은 대상이므로 과거분사 authorized가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Sales for last year were quite -------.",
+          options: ["disappoint", "disappointed", "disappoints", "disappointing"],
+          answerIndex: 3,
+          translation: "작년 매출은 상당히 실망스러웠다.",
+          explanation: "주어 Sales가 실망감을 유발하는 주체이므로 주격 보어 자리에 현재분사 disappointing이 정답입니다."
+        },
+        {
+          id: 114,
+          question: "------- 4 years ago, Jootoma English Center has been growing rapidly.",
+          options: ["Establish", "Establishing", "Establishment", "Established"],
+          answerIndex: 3,
+          translation: "4년 전에 설립된 이후로 Jootoma English Center는 빠르게 성장해 오고 있다.",
+          explanation: "주절의 주어(Jootoma English Center)가 설립되는 수동 관계이므로 과거분사 Established가 정답입니다."
+        },
+        {
+          id: 115,
+          question: "This workshop is designed for recently ------- workers.",
+          options: ["recruit", "recruiting", "recruited", "to recruit"],
+          answerIndex: 2,
+          translation: "이 워크숍은 최근에 채용된 직원들을 위해 마련되었습니다.",
+          explanation: "workers(직원들)가 채용된 대상이므로 과거분사 recruited가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "Access to the database is ------- only to authorized employees.",
+          options: ["limit", "limits", "limiting", "limited"],
+          answerIndex: 3,
+          translation: "데이터베이스 접근은 승인된 직원에게만 제한됩니다.",
+          explanation: "'be limited to(~에 제한되다)' 수동 표현이므로 보어 자리에 limited가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "Today's event will be ------- into three parts including Q&A session at the end.",
+          options: ["divided", "dividing", "division", "divide"],
+          answerIndex: 0,
+          translation: "오늘 행사는 마지막 질의응답 시간을 포함해 세 부분으로 나뉩니다.",
+          explanation: "주어 Today's event가 나누어지는 수동 관계이므로 과거분사 divided가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The CEO's announcement about the unexpected layoff was extremely ------- to the employees.",
+          options: ["shocking", "shocked", "to shock", "shock"],
+          answerIndex: 0,
+          translation: "예상치 못한 정리해고에 대한 CEO의 발표는 직원들에게 극도로 충격적이었다.",
+          explanation: "주어 The CEO's announcement가 충격을 주는 주체이므로 현재분사 shocking이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The maintenance crew repaired the ------- pipeline, which caused the temporary closure of the factory.",
+          options: ["breaking", "broke", "broken", "to break"],
+          answerIndex: 2,
+          translation: "유지보수팀은 공장 임시 폐쇄를 유발했던 고장 난 파이프라인을 수리했다.",
+          explanation: "pipeline(파이프라인)이 고장 난 상태이므로 과거분사 broken이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The manager walked into the room, ------- the agenda for the upcoming meeting.",
+          options: ["distributing", "distributed", "distribute", "distribution"],
+          answerIndex: 0,
+          translation: "매니저는 다가오는 회의 안건을 배포하며 방으로 걸어 들어왔다.",
+          explanation: "주절 주어 The manager가 안건을 배포하는 능동 분사구문이므로 distributing이 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The company is developing a new model with a highly ------- battery technology.",
+          options: ["advance", "advancing", "advanced", "advancement"],
+          answerIndex: 2,
+          translation: "그 회사는 고도로 발전된 배터리 기술을 갖춘 새 모델을 개발하고 있다.",
+          explanation: "배터리 기술이 진보된/발전된 상태이므로 과거분사(형용사) advanced가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The new presentation topic was quite ------- and kept the audience engaged throughout.",
+          options: ["interest", "interested", "interesting", "to interest"],
+          answerIndex: 2,
+          translation: "새 발표 주제는 매우 흥미로웠고 청중을 내내 집중하게 만들었다.",
+          explanation: "주어 The new presentation topic이 흥미를 유발하므로 현재분사 interesting이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The software update fixed a number of previously ------- bugs and vulnerabilities.",
+          options: ["exist", "existing", "existed", "existence"],
+          answerIndex: 1,
+          translation: "소프트웨어 업데이트는 기존에 존재하던 수많은 버그와 취약점을 수정했다.",
+          explanation: "자동사 exist는 능동 현재분사 existing으로 명사를 수식하므로 existing이 정답입니다."
+        },
+        {
+          id: 124,
+          question: "I was extremely ------- to find the key hidden under the doormat.",
+          options: ["surprising", "surprised", "surprise", "to surprise"],
+          answerIndex: 1,
+          translation: "나는 현관매트 아래 숨겨진 열쇠를 발견하고 극도로 놀랐다.",
+          explanation: "사람 주어 I가 놀람의 감정을 느꼈으므로 과거분사 surprised가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "The staff must review the ------- guidelines to ensure compliance with the new policy.",
+          options: ["revised", "revising", "revise", "revision"],
+          answerIndex: 0,
+          translation: "직원들은 새 정책 준수를 확실히 하기 위해 개정된 지침을 검토해야 한다.",
+          explanation: "지침(guidelines)이 개정된 대상이므로 과거분사 revised가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "The documentary about space exploration was incredibly -------, keeping the audience glued to the screen.",
+          options: ["fascinated", "fascination", "fascinating", "to fascinate"],
+          answerIndex: 2,
+          translation: "우주 탐사에 관한 다큐멘터리는 엄청나게 매력적이어서 청중을 화면에 몰두하게 했다.",
+          explanation: "주어 The documentary가 매혹적인 감정을 유발하므로 현재분사 fascinating이 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The complexity of the system design was quite ------- to the junior engineers.",
+          options: ["confuse", "confused", "confusing", "confusion"],
+          answerIndex: 2,
+          translation: "시스템 설계의 복잡성은 주니어 엔지니어들에게 꽤 혼란을 주는 것이었다.",
+          explanation: "주어 The complexity가 혼란을 유발하므로 현재분사 confusing이 정답입니다."
+        },
+        {
+          id: 128,
+          question: "The research project requires access to all ------- data from the previous quarter.",
+          options: ["collection", "collecting", "collected", "collects"],
+          answerIndex: 2,
+          translation: "그 연구 프로젝트는 전 분기에 수집된 모든 데이터에 대한 접근을 필요로 한다.",
+          explanation: "data(데이터)가 수집된 대상이므로 과거분사 collected가 정답입니다."
+        },
+        {
+          id: 129,
+          question: "------- his consistent commitment, he was promoted to department head.",
+          options: ["Recognize", "Recognizing", "Recognized", "Recognition"],
+          answerIndex: 1,
+          translation: "그의 꾸준한 헌신을 인정하여 그는 부서장으로 승진했다.",
+          explanation: "문장 맨 앞에서 목적어(his consistent commitment)를 취하는 분사구문 자리이므로 Recognizing이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "Please ensure that you use the most ------- version of the security software.",
+          options: ["update", "updating", "updated", "updates"],
+          answerIndex: 2,
+          translation: "보안 소프트웨어의 가장 최신 버전을 사용하시기 바랍니다.",
+          explanation: "버전(version)이 업데이트된 상태이므로 과거분사(형용사) updated가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The manager emphasized the importance of following the newly ------- procedures.",
+          options: ["adoption", "adopting", "adopts", "adopted"],
+          answerIndex: 3,
+          translation: "매니저는 새로 채택된 절차를 따르는 것의 중요성을 강조했다.",
+          explanation: "절차(procedures)가 채택된 대상이므로 과거분사 adopted가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "------- by the recent market changes, the company revised its pricing strategy.",
+          options: ["Affect", "Affecting", "Affected", "To affect"],
+          answerIndex: 2,
+          translation: "최근 시장 변화의 영향을 받아 회사는 가격 전략을 수정했다.",
+          explanation: "주절 주어 the company가 시장 변화에 의해 영향을 받는 수동 분사구문이므로 Affected가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "The new regulation requires all products to meet the internationally ------- safety standards.",
+          options: ["acceptance", "acceptably", "acceptable", "accepting"],
+          answerIndex: 2,
+          translation: "새 규정은 모든 제품이 국제적으로 용인되는 안전 기준을 충족하도록 요구한다.",
+          explanation: "안전 기준을 설명하는 자리로 '용인되는, 허용 가능한' 뜻의 형용사 acceptable이 정답입니다."
+        },
+        {
+          id: 134,
+          question: "The ------- negotiation was extremely exhausting for both parties involved.",
+          options: ["prolong", "prolonging", "prolonged", "prolongs"],
+          answerIndex: 2,
+          translation: "장기간 이어진 협상은 관련된 양측 모두에게 극도로 지치게 만드는 것이었다.",
+          explanation: "협상(negotiation)이 길게 연장된 상태이므로 과거분사 prolonged가 정답입니다."
+        },
+        {
+          id: 135,
+          question: "We are looking for ------- applicants.",
+          options: ["qualify", "qualification", "qualified", "qualifying"],
+          answerIndex: 2,
+          translation: "우리는 자격을 갖춘 지원자를 찾고 있습니다.",
+          explanation: "명사 applicants 앞에서 '자격을 갖춘'이라는 뜻으로 쓰이는 과거분사(형용사) qualified가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "------- the main door, visitors must present their identification card.",
+          options: ["Enter", "Entering", "Entered", "Entrance"],
+          answerIndex: 1,
+          translation: "정문으로 들어올 때 방문객들은 신분증을 제시해야 한다.",
+          explanation: "주절 주어 visitors가 문으로 들어가는 능동 분사구문이므로 Entering이 정답입니다."
+        },
+        {
+          id: 137,
+          question: "Please attach the document with all the ------- pages clearly numbered.",
+          options: ["necessary", "necessity", "necessitated", "necessitating"],
+          answerIndex: 0,
+          translation: "필요한 모든 페이지에 명확히 번호를 매겨 문서를 첨부해 주세요.",
+          explanation: "명사 pages 앞에서 '필수적인, 필요한'이라는 뜻의 형용사 necessary가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "The project manager's detailed feedback was extremely ------- for the design team.",
+          options: ["helpful", "helped", "helping", "helpfully"],
+          answerIndex: 0,
+          translation: "프로젝트 매니저의 상세한 피드백은 디자인팀에게 극도로 도움이 되었다.",
+          explanation: "주어 feedback의 성질을 설명하는 주격 보어 자리이므로 형용사 helpful이 정답입니다."
+        },
+        {
+          id: 139,
+          question: "All applicants must possess the qualifications ------- in the job description.",
+          options: ["requires", "requirement", "required", "requiring"],
+          answerIndex: 2,
+          translation: "모든 지원자는 직무 설명서에 명시된 요구 자격을 갖추어야 한다.",
+          explanation: "자격(qualifications)이 요구되는 대상이므로 과거분사 required가 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The research team published a highly ------- report on the future of electric vehicles.",
+          options: ["information", "informatively", "informative", "informing"],
+          answerIndex: 2,
+          translation: "연구팀은 전기차의 미래에 관한 매우 유익한 보고서를 발표했다.",
+          explanation: "보고서(report)를 수식하는 '유익한' 뜻의 형용사 informative가 정답입니다."
+        },
+        {
+          id: 141,
+          question: "The CEO seemed entirely ------- with the progress of the infrastructure project.",
+          options: ["satisfy", "satisfactory", "satisfied", "satisfaction"],
+          answerIndex: 2,
+          translation: "CEO는 기반 시설 프로젝트의 진행 상황에 전적으로 만족하는 듯했다.",
+          explanation: "사람 주어 The CEO가 만족감을 느꼈으므로 보어 자리에 과거분사 satisfied가 정답입니다."
+        },
+        {
+          id: 142,
+          question: "Please review the document and provide any ------- comments before the final deadline.",
+          options: ["relevant", "relevance", "relevantly", "relating"],
+          answerIndex: 0,
+          translation: "최종 마감일 전에 문서를 검토하고 관련 의견을 제공해 주세요.",
+          explanation: "명사 comments 앞에서 '관련된, 적절한' 뜻의 형용사 relevant가 정답입니다."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "When ------- liquor in Canada, people aged under 19 are requested to present their ID by law.",
+          options: ["buy", "to buy", "buys", "buying"],
+          answerIndex: 3,
+          translation: "캐나다에서 주류를 구매할 때 19세 미만인 사람은 법에 따라 신분증을 제시하도록 요청받는다.",
+          explanation: "when 뒤 분사구문 자리이며 뒤에 목적어(liquor)가 있으므로 능동 현재분사 buying이 정답입니다."
+        },
+        {
+          id: 102,
+          question: "Customers ------- refunds should bring in the product with an original receipt.",
+          options: ["want", "wants", "wanting", "have wanted"],
+          answerIndex: 2,
+          translation: "환불을 원하는 고객들은 영수증 원본과 함께 제품을 가져와야 한다.",
+          explanation: "주어 Customers를 수식하며 고객이 원하는 능동 관계이고 목적어(refunds)가 있으므로 wanting이 정답입니다."
+        },
+        {
+          id: 103,
+          question: "------- absenteeism may result in dismissal without notice.",
+          options: ["Repeat", "Repetition", "Repeated", "Repeats"],
+          answerIndex: 2,
+          translation: "반복되는 결근은 사전 통지 없이 해고로 이어질 수 있다.",
+          explanation: "absenteeism(결근)이 반복되는 수동/완료 관계이므로 과거분사 Repeated가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "A university degree is not required for the sales position but -------.",
+          options: ["prefer", "preference", "preferred", "preferable"],
+          answerIndex: 2,
+          translation: "영업직에 대학 학위가 필수 사항은 아니지만 선호된다.",
+          explanation: "not required but preferred의 대조 구조로 '선호되는'이라는 의미의 과거분사 preferred가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "------- candidates should have broad knowledge in a programming field.",
+          options: ["Quality", "Qualify", "Qualified", "Qualification"],
+          answerIndex: 2,
+          translation: "자격을 갖춘 후보자들은 프로그래밍 분야에 폭넓은 지식을 갖추어야 한다.",
+          explanation: "candidates 앞에서 '자격을 갖춘'이라는 뜻으로 쓰이는 과거분사 Qualified가 정답입니다."
+        },
+        {
+          id: 106,
+          question: "------- in April, new flexible work schedules will be applied to all the employees including workers who have worked less than a year.",
+          options: ["Begin", "Begins", "Beginning", "Beginner"],
+          answerIndex: 2,
+          translation: "4월부터 시작하여 근속 1년 미만 직원을 포함한 모든 직원에게 새로운 유연근무제가 적용된다.",
+          explanation: "시간/시점 분사구문으로 '4월부터 시작하여'라는 뜻의 Beginning이 정답입니다."
+        },
+        {
+          id: 107,
+          question: "Some ------- marketers will be sent as regional managers to the newly established overseas branches.",
+          options: ["experience", "experiences", "experienced", "experiencing"],
+          answerIndex: 2,
+          translation: "경험이 풍부한 일부 마케터들이 새로 설립된 해외 지점의 지역 매니저로 파견될 것이다.",
+          explanation: "marketers 앞에서 '경험이 많은, 노련한' 뜻으로 쓰이는 과거분사(형용사) experienced가 정답입니다."
+        },
+        {
+          id: 108,
+          question: "All products should be tested for quality before they are ------- to the wholesalers.",
+          options: ["ship", "shipping", "shipped", "shipment"],
+          answerIndex: 2,
+          translation: "모든 제품은 도매업체로 배송되기 전에 품질 검사를 받아야 한다.",
+          explanation: "주어 they(products)가 배송되는 수동태(are shipped) 자리이므로 shipped가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The brochures released last month contain the ------- travel packages and photos of the top tourist attractions.",
+          options: ["prefer", "preference", "preferred", "preferable"],
+          answerIndex: 2,
+          translation: "지난달 배포된 브로셔에는 선호되는 여행 패키지와 주요 관광지 사진이 실려 있다.",
+          explanation: "travel packages(여행 패키지)가 선호되는 대상이므로 과거분사 preferred가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "------- oil prices and world economy recession caused Asian economy to be unstable.",
+          options: ["Rise", "Risen", "Rising", "To rise"],
+          answerIndex: 2,
+          translation: "유가 상승과 세계 경기 침체가 아시아 경제를 불안정하게 만들었다.",
+          explanation: "자동사 rise의 현재분사 Rising이 oil prices 앞에서 '상승하는' 뜻으로 쓰이므로 Rising이 정답입니다."
+        },
+        {
+          id: 111,
+          question: "Please understand that the information ------- in this e-mail is highly sensitive.",
+          options: ["containing", "contains", "contained", "to contain"],
+          answerIndex: 2,
+          translation: "이 이메일에 포함된 정보는 매우 민감한 사항임을 이해해 주시기 바랍니다.",
+          explanation: "information(정보)이 포함된 대상이고 뒤에 목적어가 없으므로 과거분사 contained가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "For a month, only limited items will be offered at ------- prices.",
+          options: ["reduce", "reduction", "reduced", "reducing"],
+          answerIndex: 2,
+          translation: "한 달 동안 한정된 품목만 할인된 가격으로 제공됩니다.",
+          explanation: "prices 앞에서 '할인된'이라는 뜻으로 쓰이는 과거분사(형용사) reduced가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "Satyam Computers is one of the ------- companies for computer software programming in the country.",
+          options: ["leaders", "leads", "leading", "led"],
+          answerIndex: 2,
+          translation: "Satyam Computers는 해당 국가의 컴퓨터 소프트웨어 프로그래밍 선도 기업 중 하나이다.",
+          explanation: "companies 앞에서 '선도적인'이라는 뜻으로 쓰이는 현재분사(형용사) leading이 정답입니다."
+        },
+        {
+          id: 114,
+          question: "A ------- number of students are entering graduate courses to get a better chance of employment.",
+          options: ["grown", "grow", "to grow", "growing"],
+          answerIndex: 3,
+          translation: "더 나은 취업 기회를 얻기 위해 대학원에 진학하는 학생 수가 늘고 있다.",
+          explanation: "숫자가 증가하는 능동/지속의 의미이므로 현재분사 growing이 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Information ------- how to enter the drawing event can be found on the company Web site.",
+          options: ["described", "will describe", "describing", "describes"],
+          answerIndex: 2,
+          translation: "경품 행사 응모 방법을 설명하는 정보는 회사 웹사이트에서 확인할 수 있다.",
+          explanation: "Information을 수식하며 뒤에 목적어(how to enter...)가 있으므로 능동 현재분사 describing이 정답입니다."
+        },
+        {
+          id: 116,
+          question: "The CEO seemed highly ------- about the merger's potential for growth.",
+          options: ["optimistically", "optimistic", "optimism", "optimized"],
+          answerIndex: 1,
+          translation: "CEO는 합병의 성장 잠재력에 대해 매우 낙관적인 듯했다.",
+          explanation: "seemed 뒤 보어 자리이며 '낙관적인'이라는 뜻의 형용사 optimistic이 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The success story of the startup was truly ------- to aspiring entrepreneurs.",
+          options: ["inspire", "inspiring", "inspired", "inspiration"],
+          answerIndex: 1,
+          translation: "그 스타트업의 성공 스토리는 예비 창업가들에게 진정으로 영감을 주는 것이었다.",
+          explanation: "주어 The success story가 영감을 유발하므로 현재분사 inspiring이 정답입니다."
+        },
+        {
+          id: 118,
+          question: "The speaker addressed the audience, ------- his points with a visual aid.",
+          options: ["illustrate", "illustrating", "illustrated", "illustration"],
+          answerIndex: 1,
+          translation: "연사는 시각 자료로 요점을 설명하며 청중에게 연설했다.",
+          explanation: "주절 주어 The speaker가 요점을 설명하는 능동 분사구문이므로 illustrating이 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The technician carefully examined the ------- parts of the large machine.",
+          options: ["move", "moving", "moved", "movement"],
+          answerIndex: 1,
+          translation: "기술자는 대형 기계의 움직이는 부품들을 주의 깊게 점검했다.",
+          explanation: "부품들이 스스로 움직이는 능동 관계이므로 현재분사 moving이 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The construction site must comply with all current ------- safety codes.",
+          options: ["applicable", "applied", "apply", "applying"],
+          answerIndex: 0,
+          translation: "건설 현장은 현재 적용 가능한 모든 안전 규정을 준수해야 한다.",
+          explanation: "safety codes 앞에서 '적용 가능한'이라는 뜻의 형용사 applicable이 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The new policy will affect all divisions, ------- of their current size or location.",
+          options: ["regardless", "regarded", "regarding", "regards"],
+          answerIndex: 0,
+          translation: "새 정책은 현재 규모나 위치와 상관없이 모든 부서에 영향을 미칠 것이다.",
+          explanation: "'regardless of(~에 상관없이)' 구문을 이루는 형용사 regardless가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The company is developing a system that promises reliable and ------- service.",
+          options: ["sustained", "sustaining", "sustainability", "sustainable"],
+          answerIndex: 3,
+          translation: "그 회사는 신뢰할 수 있고 지속 가능한 서비스를 약속하는 시스템을 개발하고 있다.",
+          explanation: "reliable과 병렬로 service를 수식하는 '지속 가능한' 뜻의 형용사 sustainable이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The audience was quite ------- by the amount of complex data presented in the lecture.",
+          options: ["overwhelmed", "overwhelming", "overwhelm", "to overwhelm"],
+          answerIndex: 0,
+          translation: "청중은 강연에서 제시된 방대한 복합 데이터의 양에 꽤 압도되었다.",
+          explanation: "청중(The audience)이 압도되는 감정을 느꼈으므로 과거분사 overwhelmed가 정답입니다."
+        },
+        {
+          id: 124,
+          question: "The long delay in the project schedule left the clients feeling extremely -------.",
+          options: ["disappoint", "disappointing", "disappointed", "disappointment"],
+          answerIndex: 2,
+          translation: "프로젝트 일정의 장기 지연은 고객들을 극도로 실망하게 만들었다.",
+          explanation: "고객(the clients)이 실망감을 느꼈으므로 목적격 보어 자리에 과거분사 disappointed가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "------- from the main office, the regional manager had to make the decision independently.",
+          options: ["Is isolated", "Isolated", "Isolating", "Isolation"],
+          answerIndex: 1,
+          translation: "본사로부터 고립되어 있었기 때문에 지역 매니저는 독립적으로 결정을 내려야 했다.",
+          explanation: "주절 주어 the regional manager가 고립된 수동 분사구문이므로 Isolated가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "The company is seeking a software engineer with ------- knowledge of network security protocols.",
+          options: ["specialized", "specializing", "specialize", "specialism"],
+          answerIndex: 0,
+          translation: "그 회사는 네트워크 보안 프로토콜에 대한 전문 지식을 갖춘 소프트웨어 엔지니어를 찾고 있다.",
+          explanation: "knowledge 앞에서 '전문적인'이라는 뜻으로 쓰이는 과거분사(형용사) specialized가 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The data results were truly -------, indicating a completely new trend in the market.",
+          options: ["fascinate", "fascinated", "fascinating", "to fascinate"],
+          answerIndex: 2,
+          translation: "데이터 결과는 시장의 완전히 새로운 추세를 나타내며 정말로 매혹적이었다.",
+          explanation: "주어 The data results가 매혹적인 감정을 유발하므로 현재분사 fascinating이 정답입니다."
+        },
+        {
+          id: 128,
+          question: "The prolonged negotiation was extremely ------- for both parties involved.",
+          options: ["exhaust", "exhausted", "exhausting", "to exhaust"],
+          answerIndex: 2,
+          translation: "장기간 이어진 협상은 관련된 양측 모두에게 극도로 지치게 만드는 것이었다.",
+          explanation: "주어 The prolonged negotiation이 지치게 유발하므로 현재분사 exhausting이 정답입니다."
+        },
+        {
+          id: 129,
+          question: "------- an error in the initial calculation, the project plan was entirely revised.",
+          options: ["Discover", "Discovering", "Discovered", "Discovery"],
+          answerIndex: 1,
+          translation: "초기 계산에서 오류를 발견했기 때문에 프로젝트 계획은 전면 수정되었다.",
+          explanation: "문장 맨 앞에서 목적어(an error in the initial calculation)를 취하는 분사구문 자리이므로 Discovering이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "The poor sales performance made the entire marketing team feel extremely -------.",
+          options: ["discourage", "discouraging", "discouraged", "discouragement"],
+          answerIndex: 2,
+          translation: "저조한 판매 실적은 전체 마케팅 팀이 극도로 낙담하도록 만들었다.",
+          explanation: "마케팅 팀(the entire marketing team)이 낙담하는 감정을 느꼈으므로 과거분사 discouraged가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The team was very ------- by the unexpected complexity of the technical issue.",
+          options: ["frustrated", "frustrating", "frustrate", "to frustrate"],
+          answerIndex: 0,
+          translation: "팀은 기술적 문제의 예상치 못한 복잡성 때문에 매우 좌절했다.",
+          explanation: "팀(The team)이 좌절감을 느꼈으므로 주격 보어 자리에 과거분사 frustrated가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "------- with the final product's quality, the manager approved the shipment.",
+          options: ["Satisfy", "Satisfying", "Satisfied", "Satisfaction"],
+          answerIndex: 2,
+          translation: "최종 제품의 품질에 만족했기 때문에 매니저는 선적을 승인했다.",
+          explanation: "주절 주어 the manager가 품질에 만족한 감정을 나타내는 과거분사 분사구문이므로 Satisfied가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "The team reviewed the long list of candidates, only ------- on those with sufficient experience.",
+          options: ["focus", "focusing", "focused", "focusable"],
+          answerIndex: 1,
+          translation: "팀은 긴 후보자 명단을 검토했고 충분한 경험이 있는 지원자들에게만 집중했다.",
+          explanation: "절 뒤에 이어지며 전치사 on과 함께 쓰이는 능동 분사구문이므로 focusing이 정답입니다."
+        },
+        {
+          id: 134,
+          question: "------- the safety guidelines, the workers would have avoided the accident.",
+          options: ["Follow", "Following", "Followed", "Follows"],
+          answerIndex: 1,
+          translation: "안전 지침을 따랐다면 작업자들은 사고를 피했을 것이다.",
+          explanation: "작업자들이 지침을 따르는 능동 분사구문 자리이므로 Following이 정답입니다."
+        },
+        {
+          id: 135,
+          question: "The factory's failure to meet the required quality standards was a highly ------- issue.",
+          options: ["concern", "concerning", "concerned", "concernment"],
+          answerIndex: 1,
+          translation: "공장이 요구되는 품질 기준을 충족하지 못한 것은 매우 우려스러운 문제였다.",
+          explanation: "issue 앞에서 '우려스러운, 염려되는' 뜻으로 쓰이는 현재분사(형용사) concerning이 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The manager requested an explanation for the recent increase in ------- errors.",
+          options: ["operational", "operation", "operated", "operating"],
+          answerIndex: 0,
+          translation: "매니저는 최근 운영상 오류가 증가한 것에 대한 설명을 요구했다.",
+          explanation: "errors 앞에서 '운영상의, 조작상의'라는 의미의 형용사 operational이 정답입니다."
+        },
+        {
+          id: 137,
+          question: "The staff was very ------- to receive recognition for their hard work.",
+          options: ["gratitude", "gratified", "gratifying", "gratefully"],
+          answerIndex: 1,
+          translation: "직원들은 노고에 대한 인정을 받아 매우 고마워했다.",
+          explanation: "사람 주어 The staff가 고마움을 느꼈으므로 보어 자리에 gratified가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "The team faced a surprisingly ------- amount of resistance from the local community regarding the new development plan.",
+          options: ["significant", "significantly", "signifying", "signified"],
+          answerIndex: 0,
+          translation: "팀은 새 개발 계획과 관련해 지역 사회로부터 놀라울 정도로 상당한 반발에 직면했다.",
+          explanation: "amount 앞에서 '상당한'이라는 뜻의 형용사 significant가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "The lengthy, technical explanation was quite ------- for the general audience to follow.",
+          options: ["challenge", "challenging", "challenged", "to challenge"],
+          answerIndex: 1,
+          translation: "길고 기술적인 설명은 일반 청중이 따라가기에 꽤 어려운 것이었다.",
+          explanation: "주어 explanation이 어려움을 유발하므로 주격 보어 자리에 현재분사 challenging이 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The management insists on hiring only those candidates with a ------- track record.",
+          options: ["prove", "proving", "proven", "proof"],
+          answerIndex: 2,
+          translation: "경영진은 입증된 실적을 갖춘 후보자만 고용할 것을 주장한다.",
+          explanation: "track record 앞에서 '입증된'이라는 뜻으로 쓰이는 과거분사(형용사) proven이 정답입니다."
+        }
+      ]
+    };
+
+    let currentLevel = "easy";
+    const state = {
+      easy: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initLevelState(level) {
+      questionSets[level].forEach((q) => {
+        state[level][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(level, qId) {
+      state[level][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentLevel];
+    }
+
+    function getLevelState() {
+      return state[currentLevel];
+    }
+
+    function switchLevel(level) {
+      currentLevel = level;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      document.getElementById("btnEasy").classList.toggle("active", level === "easy");
+      document.getElementById("btnHard").classList.toggle("active", level === "hard");
+      document.getElementById("lectureTag").textContent =
+        level === "easy"
+          ? "TPA 13 · 분사 (기본 A · 총 42문항)"
+          : "TPA 13 · 분사 (고난도 B · 총 40문항)";
+
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if (st.status === "correct" && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+            if (st.status === "wrong" && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      const hardChallengeBox = document.getElementById("hardChallengeBox");
+      hardChallengeBox.style.display = currentLevel === "easy" ? "block" : "none";
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    function handleHardYes() {
+      switchLevel("hard");
+    }
+
+    initLevelState("easy");
+    initLevelState("hard");
+    visibleQuestionIds = questionSets.easy.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

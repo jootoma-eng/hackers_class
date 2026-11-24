@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 19 비교 - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 난이도 선택 및 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .level-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .level-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .level-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .hard-challenge-box {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .hard-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hard-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .yes-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .yes-btn:hover {
+      background-color: var(--primary);
+    }
+
+    .no-btn {
+      padding: 11px 28px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .no-btn:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span id="lectureTag" class="lecture-tag">TPA 19 · 비교 (기본 A · 총 41문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 난이도 전환 및 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <div class="level-switch">
+        <button type="button" id="btnEasy" class="level-btn active" onclick="switchLevel('easy')">기본 (A)</button>
+        <button type="button" id="btnHard" class="level-btn" onclick="switchLevel('hard')">고난도 (B)</button>
+      </div>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 41</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 고난도 도전 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/41)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/41)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div id="hardChallengeBox" class="hard-challenge-box">
+        <p class="hard-question">더 어려운 문제에 도전하시겠습니까?</p>
+        <div class="hard-btns">
+          <button type="button" class="yes-btn" onclick="handleHardYes()">yes</button>
+          <a class="no-btn" href="index.html">no</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questionSets = {
+      easy: [
+        {
+          id: 101,
+          question: "The project was ------- difficult than we thought.",
+          options: ["difficult", "very difficult", "difficulty", "more difficult"],
+          answerIndex: 3,
+          translation: "이 프로젝트는 우리가 생각했던 것보다 더 힘들다.",
+          explanation: "be동사 뒤 보어 자리이며 뒤에 than이 있으므로 형용사의 비교급 more difficult가 정답입니다."
+        },
+        {
+          id: 102,
+          question: "This software is much easier ------- the current one we have.",
+          options: ["that", "because", "than", "which"],
+          answerIndex: 2,
+          translation: "이 소프트웨어는 우리가 갖고 있는 현재 것보다 훨씬 쉽다.",
+          explanation: "앞에 비교급 easier가 있으므로 비교 대상을 이끄는 than이 정답입니다."
+        },
+        {
+          id: 103,
+          question: "Our magazine provides you with ------- trends in the financial areas.",
+          options: ["late", "lately", "the latest", "later"],
+          answerIndex: 2,
+          translation: "저희 잡지는 금융 분야의 최신 트렌드를 제공합니다.",
+          explanation: "in the financial areas라는 영역 범위와 함께 '최신의'를 나타내는 최상급 the latest가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "During this special offer, you can purchase our fine products at a much ------- price.",
+          options: ["low", "lower", "lowest", "the lowest"],
+          answerIndex: 1,
+          translation: "이번 특별 할인 기간에 여러분은 저희 우수한 제품을 매우 저렴한 가격에 구입할 수 있습니다.",
+          explanation: "앞에 비교급 강조 부사 much가 있으므로 형용사의 비교급 lower가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Employees of Gaia Furniture work ------- than those of SIC Manufacturing.",
+          options: ["efficient", "more efficient", "efficiently", "more efficiently"],
+          answerIndex: 3,
+          translation: "가이아 퍼니처 직원들은 SIC 매뉴팩처링 직원들보다 더 효율적으로 일한다.",
+          explanation: "자동사 work를 수식하는 부사 자리이며 than이 있으므로 부사의 비교급 more efficiently가 정답입니다."
+        },
+        {
+          id: 106,
+          question: "Mr. Lee's proposal seems to have ------- chances to be chosen than mine.",
+          options: ["many", "much", "more", "most"],
+          answerIndex: 2,
+          translation: "이 씨의 제안서는 내 것보다 선택될 가능성이 더 많은 것처럼 보인다.",
+          explanation: "뒤에 than이 있으므로 복수명사 chances를 수식하는 비교급 more가 정답입니다."
+        },
+        {
+          id: 107,
+          question: "The profits for this year are ------- higher than those of last year.",
+          options: ["even", "so", "very", "a lot of"],
+          answerIndex: 0,
+          translation: "올해 수익은 작년 수익보다 훨씬 더 높다.",
+          explanation: "비교급 higher를 강조할 수 있는 부사 even이 정답입니다."
+        },
+        {
+          id: 108,
+          question: "E-business has grown ------- rapidly than we expected 10 years ago.",
+          options: ["so", "very", "much", "more"],
+          answerIndex: 3,
+          translation: "전자상거래는 10년 전에 우리가 예상했던 것보다 더 빠르게 성장해 오고 있다.",
+          explanation: "뒤에 than이 있으므로 부사 rapidly의 비교급을 만드는 more(more rapidly)가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The hotel was ------- that I have ever stayed.",
+          options: ["good", "great", "better", "the best"],
+          answerIndex: 3,
+          translation: "그 호텔은 내가 지금껏 묵었던 곳 중 최고였다.",
+          explanation: "that I have ever ~ 경험 표현과 함께 쓰여 '최고의'를 나타내는 최상급 the best가 정답입니다."
+        },
+        {
+          id: 110,
+          question: "Prior work experience is equally as ------- as the applicant's educational background.",
+          options: ["important", "importance", "importantly", "more important"],
+          answerIndex: 0,
+          translation: "이전 업무 경력은 지원자의 학력만큼 중요하다.",
+          explanation: "as ~ as 원급 비교에서 be동사 뒤 형용사 보어 자리이므로 important가 정답입니다."
+        },
+        {
+          id: 111,
+          question: "Han Engineering Co. is one of ------- successful companies.",
+          options: ["very", "more", "most", "the most"],
+          answerIndex: 3,
+          translation: "한 엔지니어링은 가장 성공한 기업 중 하나다.",
+          explanation: "'one of the + 최상급 + 복수명사' 구조이므로 the most가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "Of the three proposals, Ms. Cook's is -------.",
+          options: ["good", "better", "best", "the best"],
+          answerIndex: 3,
+          translation: "세 개의 제안서 중 쿡 씨의 것이 가장 좋다.",
+          explanation: "Of the three로 셋 이상을 비교하고 있으므로 최상급 the best가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "The new processor runs ------- than the previous model we used last year.",
+          options: ["fast", "faster", "fastest", "much fast"],
+          answerIndex: 1,
+          translation: "새 프로세서는 우리가 작년에 사용했던 이전 모델보다 더 빠르게 작동한다.",
+          explanation: "than이 있으므로 부사 fast의 비교급 faster가 정답입니다."
+        },
+        {
+          id: 114,
+          question: "The renovation of the lobby took twice as ------- as the contractor originally estimated.",
+          options: ["long", "longer", "longest", "length"],
+          answerIndex: 0,
+          translation: "로비 개보수 작업은 계약업체가 당초 예상했던 것보다 두 배나 오래 걸렸다.",
+          explanation: "'배수사 + as + 원급 + as' 구문이므로 형용사 원급 long이 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Of all the candidates interviewed, Mr. Choi was the ------- qualified for the position.",
+          options: ["highly", "more", "most", "much"],
+          answerIndex: 2,
+          translation: "면접을 본 모든 후보자 중 최 씨가 그 직책에 가장 적임이었다.",
+          explanation: "'Of all + 복수명사' 범위가 주어졌으므로 최상급 most가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "Hiring a local guide is ------- better than exploring the city alone.",
+          options: ["very", "so", "much", "more"],
+          answerIndex: 2,
+          translation: "현지 가이드를 고용하는 것이 혼자 도시를 탐험하는 것보다 훨씬 더 낫다.",
+          explanation: "비교급 better를 강조할 수 있는 부사 much가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The delivery arrived ------- than we had expected due to the heavy traffic.",
+          options: ["late", "later", "latest", "lately"],
+          answerIndex: 1,
+          translation: "심한 교통체증 때문에 배달이 우리가 예상했던 것보다 더 늦게 도착했다.",
+          explanation: "than이 있으므로 부사 late의 비교급 later가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "Please submit your final proposal no ------- than Friday at 5:00 P.M.",
+          options: ["late", "later", "latest", "lately"],
+          answerIndex: 1,
+          translation: "최종 제안서를 늦어도 금요일 오후 5시까지는 제출해 주십시오.",
+          explanation: "'no later than(늦어도 ~까지는)' 관용 표현을 이루는 비교급 later가 정답입니다."
+        },
+        {
+          id: 119,
+          question: "Solving this software bug proved to be ------- difficult than the team anticipated.",
+          options: ["very", "more", "most", "much"],
+          answerIndex: 1,
+          translation: "이 소프트웨어 버그를 해결하는 것은 팀이 예상했던 것보다 더 어려운 것으로 판명되었다.",
+          explanation: "than이 있으므로 비교급 more가 정답입니다."
+        },
+        {
+          id: 120,
+          question: "Among the three candidates, Sarah has the ------- experience in marketing.",
+          options: ["much", "more", "most", "many"],
+          answerIndex: 2,
+          translation: "세 명의 후보자 중 사라가 마케팅 분야에서 가장 많은 경력을 가지고 있다.",
+          explanation: "Among the three로 셋 이상을 비교하고 있으므로 최상급 most가 정답입니다."
+        },
+        {
+          id: 121,
+          question: "The grand ballroom is the ------- room in the entire hotel.",
+          options: ["larger", "largest", "large", "largely"],
+          answerIndex: 1,
+          translation: "그랜드 볼룸은 호텔 전체에서 가장 큰 방이다.",
+          explanation: "in the entire hotel 범위가 주어졌고 앞에 the가 있으므로 최상급 largest가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The second version of the script was ------- better than the first one.",
+          options: ["even", "very", "so", "too"],
+          answerIndex: 0,
+          translation: "대본의 두 번째 버전이 첫 번째 것보다 훨씬 더 나았다.",
+          explanation: "비교급 better를 강조할 수 있는 부사 even이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The project was completed as ------- as possible despite the budget cuts.",
+          options: ["efficient", "efficiently", "more efficiently", "most efficient"],
+          answerIndex: 1,
+          translation: "예산 삭감에도 불구하고 프로젝트는 가능한 한 효율적으로 완료되었다.",
+          explanation: "'as + 원급 + as possible' 구문에서 동사구 was completed를 수식하는 부사 원급 efficiently가 정답입니다."
+        },
+        {
+          id: 124,
+          question: "The instructions were the ------- confusing I have ever read.",
+          options: ["least", "less", "little", "small"],
+          answerIndex: 0,
+          translation: "그 지침서들은 내가 읽어본 것 중 가장 덜 혼란스러웠다.",
+          explanation: "'the + 최상급 + I have ever + p.p.' 구문에서 '가장 덜 ~한'을 뜻하는 least가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "This hotel offers ------- amenities than the one across the street.",
+          options: ["many", "more", "most", "much"],
+          answerIndex: 1,
+          translation: "이 호텔은 길 건너편 호텔보다 더 많은 편의 시설을 제공한다.",
+          explanation: "than이 있으므로 복수명사 amenities를 수식하는 many의 비교급 more가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "Gasoline prices are ------- higher now than they were last month.",
+          options: ["still", "yet", "already", "very"],
+          answerIndex: 0,
+          translation: "휘발유 가격은 지난달보다 지금 여전히 더 높다.",
+          explanation: "비교급 higher를 강조하며 여전한 상태를 나타내는 부사 still이 정답입니다."
+        },
+        {
+          id: 127,
+          question: "The task was ------- more complicated than the supervisor had described.",
+          options: ["far", "very", "so", "quite"],
+          answerIndex: 0,
+          translation: "그 업무는 관리자가 설명했던 것보다 훨씬 더 복잡했다.",
+          explanation: "비교급 more complicated를 강조할 수 있는 부사 far가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "Registration for the workshop is as ------- as filling out an online form.",
+          options: ["simple", "simply", "simpler", "simplest"],
+          answerIndex: 0,
+          translation: "워크숍 등록은 온라인 양식을 작성하는 것만큼 간단하다.",
+          explanation: "'as + 원급 + as' 구문에서 be동사 is의 보어 자리이므로 형용사 원급 simple이 정답입니다."
+        },
+        {
+          id: 129,
+          question: "The commute to the new office takes ------- longer than it did before.",
+          options: ["quite", "even", "so", "very"],
+          answerIndex: 1,
+          translation: "새 사무실로의 통근은 이전보다 훨씬 더 오래 걸린다.",
+          explanation: "비교급 longer를 강조하는 부사 even이 정답입니다."
+        },
+        {
+          id: 130,
+          question: "The department head requested that the project be completed as quickly ------- possible.",
+          options: ["than", "so", "as", "that"],
+          answerIndex: 2,
+          translation: "부서장은 프로젝트가 가능한 한 빨리 완료되기를 요청했다.",
+          explanation: "'as + 원급 + as possible(가능한 한 ~하게)' 관용 표현이므로 as가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The more you practice the presentation, the ------- confident you will become.",
+          options: ["more", "most", "much", "many"],
+          answerIndex: 0,
+          translation: "발표를 더 많이 연습할수록 당신은 더 자신감을 갖게 될 것이다.",
+          explanation: "'The + 비교급, the + 비교급' 구문이므로 비교급 more가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "Seoul is one of the ------- cities in the world.",
+          options: ["busy", "busier", "busiest", "busily"],
+          answerIndex: 2,
+          translation: "서울은 세계에서 가장 붐비는 도시 중 하나이다.",
+          explanation: "'one of the + 최상급 + 복수명사' 구조이므로 최상급 busiest가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "To stay competitive, we must provide the ------- possible service to our clients.",
+          options: ["good", "better", "best", "well"],
+          answerIndex: 2,
+          translation: "경쟁력을 유지하기 위해 우리는 고객들에게 가능한 최고의 서비스를 제공해야 한다.",
+          explanation: "'the + 최상급 + possible' 구문이므로 최상급 best가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "The construction of the bridge is taking much ------- than originally planned.",
+          options: ["long", "longer", "longest", "length"],
+          answerIndex: 1,
+          translation: "다리 건설이 당초 계획했던 것보다 훨씬 더 오래 걸리고 있다.",
+          explanation: "비교급 강조 부사 much 뒤에는 비교급이 오므로 longer가 정답입니다."
+        },
+        {
+          id: 135,
+          question: "You should sign up for the workshop as ------- as possible to secure a seat.",
+          options: ["early", "earlier", "earliest", "earliness"],
+          answerIndex: 0,
+          translation: "좌석을 확보하려면 가능한 한 빨리 워크숍에 등록해야 한다.",
+          explanation: "'as + 원급 + as possible' 구문이므로 원급 early가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The opening of the municipal library was ------- than expected due to delays in securing funds for its construction.",
+          options: ["late", "lately", "later", "lateness"],
+          answerIndex: 2,
+          translation: "시립도서관 개관식은 건축 자금 확보 지연 때문에 예상보다 늦어졌다.",
+          explanation: "뒤에 than이 있으므로 비교급 later가 정답입니다."
+        },
+        {
+          id: 137,
+          question: "This is the ------- expensive laptop available in the store.",
+          options: ["less", "little", "few", "least"],
+          answerIndex: 3,
+          translation: "이것은 매장에서 구할 수 있는 가장 덜 비싼(가장 저렴한) 노트북이다.",
+          explanation: "'the least + 형용사' 최상급 구문이므로 least가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "The number of visitors to the grand opening was even ------- than expected.",
+          options: ["high", "higher", "highest", "highly"],
+          answerIndex: 1,
+          translation: "개업식 방문객 수는 예상보다 훨씬 많았다.",
+          explanation: "비교급 강조 부사 even과 than 사이에 쓰이므로 비교급 higher가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "The company has found that replacing all the copy machines with new ones would be ------- than fixing the existing ones.",
+          options: ["cheap", "cheaper", "cheapest", "cheaply"],
+          answerIndex: 1,
+          translation: "그 회사는 모든 복사기를 새것으로 교체하는 것이 기존 기기를 수리하는 것보다 더 저렴할 것임을 알았다.",
+          explanation: "than이 있으므로 비교급 cheaper가 정답입니다."
+        },
+        {
+          id: 140,
+          question: "Of the five candidates, Mr. Perez is considered the ------- experienced.",
+          options: ["highly", "heavily", "very", "most"],
+          answerIndex: 3,
+          translation: "다섯 명의 후보 중 페레즈 씨가 가장 경험이 많은 사람으로 간주된다.",
+          explanation: "Of the five candidates 범위와 함께 쓰여 최상급을 만드는 most가 정답입니다."
+        },
+        {
+          id: 141,
+          question: "The recently released GX-200 is already one of the best ------- smartphones in the current market.",
+          options: ["selling", "sells", "sale", "sold"],
+          answerIndex: 0,
+          translation: "최근 출시된 GX-200은 이미 현재 시장에서 가장 잘 팔리는 스마트폰 중 하나이다.",
+          explanation: "'one of the + 최상급 + 복수명사' 구조에서 best 뒤에 붙어 '가장 많이 팔리는'을 만드는 selling(best-selling)이 정답입니다."
+        }
+      ],
+      hard: [
+        {
+          id: 101,
+          question: "If you have to make ------- 25 photocopies, please use the high-speed copier located on the second floor.",
+          options: ["a lot of", "some", "much more", "more than"],
+          answerIndex: 3,
+          translation: "25장 넘게 복사해야 한다면 2층에 있는 고속 복사기를 이용해 주십시오.",
+          explanation: "숫자 25 앞에서 '~이 넘는'을 나타내는 부사구 more than이 정답입니다."
+        },
+        {
+          id: 102,
+          question: "According to a recent study, harm from smoking is ------- greater than previously thought.",
+          options: ["more", "so", "too", "even"],
+          answerIndex: 3,
+          translation: "최근 연구에 따르면 흡연으로 인한 해로움은 이전에 생각했던 것보다 훨씬 더 크다.",
+          explanation: "비교급 greater를 강조할 수 있는 비교급 강조 부사 even이 정답입니다."
+        },
+        {
+          id: 103,
+          question: "The new revolutionary refrigerator has proven to be ------- than existing home refrigerators.",
+          options: ["more efficient", "so efficiently", "as efficient", "most efficiently"],
+          answerIndex: 0,
+          translation: "새로 나온 혁신적인 냉장고는 기존 가정용 냉장고보다 더 효율적인 것으로 판명되었다.",
+          explanation: "than과 함께 비교급을 구성하는 more efficient가 정답입니다."
+        },
+        {
+          id: 104,
+          question: "Advances in digital photography have made it ------- than ever to keep Cityscape Imaging's laboratory stocked with up-to-date equipment.",
+          options: ["hard", "harden", "harder", "hardly"],
+          answerIndex: 2,
+          translation: "디지털 사진 기술의 발전은 시티스케이프 이미징 실험실에 최신 장비를 갖추어 두는 것을 그 어느 때보다 더 어렵게 만들었다.",
+          explanation: "than ever와 호응하는 비교급 형용사 목적격 보어 harder가 정답입니다."
+        },
+        {
+          id: 105,
+          question: "Lions Bridge in North Vancouver is ------- wider than the Broadway Bridge in Great Vancouver.",
+          options: ["even", "so", "too", "more"],
+          answerIndex: 0,
+          translation: "노스 밴쿠버의 라이온스 브리지는 그레이터 밴쿠버의 브로드웨이 브리지보다 훨씬 넓다.",
+          explanation: "비교급 wider를 수식할 수 있는 비교급 강조 부사 even이 정답입니다."
+        },
+        {
+          id: 106,
+          question: "The project will cost at ------- 10 million dollars to implement.",
+          options: ["least", "less", "little", "lesser"],
+          answerIndex: 0,
+          translation: "그 프로젝트를 실행하는 데 적어도 1천만 달러가 들 것이다.",
+          explanation: "수치 표현 앞에서 '적어도'를 나타내는 최상급 관용구 at least가 정답입니다."
+        },
+        {
+          id: 107,
+          question: "It is important to complete the task within as ------- time as possible.",
+          options: ["short", "shorter", "shortest", "shortly"],
+          answerIndex: 0,
+          translation: "가능한 한 짧은 시간 내에 업무를 완료하는 것이 중요하다.",
+          explanation: "'as + 원급 + 명사 + as possible' 구문이므로 형용사 원급 short가 정답입니다."
+        },
+        {
+          id: 108,
+          question: "The company's profits are growing ------- and more rapidly each quarter.",
+          options: ["more", "most", "much", "many"],
+          answerIndex: 0,
+          translation: "회사의 이익이 매 분기 점점 더 빠르게 성장하고 있다.",
+          explanation: "'비교급 + and + 비교급(점점 더 ~하게)' 구조이므로 more가 정답입니다."
+        },
+        {
+          id: 109,
+          question: "The engine in the new model is twice as ------- as the previous one.",
+          options: ["powerful", "powerfully", "more powerful", "most powerful"],
+          answerIndex: 0,
+          translation: "새 모델의 엔진은 이전 모델보다 두 배 더 강력하다.",
+          explanation: "'배수사(twice) + as + 원급 + as' 구문이므로 형용사 원급 powerful이 정답입니다."
+        },
+        {
+          id: 110,
+          question: "Our friendly and knowledgeable staff will do their best to make your stay at the Fine View Resort as ------- as possible.",
+          options: ["comfort", "comfortable", "comfortably", "comforted"],
+          answerIndex: 1,
+          translation: "친절하고 해박한 저희 직원들은 파인 뷰 리조트에서의 투숙을 가능한 한 쾌적하게 만들기 위해 최선을 다할 것이다.",
+          explanation: "make + 목적어(your stay) + 목적격 보어 자리이므로 형용사 comfortable이 정답입니다."
+        },
+        {
+          id: 111,
+          question: "You will need to enclose the $50 conference fee and $275 for your room and meals no ------- than February 10.",
+          options: ["more", "less", "longer", "later"],
+          answerIndex: 3,
+          translation: "늦어도 2월 10일까지는 50달러의 콘퍼런스 참가비와 숙식비 275달러를 동봉해야 한다.",
+          explanation: "시점 앞에서 '늦어도 ~까지는'을 뜻하는 관용 표현 no later than을 이루는 later가 정답입니다."
+        },
+        {
+          id: 112,
+          question: "This internet modem allows users to send information ------- faster than before.",
+          options: ["so", "very", "much", "such"],
+          answerIndex: 2,
+          translation: "이 인터넷 모뎀은 사용자들이 이전보다 훨씬 더 빠르게 정보를 전송할 수 있게 해 준다.",
+          explanation: "비교급 부사 faster를 강조할 수 있는 부사 much가 정답입니다."
+        },
+        {
+          id: 113,
+          question: "The sales of the new LCD TV are much higher ------- it was anticipated.",
+          options: ["if", "as", "that", "than"],
+          answerIndex: 3,
+          translation: "새 LCD TV의 판매량은 예상되었던 것보다 훨씬 높았다.",
+          explanation: "비교급 higher에 이어지는 비교 접속사 than이 정답입니다."
+        },
+        {
+          id: 114,
+          question: "As a regional manager, Ms. Lee needs to visit branches as ------- as possible.",
+          options: ["frequency", "frequent", "frequently", "more frequently"],
+          answerIndex: 2,
+          translation: "지역 매니저로서 이 씨는 지점을 가능한 한 자주 방문해야 한다.",
+          explanation: "'as + 원급 + as possible' 구문에서 동사 visit를 수식하는 부사 원급 frequently가 정답입니다."
+        },
+        {
+          id: 115,
+          question: "Among the candidates, Mr. Johnson was considered the ------- highly qualified.",
+          options: ["much", "more", "such", "most"],
+          answerIndex: 3,
+          translation: "후보자들 가운데 존슨 씨가 가장 자격을 갖춘 사람으로 여겨졌다.",
+          explanation: "Among the candidates 범위와 함께 쓰여 최상급을 만드는 most가 정답입니다."
+        },
+        {
+          id: 116,
+          question: "The repair costs were no ------- than 500 dollars, which was surprisingly cheap.",
+          options: ["less", "least", "little", "lesser"],
+          answerIndex: 0,
+          translation: "수리비가 500달러밖에 되지 않았는데 놀라울 정도로 저렴했다.",
+          explanation: "than 앞 비교급 자리이며 'no less than' 구문을 완성하는 less가 정답입니다."
+        },
+        {
+          id: 117,
+          question: "The technician tried to make the ------- of the limited resources available.",
+          options: ["many", "more", "most", "much"],
+          answerIndex: 2,
+          translation: "기술자는 가용한 제한된 자원을 최대한 활용하려고 노력했다.",
+          explanation: "'make the most of(~을 최대한 활용하다)' 관용 표현을 이루는 most가 정답입니다."
+        },
+        {
+          id: 118,
+          question: "We should leave for the airport by 6:00 A.M. at the ------- to avoid traffic.",
+          options: ["late", "later", "latest", "lately"],
+          answerIndex: 2,
+          translation: "교통체증을 피하려면 늦어도 오전 6시에는 공항으로 출발해야 한다.",
+          explanation: "'at the latest(늦어도)' 관용 표현을 이루는 최상급 latest가 정답입니다."
+        },
+        {
+          id: 119,
+          question: "The new stadium can accommodate as ------- as 50,000 spectators at once.",
+          options: ["many", "much", "more", "most"],
+          answerIndex: 0,
+          translation: "새 경기장은 한 번에 5만 명이나 되는 관중을 수용할 수 있다.",
+          explanation: "셀 수 있는 복수명사 spectators 앞에서 '무려 ~만큼이나'를 나타내는 as many as 구문의 many가 정답입니다."
+        },
+        {
+          id: 120,
+          question: "The airline's safety record is ------- better than that of its competitors.",
+          options: ["significantly", "extremely", "very", "more"],
+          answerIndex: 0,
+          translation: "그 항공사의 안전 기록은 경쟁사들의 그것보다 상당히 더 좋다.",
+          explanation: "비교급 better를 강조하여 '상당히 더 ~한' 뜻을 만드는 부사 significantly가 정답입니다."
+        },
+        {
+          id: 121,
+          question: "Finding a replacement for the CEO is the ------- urgent task the board faces.",
+          options: ["urgent", "more urgent", "most urgent", "urgently"],
+          answerIndex: 2,
+          translation: "CEO의 후임자를 찾는 것은 이사회가 직면한 가장 긴급한 과제이다.",
+          explanation: "정관사 the 뒤에서 명사 task를 수식하는 최상급 most urgent가 정답입니다."
+        },
+        {
+          id: 122,
+          question: "The presentation was ------- shorter than we had expected.",
+          options: ["lot", "a lot", "very", "too"],
+          answerIndex: 1,
+          translation: "발표는 우리가 예상했던 것보다 훨씬 더 짧았다.",
+          explanation: "비교급 shorter를 강조할 수 있는 부사구 a lot이 정답입니다."
+        },
+        {
+          id: 123,
+          question: "The new marketing campaign was as ------- as the previous one.",
+          options: ["success", "successful", "successfully", "more successful"],
+          answerIndex: 1,
+          translation: "새로운 마케팅 캠페인은 이전 것만큼 성공적이었다.",
+          explanation: "'as + 원급 + as' 구문에서 be동사 was의 보어 자리이므로 형용사 원급 successful이 정답입니다."
+        },
+        {
+          id: 124,
+          question: "Of the two proposed sites, the one near the airport is ------- convenient.",
+          options: ["convenient", "more convenient", "most convenient", "conveniently"],
+          answerIndex: 1,
+          translation: "제안된 두 부지 중 공항 근처에 있는 곳이 더 편리하다.",
+          explanation: "Of the two로 두 대상을 비교하고 있으므로 비교급 more convenient가 정답입니다."
+        },
+        {
+          id: 125,
+          question: "This year's winter is ------- colder than it was last year.",
+          options: ["slightly", "very", "so", "more"],
+          answerIndex: 0,
+          translation: "올해 겨울은 작년보다 약간 더 춥다.",
+          explanation: "비교급 colder를 수식해 정도를 나타내는 부사 slightly가 정답입니다."
+        },
+        {
+          id: 126,
+          question: "Please ensure that all applications are submitted no ------- than June 30th.",
+          options: ["further", "later", "longer", "less"],
+          answerIndex: 1,
+          translation: "모든 지원서가 늦어도 6월 30일까지는 제출되도록 확인해 주십시오.",
+          explanation: "시점 앞에서 '늦어도 ~까지는'을 뜻하는 관용 표현 no later than을 이루는 later가 정답입니다."
+        },
+        {
+          id: 127,
+          question: "Ms. Collins reads as ------- as I do.",
+          options: ["many books", "more books", "books", "less books"],
+          answerIndex: 0,
+          translation: "콜린스 씨는 내가 읽는 것만큼 많은 책을 읽는다.",
+          explanation: "as ~ as 원급 비교에서 가산 복수명사 books의 수를 비교할 때는 as many books as 형태가 되어야 하므로 many books가 정답입니다."
+        },
+        {
+          id: 128,
+          question: "------- you get, the more you want.",
+          options: ["More", "Most", "Many", "The more"],
+          answerIndex: 3,
+          translation: "더 많이 가질수록 더 많이 원하게 된다.",
+          explanation: "'The + 비교급 ~, the + 비교급 ~' 구문이므로 The more가 정답입니다."
+        },
+        {
+          id: 129,
+          question: "You should explain what the problem is in as ------- as possible.",
+          options: ["much detail", "detailed", "details", "more detailed"],
+          answerIndex: 0,
+          translation: "무엇이 문제인지 가능한 한 상세하게 설명해야 한다.",
+          explanation: "'in detail' 표현에 as ~ as 원급 비교가 결합된 형태로, 불가산명사 detail 앞에 much가 오는 in as much detail as가 정답입니다."
+        },
+        {
+          id: 130,
+          question: "Mike is more proficient than any -------.",
+          options: ["coworkers", "other coworkers", "other coworker", "another coworker"],
+          answerIndex: 2,
+          translation: "마이크는 다른 어떤 동료보다 더 유능하다.",
+          explanation: "'비교급 + than any other + 단수명사' 구조이므로 other coworker가 정답입니다."
+        },
+        {
+          id: 131,
+          question: "The more information you gather, ------- easier it will be to make a decision.",
+          options: ["the", "most", "more", "much"],
+          answerIndex: 0,
+          translation: "더 많은 정보를 모을수록 결정을 내리기가 더 쉬워질 것이다.",
+          explanation: "'The + 비교급 ~, the + 비교급 ~' 구문이므로 정관사 the가 정답입니다."
+        },
+        {
+          id: 132,
+          question: "Ms. Park is considered the ------- creative designer in our advertising team.",
+          options: ["most", "more", "much", "very"],
+          answerIndex: 0,
+          translation: "박 씨는 우리 광고 팀에서 가장 창의적인 디자이너로 여겨진다.",
+          explanation: "in our advertising team 범위에서 최고임을 나타내는 최상급 most가 정답입니다."
+        },
+        {
+          id: 133,
+          question: "Our team has developed the most convenient and ------- shipping system.",
+          options: ["fastest", "faster", "fast", "the fast"],
+          answerIndex: 0,
+          translation: "우리 팀은 가장 편리하면서도 가장 빠른 배송 시스템을 개발했다.",
+          explanation: "the most convenient와 and로 병치되는 최상급 형용사 fastest가 정답입니다."
+        },
+        {
+          id: 134,
+          question: "We need to find a ------- cost-effective way to manufacture these parts.",
+          options: ["much", "more", "most", "as"],
+          answerIndex: 1,
+          translation: "우리는 이 부품들을 제조할 더 비용 효율적인 방법을 찾아야 한다.",
+          explanation: "비교급 형용사 more cost-effective를 만드는 more가 정답입니다."
+        },
+        {
+          id: 135,
+          question: "The technical manual is as ------- as the one provided by the manufacturer.",
+          options: ["informative", "informatively", "more informative", "most informative"],
+          answerIndex: 0,
+          translation: "기술 매뉴얼은 제조업체에서 제공한 것만큼 유익하다.",
+          explanation: "'as + 원급 + as' 구문에서 be동사 is의 보어 자리이므로 형용사 원급 informative가 정답입니다."
+        },
+        {
+          id: 136,
+          question: "The quality of our handcrafted leather is ------- to that of machine-made products.",
+          options: ["higher", "better", "more", "superior"],
+          answerIndex: 3,
+          translation: "저희 수제 가죽의 품질은 기계로 만든 제품의 품질보다 우수하다.",
+          explanation: "전치사 to와 함께 쓰여 '~보다 우수한'을 뜻하는 라틴어계 비교 형용사 superior가 정답입니다."
+        },
+        {
+          id: 137,
+          question: "Today's seminar was the ------- attended event of the year.",
+          options: ["well", "better", "best", "good"],
+          answerIndex: 2,
+          translation: "오늘 세미나는 올해 행사 중 가장 많은 인원이 참석한 행사였다.",
+          explanation: "of the year 범위와 함께 과거분사 attended를 수식하는 최상급 best가 정답입니다."
+        },
+        {
+          id: 138,
+          question: "Customer satisfaction is our ------- priority this quarter.",
+          options: ["high", "higher", "highest", "highly"],
+          answerIndex: 2,
+          translation: "고객 만족은 이번 분기 우리의 최우선 과제이다.",
+          explanation: "this quarter 맥락에서 '최고의, 최우선의'를 나타내는 최상급 highest가 정답입니다."
+        },
+        {
+          id: 139,
+          question: "This year's sales figures are ------- than those of the last fiscal year.",
+          options: ["high", "higher", "highest", "highly"],
+          answerIndex: 1,
+          translation: "올해 매출 수치는 지난 회계연도 매출 수치보다 더 높다.",
+          explanation: "than이 있으므로 형용사 high의 비교급 higher가 정답입니다."
+        },
+        {
+          id: 140,
+          question: "The benefits provided by this plan are ------- to those offered by our competitors.",
+          options: ["comparable", "compare", "more comparison", "comparative"],
+          answerIndex: 0,
+          translation: "이 플랜이 제공하는 혜택은 경쟁사들이 제공하는 혜택과 비슷하다.",
+          explanation: "'be comparable to(~와 비슷하다, ~에 필적하다)' 표현을 이루는 형용사 comparable이 정답입니다."
+        },
+        {
+          id: 141,
+          question: "To achieve the ------- results, the laboratory equipment must be calibrated daily.",
+          options: ["optimal", "better", "more", "well"],
+          answerIndex: 0,
+          translation: "최선의 결과를 얻기 위해 실험 장비는 매일 교정되어야 한다.",
+          explanation: "정관사 the 뒤에서 '최적의, 최선의'이라는 절대적 최상급 의미를 지닌 형용사 optimal이 정답입니다."
+        }
+      ]
+    };
+
+    let currentLevel = "easy";
+    const state = {
+      easy: {},
+      hard: {}
+    };
+    let visibleQuestionIds = [];
+
+    function initLevelState(level) {
+      questionSets[level].forEach((q) => {
+        state[level][q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(level, qId) {
+      state[level][qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function getQuestions() {
+      return questionSets[currentLevel];
+    }
+
+    function getLevelState() {
+      return state[currentLevel];
+    }
+
+    function switchLevel(level) {
+      currentLevel = level;
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+
+      document.getElementById("btnEasy").classList.toggle("active", level === "easy");
+      document.getElementById("btnHard").classList.toggle("active", level === "hard");
+      document.getElementById("lectureTag").textContent =
+        level === "easy"
+          ? "TPA 19 · 비교 (기본 A · 총 41문항)"
+          : "TPA 19 · 비교 (고난도 B · 총 41문항)";
+
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateProgressBar() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const solvedCount = qs.filter((q) => stMap[q.id].status !== "unsolved").length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${qs.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const listToShow = qs.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = stMap[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const q = qs.find((item) => item.id === qId);
+      const st = stMap[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const allSolved = qs.every((q) => stMap[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = qs.length;
+      const correctCount = qs.filter((q) => stMap[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      const hardChallengeBox = document.getElementById("hardChallengeBox");
+      hardChallengeBox.style.display = currentLevel === "easy" ? "block" : "none";
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const wrongIds = qs
+        .filter((q) => stMap[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const qs = getQuestions();
+      const stMap = getLevelState();
+      const targetIds = qs
+        .filter((q) => stMap[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(currentLevel, id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = getQuestions().map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    function handleHardYes() {
+      switchLevel("hard");
+    }
+
+    initLevelState("easy");
+    initLevelState("hard");
+    visibleQuestionIds = questionSets.easy.map((q) => q.id);
+    renderQuestions();
+  </script>
+</body>
+</html>

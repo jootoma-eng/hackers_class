@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPA 10 전치사 C - 영어 문법 정복(토익 Part 5,6)</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 24px rgba(37, 99, 235, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 20px 20px 72px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 상단 내비게이션 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      transition: all 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .site-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 타이틀 및 강사 프로필 헤더 */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .lecture-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .instructor-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .mini-photo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    /* 진행 현황 요약 바 */
+    .progress-bar-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .stats-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 복습 모드 안내 배너 */
+    .mode-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--primary-light);
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .mode-banner.active {
+      display: flex;
+    }
+
+    .reset-all-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 문제 카드 */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .question-card.solved-correct {
+      border-color: #86efac;
+    }
+
+    .question-card.solved-wrong {
+      border-color: #fca5a5;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* 녹색불 3개 */
+    .life-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .life-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .green-lights {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .green-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.75);
+      transition: all 0.25s ease;
+    }
+
+    .green-light.off {
+      background-color: #d1d5db;
+      box-shadow: none;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    /* 4지선다 보기 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background-color: var(--success-light);
+      color: #14532d;
+      opacity: 1;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background-color: var(--danger-light);
+      color: #7f1d1d;
+      opacity: 1;
+    }
+
+    .opt-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* 피드백 및 해설 영역 */
+    .feedback-box {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.wrong-msg {
+      background-color: var(--danger-light);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    .feedback-box.correct-msg {
+      background-color: var(--success-light);
+      border: 1px solid #86efac;
+      color: #14532d;
+    }
+
+    .feedback-box.exhausted-msg {
+      background-color: #fff1f2;
+      border: 1px solid #fda4af;
+      color: #881337;
+    }
+
+    .feedback-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .answer-line {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .translation-line {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* 테스트 완료 결과 섹션 */
+    .result-section {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .result-section.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .result-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .chart-and-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .donut-chart {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    }
+
+    .donut-chart::before {
+      content: "";
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-percent {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .donut-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .rate-legend {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .dot-correct {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+    }
+
+    .dot-wrong {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .retry-options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .retry-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .next-challenge-box {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .next-question {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .next-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .choice-next-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.96rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+    }
+
+    .choice-next-btn:hover {
+      background-color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 내비게이션 -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <a class="nav-btn" href="../index.html">← 메인으로</a>
+        <a class="nav-btn" href="../TPA_practice_main.html">강의목록으로</a>
+      </div>
+      <span class="site-brand">English Easy~!</span>
+    </header>
+
+    <!-- 제목 및 강사 정보 -->
+    <section class="header-card">
+      <span class="lecture-tag">TPA 10 · 전치사 C (총 41문항)</span>
+      <h1 class="main-title">영어 문법 정복(토익 Part 5,6)</h1>
+      <div class="instructor-mini">
+        <div class="mini-photo" title="영어 Master 주대명">
+          <img
+            src="remove_background_2.png"
+            alt="영어 Master 주대명"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display:none;" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="22" r="11" fill="#FFFFFF"/>
+            <path d="M12 52C12 42.0589 20.0589 34 30 34H34C43.9411 34 52 42.0589 52 52V54H12V52Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="mini-name">영어 Master 주대명</span>
+      </div>
+    </section>
+
+    <!-- 진행 현황 요약 -->
+    <div class="progress-bar-card">
+      <span>전치사 C · 총 41문항</span>
+      <div class="stats-group">
+        <span id="solvedProgressText">완료 문항: 0 / 41</span>
+        <span id="currentScoreText">현재 정답: 0 / 0</span>
+      </div>
+    </div>
+
+    <!-- 복습 모드 알림 배너 -->
+    <div id="modeBanner" class="mode-banner">
+      <span id="modeBannerText">복습 모드</span>
+      <button type="button" class="reset-all-btn" onclick="showAllQuestions()">전체 문항 보기</button>
+    </div>
+
+    <!-- 문제 영역 -->
+    <main id="quizContainer"></main>
+
+    <!-- 테스트 완료 결과 및 복습 / 다음 파트로 이동 섹션 -->
+    <section id="resultSection" class="result-section" aria-live="polite">
+      <h2 class="result-heading">테스트 완료! 전체 문항 대비 정답률</h2>
+
+      <div class="chart-and-stats">
+        <div id="donutChart" class="donut-chart">
+          <div class="donut-center">
+            <span id="donutPercent" class="donut-percent">0%</span>
+            <span class="donut-sub">정답률</span>
+          </div>
+        </div>
+
+        <div class="rate-legend">
+          <div class="legend-item">
+            <span class="dot-correct"></span>
+            <span id="correctRateText">정답률: 0% (0/41)</span>
+          </div>
+          <div class="legend-item">
+            <span class="dot-wrong"></span>
+            <span id="wrongRateText">오답률: 0% (0/41)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="retry-options">
+        <button type="button" class="retry-btn" onclick="retryWrongQuestions()">틀린 문제 다시 풀기</button>
+        <button type="button" class="retry-btn" onclick="retryNotFirstTryQuestions()">1차 시도에서 맞히지 못 한 문제 다시 풀기</button>
+      </div>
+
+      <div class="next-challenge-box">
+        <p class="next-question">다음으로 어떤 문제를 푸시겠습니까?</p>
+        <div class="next-btns">
+          <a class="choice-next-btn" href="index.html">강의목록으로 이동하시겠습니까?</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        id: 101,
+        question: "Mr. Jung was watching some children swimming ------- the river.",
+        options: ["on", "near", "next", "along"],
+        answerIndex: 3,
+        translation: "정 씨는 몇몇 아이들이 강을 따라 수영하는 것을 보고 있었다.",
+        explanation: "강을 따라 이동하며 수영한다는 맥락에 어울리는 전치사 along이 정답입니다. next는 전치사가 아니며 전치사구로 쓰려면 next to가 되어야 합니다[cite: 425, 429]."
+      },
+      {
+        id: 102,
+        question: "Janet Brown borrowed $100 ------- her friend.",
+        options: ["to", "from", "at", "on"],
+        answerIndex: 1,
+        translation: "재닛 브라운은 친구로부터 $100를 빌렸다.",
+        explanation: "borrow는 '~로부터 빌리다'라는 뜻이므로 'borrow sth from sb' 구조의 전치사 from이 정답입니다[cite: 425, 429]."
+      },
+      {
+        id: 103,
+        question: "Theses workshops are designed ------- educational purposes.",
+        options: ["on", "at", "in", "from"],
+        answerIndex: 1,
+        translation: "이 워크숍들은 교육적 목적으로 고안되었다.",
+        explanation: "전치사 for는 목적·용도를 나타내며 'for educational purposes(교육적 목적으로)' 표현을 완성합니다[cite: 425, 430]."
+      },
+      {
+        id: 104,
+        question: "When you turn right at the intersection, you can see the center ------- your left.",
+        options: ["on", "in", "by", "for"],
+        answerIndex: 0,
+        translation: "교차로에서 우회전하면 왼쪽에 센터가 보일 것입니다.",
+        explanation: "특정 방향·쪽('왼쪽에', '오른쪽에')을 나타낼 때 'on your/the left' 표현을 사용합니다[cite: 425, 430]."
+      },
+      {
+        id: 105,
+        question: "During Mr. Kim's speech, some audience didn't pay attention ------- him at all.",
+        options: ["for", "to", "beside", "around"],
+        answerIndex: 1,
+        translation: "김 씨의 연설 동안 일부 청중은 그에게 전혀 주의를 기울이지 않았다.",
+        explanation: "'pay attention to(~에 주의를 기울이다)' 관용 표현을 완성하는 전치사 to가 정답입니다[cite: 425, 430]."
+      },
+      {
+        id: 106,
+        question: "Mr. Green will lead a seminar ------- time management.",
+        options: ["on", "for", "with", "from"],
+        answerIndex: 0,
+        translation: "그린 씨는 시간 관리에 관한 세미나를 진행할 것이다.",
+        explanation: "'~에 관하여(about)'라는 뜻으로 주제·내용 앞에 쓰이는 전치사 on이 정답입니다[cite: 425, 430]."
+      },
+      {
+        id: 107,
+        question: "All employees are required to wear a badge to pass ------- a security area.",
+        options: ["in", "out", "for", "through"],
+        answerIndex: 3,
+        translation: "모든 직원은 보안 구역을 통과하기 위해 배지를 착용해야 한다.",
+        explanation: "구역·통로를 지나 통과한다는 이동을 나타내므로 전치사 through가 정답입니다[cite: 425, 430, 431]."
+      },
+      {
+        id: 108,
+        question: "Seoul City Orchestra heavily relies ------- your donations.",
+        options: ["for", "by", "from", "over"],
+        answerIndex: 0,
+        translation: "서울시립교향악단은 여러분의 기부에 크게 의존한다.",
+        explanation: "'rely on(~에 의존하다)' 구조를 이루는 전치사 on이 정답입니다[cite: 425, 431]."
+      },
+      {
+        id: 109,
+        question: "Please complete the application form and submit it ------- the personnel department.",
+        options: ["by", "to", "for", "next to"],
+        answerIndex: 1,
+        translation: "신청서를 작성하여 인사과로 제출해 주세요.",
+        explanation: "'submit sth to(제출처/대상에게 제출하다)' 구조이므로 전치사 to가 정답입니다[cite: 425, 431]."
+      },
+      {
+        id: 110,
+        question: "There are numerous bus stops ------- the city.",
+        options: ["on", "from", "to", "throughout"],
+        answerIndex: 3,
+        translation: "이 도시 전역에 수많은 버스 정류장이 있다.",
+        explanation: "장소(the city) 전역에 걸쳐 있음을 나타내므로 전치사 throughout이 정답입니다[cite: 425, 431]."
+      },
+      {
+        id: 111,
+        question: "In ------- to your request, I'm sending our product catalogue.",
+        options: ["respond", "response", "respondent", "respondents"],
+        answerIndex: 1,
+        translation: "귀하의 요청에 대한 회신으로 당사의 제품 카탈로그를 보내드립니다.",
+        explanation: "'in response to(~에 응답하여, ~에 따라)' 관용 표현을 완성하는 명사 response가 정답입니다[cite: 426, 431, 432]."
+      },
+      {
+        id: 112,
+        question: "Your refund request will be handled ------- our return and refund policies.",
+        options: ["with", "by", "from", "within"],
+        answerIndex: 0,
+        translation: "귀하의 환불 요청은 당사의 교환 및 환불 규정에 따라 처리될 것입니다.",
+        explanation: "'in accordance with + 규정/정책(~에 따라)' 표현을 완성하는 전치사 with가 정답입니다[cite: 426, 432]."
+      },
+      {
+        id: 113,
+        question: "------- the tight budget, our team has done a great job.",
+        options: ["Despite", "In spite", "Although", "However"],
+        answerIndex: 0,
+        translation: "촉박한 예산에도 불구하고 우리 팀은 훌륭하게 해냈다.",
+        explanation: "뒤에 명사구 the tight budget이 오므로 양보 전치사 Despite가 정답입니다. in spite는 of를 함께 써야 합니다[cite: 426, 432]."
+      },
+      {
+        id: 114,
+        question: "I'd like to thank you all ------- your hard work.",
+        options: ["with", "regard", "forward", "for"],
+        answerIndex: 3,
+        translation: "여러분의 노고에 감사드립니다.",
+        explanation: "'thank sb for sth(~에 대해 감사하다)' 구조이므로 감사의 이유 앞에 전치사 for를 씁니다[cite: 426, 432]."
+      },
+      {
+        id: 115,
+        question: "A bird suddenly flew ------- the open window and disappeared inside the room.",
+        options: ["across", "through", "over", "toward"],
+        answerIndex: 1,
+        translation: "새 한 마리가 열린 창문을 통해 날아들어 방 안으로 사라졌다.",
+        explanation: "창문이라는 통로를 통과해 안으로 들어오는 이동이므로 전치사 through가 정답입니다[cite: 426, 433]."
+      },
+      {
+        id: 116,
+        question: "The event was canceled ------- low registration.",
+        options: ["because", "since", "for", "due to"],
+        answerIndex: 3,
+        translation: "그 행사는 저조한 등록률 때문에 취소되었다.",
+        explanation: "뒤에 명사구 low registration이 오며 취소의 원인을 나타내므로 전치사 due to가 정답입니다[cite: 426, 433]."
+      },
+      {
+        id: 117,
+        question: "I'm writing ------- your request for a leave.",
+        options: ["concern", "concerns", "concerned", "concerning"],
+        answerIndex: 3,
+        translation: "귀하의 휴가 요청에 관하여 편지를 씁니다.",
+        explanation: "명사구 your request 앞에 '~에 관하여(about, regarding)'의 의미로 쓰이는 전치사 concerning이 정답입니다[cite: 426, 433]."
+      },
+      {
+        id: 118,
+        question: "------- excellent employee benefits, we are offering competitive salary.",
+        options: ["As a result of", "In addition to", "Because of", "In conjunction with"],
+        answerIndex: 1,
+        translation: "우수한 직원 복리후생에 더하여 당사는 경쟁력 있는 급여를 제공하고 있습니다.",
+        explanation: "복리후생과 급여 혜택을 함께 제시하는 맥락이므로 '~에 더하여'를 뜻하는 In addition to가 정답입니다[cite: 426, 433]."
+      },
+      {
+        id: 119,
+        question: "The store will remain open ------- 10 p.m. because of the special sale.",
+        options: ["by", "within", "until", "for"],
+        answerIndex: 2,
+        translation: "특별 세일 때문에 그 매장은 밤 10시까지 계속 영업할 것입니다.",
+        explanation: "특정 시각(10 p.m.)까지 영업 상태가 지속됨을 나타내므로 전치사 until이 정답입니다[cite: 426, 433, 434]."
+      },
+      {
+        id: 120,
+        question: "You should receive a reply ------- 24 hours after sending the request.",
+        options: ["by", "until", "within", "during"],
+        answerIndex: 2,
+        translation: "요청을 보낸 후 24시간 이내에 답장을 받으실 것입니다.",
+        explanation: "기간(24 hours) 이내를 나타내므로 전치사 within이 정답입니다[cite: 426, 434]."
+      },
+      {
+        id: 121,
+        question: "The boy ran ------- the street to catch the bus that was about to leave.",
+        options: ["across", "through", "over", "along with"],
+        answerIndex: 0,
+        translation: "그 소년은 막 출발하려는 버스를 타기 위해 길을 가로질러 달려갔다.",
+        explanation: "길의 한쪽에서 반대편으로 가로지르는 이동을 나타내므로 전치사 across가 정답입니다[cite: 426, 434]."
+      },
+      {
+        id: 122,
+        question: "The boy slowly walked ------- his mother, looking nervous in the crowded station.",
+        options: ["along", "toward", "into", "at"],
+        answerIndex: 1,
+        translation: "그 소년은 붐비는 역에서 긴장한 표정으로 어머니 쪽을 향해 천천히 걸어갔다.",
+        explanation: "'어머니 쪽을 향해'라는 방향성을 나타내므로 전치사 toward가 정답입니다[cite: 427, 434]."
+      },
+      {
+        id: 123,
+        question: "She was very proud ------- the excellent result of her final project at school.",
+        options: ["for", "with", "of", "to"],
+        answerIndex: 2,
+        translation: "그녀는 학교 최종 프로젝트의 훌륭한 결과를 매우 자랑스러워했다.",
+        explanation: "'be proud of(~을 자랑스러워하다)' 고정 결합이므로 전치사 of가 정답입니다[cite: 427, 434]."
+      },
+      {
+        id: 124,
+        question: "He expressed deep gratitude ------- his parents for their constant support.",
+        options: ["to", "with", "for", "at"],
+        answerIndex: 0,
+        translation: "그는 끊임없는 지원에 대해 부모님께 깊은 감사를 표했다.",
+        explanation: "감사의 대상(his parents)을 향해 감정을 표현할 때 'express gratitude to sb' 구조를 씁니다[cite: 427, 434]."
+      },
+      {
+        id: 125,
+        question: "She is responsible ------- organizing the entire school festival this year.",
+        options: ["at", "for", "to", "with"],
+        answerIndex: 1,
+        translation: "그녀는 올해 학교 축제 전체를 기획하는 책임을 맡고 있다.",
+        explanation: "'be responsible for(~에 책임이 있다)' 결합이므로 전치사 for가 정답입니다[cite: 427, 434]."
+      },
+      {
+        id: 126,
+        question: "------- the weather report, which said heavy rain was expected this weekend, we changed our travel plan.",
+        options: ["According to", "In spite of", "In addition to", "Except for"],
+        answerIndex: 0,
+        translation: "이번 주말에 폭우가 예상된다는 일기예보에 따라 우리는 여행 계획을 변경했다.",
+        explanation: "일기예보의 내용에 근거해 계획을 변경했으므로 '~에 따르면'이라는 뜻의 According to가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 127,
+        question: "All students must submit their assignments ------- the deadline announced by the teacher last week.",
+        options: ["in advance of", "by means of", "in case of", "except"],
+        answerIndex: 0,
+        translation: "모든 학생은 지난주 선생님이 발표한 마감일보다 앞서 과제를 제출해야 한다.",
+        explanation: "마감일 이전·미리 제출해야 하므로 '~보다 앞서/미리'라는 뜻의 in advance of가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 128,
+        question: "------- English, she is fluent in French and Spanish, which she learned while living abroad.",
+        options: ["In spite of", "In preparation for", "In search of", "In addition to"],
+        answerIndex: 3,
+        translation: "영어 외에도 그녀는 해외에 살면서 배운 프랑스어와 스페인어에 능통하다.",
+        explanation: "영어에 더해 프랑스어와 스페인어까지 구사한다는 맥락이므로 '~에 더하여'라는 뜻의 In addition to가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 129,
+        question: "Please keep this emergency contact number with you ------- an unexpected accident during the trip.",
+        options: ["according to", "in addition to", "in case of", "except"],
+        answerIndex: 2,
+        translation: "여행 중 예기치 않은 사고가 발생할 경우에 대비해 이 비상 연락처를 지니고 계십시오.",
+        explanation: "사고 발생 상황에 대비한다는 뜻의 구 전치사 in case of(~의 경우에 대비하여)가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 130,
+        question: "Everyone was allowed to enter the building ------- those who did not have an official ID card.",
+        options: ["in spite of", "in addition to", "according to", "except"],
+        answerIndex: 3,
+        translation: "공식 신분증이 없는 사람들을 제외하고는 모두가 건물에 들어갈 수 있었다.",
+        explanation: "신분증 미소지자를 제외한 나머지 모두가 입장 가능했으므로 '~을 제외하고'라는 뜻의 except가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 131,
+        question: "------- the repeated failures, he finally succeeded in winning the national competition.",
+        options: ["In spite of", "Instead of", "In honor of", "In compliance with"],
+        answerIndex: 0,
+        translation: "반복된 실패에도 불구하고 그는 마침내 전국 대회에서 우승하는 데 성공했다.",
+        explanation: "실패에도 불구하고 우승에 성공했다는 역접 관계이므로 '~에도 불구하고'라는 뜻의 In spite of가 정답입니다[cite: 427, 435]."
+      },
+      {
+        id: 132,
+        question: "The company held a special ceremony ------- Mr. Daen's years of dedication and outstanding achievements.",
+        options: ["in terms of", "in recognition of", "owing to", "instead of"],
+        answerIndex: 1,
+        translation: "회사는 덴 씨의 수년간의 헌신과 뛰어난 업적을 기리기 위해 특별한 행사를 열었다.",
+        explanation: "헌신과 업적을 인정하고 기리기 위해 행사를 열었으므로 '~을 인정하여/기리어'라는 뜻의 in recognition of가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 133,
+        question: "The new policy is effective ------- cost but still has some problems in practice.",
+        options: ["in favor of", "in honor of", "in terms of", "prior to"],
+        answerIndex: 2,
+        translation: "그 새로운 정책은 비용 면에서는 효과적이지만 실제 적용에는 여전히 문제가 있다.",
+        explanation: "비용 측면에서의 효과를 말하므로 '~의 관점에서, ~면에서'라는 뜻의 in terms of가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 134,
+        question: "She decided to stay at home ------- going out with her friends because she was feeling sick.",
+        options: ["owing to", "regardless of", "instead of", "in accordance with"],
+        answerIndex: 2,
+        translation: "그녀는 몸이 좋지 않아서 친구들과 외출하는 대신 집에 머물기로 결정했다.",
+        explanation: "외출 대신 집에 머물기로 했으므로 '~대신에'라는 뜻의 instead of가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 135,
+        question: "The festival was held ------- the founder who devoted his entire life to the community.",
+        options: ["regardless of", "in honor of", "prior to", "in accordance with"],
+        answerIndex: 1,
+        translation: "그 축제는 평생을 지역 사회에 헌신한 창립자를 기리기 위해 열렸다.",
+        explanation: "창립자를 기리기 위해 축제를 열었으므로 '~을 기리어'라는 뜻의 in honor of가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 136,
+        question: "She continued to pursue her dream ------- the criticism and doubts of others.",
+        options: ["owing to", "prior to", "regardless of", "in favor of"],
+        answerIndex: 2,
+        translation: "그녀는 다른 사람들의 비판과 의심에도 불구하고 계속해서 자신의 꿈을 추구했다.",
+        explanation: "비판과 의심과 무관하게 꿈을 추구했으므로 '~와 상관없이/불구하고'라는 뜻의 regardless of가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 137,
+        question: "The flight was delayed ------- the heavy snowstorm that hit the region overnight.",
+        options: ["in accordance with", "owing to", "prior to", "in honor of"],
+        answerIndex: 1,
+        translation: "그 항공편은 밤사이 그 지역을 강타한 폭설 때문에 지연되었다.",
+        explanation: "폭설이라는 원인 때문에 항공편이 지연되었으므로 '~때문에'라는 뜻의 owing to가 정답입니다[cite: 428, 436]."
+      },
+      {
+        id: 138,
+        question: "All passengers are required to arrive at the airport at least two hours ------- departure.",
+        options: ["prior to", "in favor of", "owing to", "in terms of"],
+        answerIndex: 0,
+        translation: "모든 승객은 출발 최소 두 시간 전에 공항에 도착해야 한다.",
+        explanation: "출발 시각보다 최소 두 시간 전에 도착해야 하므로 '~이전에'라는 뜻의 prior to가 정답입니다[cite: 428, 437]."
+      },
+      {
+        id: 139,
+        question: "All administrative procedures must be carried out ------- the official rules and safety guidelines.",
+        options: ["regardless", "in terms of", "in accordance with", "instead of"],
+        answerIndex: 2,
+        translation: "모든 행정 절차는 공식 규정과 안전 지침에 따라 수행되어야 한다.",
+        explanation: "규정과 지침에 따라 절차를 수행해야 하므로 '(규칙·규정)에 따라'라는 뜻의 in accordance with가 정답입니다[cite: 428, 437]."
+      },
+      {
+        id: 140,
+        question: "The small café is located ------- the main library, so students often stop by after studying.",
+        options: ["along", "from", "across from", "through"],
+        answerIndex: 2,
+        translation: "그 작은 카페는 중앙 도서관 맞은편에 있어서 학생들이 공부 후 자주 들른다.",
+        explanation: "도서관과 마주 보는 위치를 나타내므로 '~의 맞은편에'라는 뜻의 across from이 정답입니다[cite: 428, 437]."
+      },
+      {
+        id: 141,
+        question: "The company achieved global success ------- online marketing and social media promotions.",
+        options: ["across", "through", "into", "along"],
+        answerIndex: 1,
+        translation: "그 회사는 온라인 마케팅과 SNS 홍보를 통해 세계적인 성공을 거두었다.",
+        explanation: "온라인 마케팅과 홍보라는 수단·경로를 통해 성공했으므로 '~을 통해'라는 뜻의 through가 정답입니다[cite: 428, 437]."
+      }
+    ];
+
+    const questionState = {};
+    let visibleQuestionIds = questions.map((q) => q.id);
+
+    function initState() {
+      questions.forEach((q) => {
+        questionState[q.id] = {
+          attempts: 0,
+          status: "unsolved",
+          firstTryCorrect: null,
+          selectedWrongIndices: []
+        };
+      });
+    }
+
+    function resetQuestionState(qId) {
+      questionState[qId] = {
+        attempts: 0,
+        status: "unsolved",
+        firstTryCorrect: null,
+        selectedWrongIndices: []
+      };
+    }
+
+    function updateProgressBar() {
+      const solvedCount = questions.filter((q) => questionState[q.id].status !== "unsolved").length;
+      const correctCount = questions.filter((q) => questionState[q.id].status === "correct").length;
+      document.getElementById("solvedProgressText").textContent = `완료 문항: ${solvedCount} / ${questions.length}`;
+      document.getElementById("currentScoreText").textContent = `현재 정답: ${correctCount} / ${solvedCount}`;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      const listToShow = questions.filter((q) => visibleQuestionIds.includes(q.id));
+
+      listToShow.forEach((q, idx) => {
+        const st = questionState[q.id];
+        const remainingLives = Math.max(0, 3 - st.attempts);
+        const isLocked = st.status !== "unsolved";
+
+        const card = document.createElement("article");
+        card.className = "question-card";
+        if (st.status === "correct") card.classList.add("solved-correct");
+        if (st.status === "wrong") card.classList.add("solved-wrong");
+        card.id = `q-card-${q.id}`;
+
+        const lightsHtml = [0, 1, 2]
+          .map((i) => `<span class="green-light ${i >= remainingLives ? "off" : ""}"></span>`)
+          .join("");
+
+        const optionLabels = ["A", "B", "C", "D"];
+        const optionsHtml = q.options
+          .map((opt, optIdx) => {
+            let btnClass = "option-btn";
+            if (st.selectedWrongIndices.includes(optIdx)) {
+              btnClass += " wrong-choice";
+            }
+            if ((st.status === "correct" || st.status === "wrong") && optIdx === q.answerIndex) {
+              btnClass += " correct-choice";
+            }
+
+            const disabledAttr = isLocked || st.selectedWrongIndices.includes(optIdx) ? "disabled" : "";
+            return `
+              <button type="button" class="${btnClass}" ${disabledAttr} onclick="handleSelectOption(${q.id}, ${optIdx})">
+                <span class="opt-badge">${optionLabels[optIdx]}</span>
+                <span>${opt}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        let feedbackHtml = "";
+        if (st.status === "correct") {
+          feedbackHtml = `
+            <div class="feedback-box show correct-msg">
+              <div class="feedback-title">정답입니다~ 짝짝짝!</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.status === "wrong") {
+          feedbackHtml = `
+            <div class="feedback-box show exhausted-msg">
+              <div class="feedback-title">3번의 시도를 모두 사용했습니다. (오답 처리)</div>
+              <div class="answer-line">정답: (${optionLabels[q.answerIndex]}) ${q.options[q.answerIndex]}</div>
+              <p class="translation-line">해석: ${q.translation}</p>
+              <p class="explanation-text">해설: ${q.explanation}</p>
+            </div>
+          `;
+        } else if (st.attempts > 0) {
+          feedbackHtml = `
+            <div class="feedback-box show wrong-msg">
+              <div class="feedback-title">Oops~ 다시 시도해 보세요! (남은 기회: ${remainingLives}회)</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="question-top">
+            <span class="q-number">${q.id}. (${idx + 1}/${listToShow.length})</span>
+            <div class="life-indicator" title="최대 3번까지 도전할 수 있습니다.">
+              <span class="life-label">도전 기회</span>
+              <div class="green-lights">${lightsHtml}</div>
+            </div>
+          </div>
+          <p class="question-text">${q.question}</p>
+          <div class="options-grid">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgressBar();
+      updateResultSection();
+    }
+
+    function handleSelectOption(qId, optIdx) {
+      const q = questions.find((item) => item.id === qId);
+      const st = questionState[qId];
+      if (!q || st.status !== "unsolved") return;
+      if (st.selectedWrongIndices.includes(optIdx)) return;
+
+      st.attempts += 1;
+
+      if (optIdx === q.answerIndex) {
+        st.status = "correct";
+        if (st.attempts === 1) {
+          st.firstTryCorrect = true;
+        } else if (st.firstTryCorrect === null) {
+          st.firstTryCorrect = false;
+        }
+      } else {
+        if (st.attempts === 1) {
+          st.firstTryCorrect = false;
+        }
+        st.selectedWrongIndices.push(optIdx);
+
+        if (st.attempts >= 3) {
+          st.status = "wrong";
+        }
+      }
+
+      renderQuestions();
+    }
+
+    function updateResultSection() {
+      const resultSection = document.getElementById("resultSection");
+      const allSolved = questions.every((q) => questionState[q.id].status !== "unsolved");
+
+      if (!allSolved) {
+        resultSection.classList.remove("show");
+        return;
+      }
+
+      const total = questions.length;
+      const correctCount = questions.filter((q) => questionState[q.id].status === "correct").length;
+      const wrongCount = total - correctCount;
+
+      const correctRate = Math.round((correctCount / total) * 100);
+      const wrongRate = 100 - correctRate;
+
+      const donut = document.getElementById("donutChart");
+      donut.style.background = `conic-gradient(#22c55e 0% ${correctRate}%, #ef4444 ${correctRate}% 100%)`;
+
+      document.getElementById("donutPercent").textContent = `${correctRate}%`;
+      document.getElementById("correctRateText").textContent = `정답률: ${correctRate}% (${correctCount}/${total}문항)`;
+      document.getElementById("wrongRateText").textContent = `오답률: ${wrongRate}% (${wrongCount}/${total}문항)`;
+
+      resultSection.classList.add("show");
+    }
+
+    function retryWrongQuestions() {
+      const wrongIds = questions
+        .filter((q) => questionState[q.id].status === "wrong")
+        .map((q) => q.id);
+
+      if (wrongIds.length === 0) {
+        alert("틀린 문제가 없습니다! 모든 문제를 맞히셨어요.");
+        return;
+      }
+
+      wrongIds.forEach((id) => resetQuestionState(id));
+      visibleQuestionIds = wrongIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `틀린 문제 다시 풀기 (${wrongIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function retryNotFirstTryQuestions() {
+      const targetIds = questions
+        .filter((q) => questionState[q.id].firstTryCorrect === false)
+        .map((q) => q.id);
+
+      if (targetIds.length === 0) {
+        alert("1차 시도에서 모두 맞히셨습니다!");
+        return;
+      }
+
+      targetIds.forEach((id) => resetQuestionState(id));
+      visibleQuestionIds = targetIds;
+
+      const banner = document.getElementById("modeBanner");
+      document.getElementById("modeBannerText").textContent = `1차 시도에서 맞히지 못 한 문제 다시 풀기 (${targetIds.length}문항)`;
+      banner.classList.add("active");
+
+      renderQuestions();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAllQuestions() {
+      visibleQuestionIds = questions.map((q) => q.id);
+      document.getElementById("modeBanner").classList.remove("active");
+      renderQuestions();
+    }
+
+    initState();
+    renderQuestions();
+  </script>
+</body>
+</html>
